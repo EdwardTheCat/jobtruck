@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Admin - Évènements {% endblock %}
+
+{% block body %}
+
+    <article>
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2 class="card-title">Évènement du {{ event.date | date('d/m/Y') }}</h2>
+            </div>
+            <div class="card-body">
+                <div class="card-text">
+                    <p>Adresse de l'évènement : </p>
+                    <p>{{ event.address }}, {{ event.complement1 }} {{ event.complement2 }}</p>
+                    <p>{{ event.postalCode }} {{ event.city }}</p>
+                </div>
+                <div class="card-text">
+                    <p>Description : </p>
+                    <p>{{ event.description }}</p>
+                </div>
+                <div class="card-text">
+                    <p>Coordonnées : </p>
+                    <p>Longitude : {{ event.longitude }}</p>
+                    <p>Latitude : {{ event.latitude }}</p>
+                </div>
+                <div class="list-group-item">
+                    <a href="{{ path('editEvent',{id:event.id}) }}">Éditer</a>
+                    <a href="{{ path('deleteEvent',{id:event.id}) }}">Supprimer</a>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ path('listEvents') }}">Retour</a>
+            </div>
+        </div>
+    <article>
+
+{% endblock %}
