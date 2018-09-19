@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table table-hover">
+         <caption>Tableau des utilisateurs</caption>
+        <thead>
+            <tr>
+                <th scope="col">utilisateur</th>
+                <th scope="col">username</th>
+                <th scope="col">email</th>
+                <th scope="col">avatar</th>
+                <th scope="col">droits</th>
+                <th scope="col">date de création</th>
+                <th scope="col">details</th>
+                <th scope="col">editer</th>
+                <th scope="col">supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+                <tr class="table-secondary">
+                    <td scope="row">{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.avatar}}</td>
+                    {% for role in user.roles %}
+                        <td>{{role}}</td>
+                    {% endfor %}
+                    <td>{{user.createdAt|date('Y-m-d:h:s')}}</td>
+                    <td><a href="{{path('userDetails',{id:user.id}) }}">Details</a></td>
+                    <td><a href="{{path('userEdit',{id:user.id}) }}">Modify</a></td>
+                    <td><a href="{{path('userDelete',{id:user.id}) }}">Delete</a></td> 
+                </tr>
+        
+        {% endfor %}
+        
+        </tbody>
+    </table>
+    <a href="{{ path('userAdd') }}">ADD</a>
+{% endblock %}
+

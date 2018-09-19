@@ -1,12 +1,12 @@
 security:
     encoders:
-        App\Entity\Users: bcrypt        
+        App\Entity\User: bcrypt        
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:           
 
         our_db_provider : 
             entity:
-                class: App\Entity\Users
+                class: App\Entity\User
                 property: email
 
 
