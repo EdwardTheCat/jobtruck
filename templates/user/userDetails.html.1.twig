@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Details utilisateur</h1>
+    <p>pseudo: {{user.username}}</p>
+    <p>email: {{user.email}}</p>
+    <p>avatar: {{user.avatar}}</p>
+    {# <p>roles: {{user.roles}}</p> #}
+    <p>Date de création: {{user.createdAt|date('Y-m-d:h:s')}}</p>
+    {% if user.dateLastLogin %}}
+        <p>Date dernière visite: {{user.dateLastLogin|date('Y-m-d:h:s')}}</p>
+    {% endif %}
+
+
+
+{% endblock %}
