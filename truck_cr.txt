@@ -1,0 +1,145 @@
+Job Truck
+
+Association initiative autour de l’emploi. Déplacer un bus pour faire rencontre les recruteurs et les sans emploi, les associations locales, les centres de formation.
+
+But du projet : Faire un site Web vitrine d’informations, et de dons (prise de contact via un formulaire).
+
+Public cible : demandeurs d’emploi, jeunes décrocheurs et partenaires (associations, acteur économique, centre de formation et recruteurs).
+
+Déjà un site : oui, http://jobtruck.org/
+Qui héberge le site et qui le gère (contact ?)
+
+Hébergement du site ? Pas de réflexion actuelle. A prévoir
+
+Différents types de partenaires : 
+Pactenaires Acteurs qui participe à un event.
+Partenaires donateurs
+
+Fonctionnalités attendues :
+
+    Publier un agenda des rencontres avec carte pour le lieu
+    Permettre au recruteurs de s’inscrire obligatoirement par date
+    Gestion des partenaires (évolutif)
+    Publier des témoignages ok, (table indépendante)
+    Publier des offres d’emploi (base)
+    Formulaire de contacts - destiné aux jeunes ... et au partenaires, - Envoi de mails, gestion
+    Newsletter ?
+
+
+Contenu des autres pages statiques (présentation, autres…??) à voir si nécessaire. A priori non
+
+
+Arborescence du site :
+
+	    Accueil (prochains événements)
+		Concept 1 titre, 1 para, option Nos engagements...
+		aside Desktop Affichage 3 Témoignages avec une liste (Contact qualité témoignage) (Optionnel : En aléatoire.) + liens reseaux sociaux:
+		image : nom, prénom, description
+		Prochain évênement + carte
+		[
+			Affiche le prochain évènement
+				Date
+				Adresse
+				Personnes présentes
+				Un bouton inscription
+				Une map centré sur l'adresse de l'event
+				Optionnel :(mobile) un bouton déclenchant l'itinéraire sur google map.
+		] 
+		Partenaires :
+		Titre
+		Logos 3 princpaux
+		Un bouton lien vers la page Concept
+
+	    Concept  (Association JT)
+		Concept, titre + para	- Association titre + para- Valeurs titre + para- 
+		video : iframe de youtube où sera hébergé la video. prévoir la mise sur youtube avec un compte.
+		Afficher partenaires : 1 titre + 1 para + la liste des logos des partenaires ()
+		aside droite associé (Desktop), statique.
+		Image, nom,  prénom, description. (Contact)
+		
+	    Témoignages
+		Publier liste des témoignages + liens réseaux sociaux:
+			image : nom, prénom, description (contact)
+		Publier une liste des offres d'emplois trier par date (aside desktop): 
+			titre, description, createdAt
+
+	    Événements
+		Affichage de l'évênement, publier les rencontres avec une carte +liens réseaux sociaux
+		Title avec la date, endessous la map centré
+		Détails de l'évenment : 
+		titre avec la date : 
+		L'adresse
+		La description
+		La liste des acteurs présents (contact présent à l'évènement)
+		Un bouton participer: permettre au recruteurs de s’inscrire obligatoirement par date
+	    Offre d’emploi
+		Afficher la liste des offres d’emploi
+		titre, description, logo, contact, validité.
+		Afficher la liste des partenaires acteurs (aside desktop)
+		nom, prénom, description, image
+	    Contact
+		Formulaire de contact : qui envoi un mail à l'association aves les champs du formulaire. Voir maquette
+
+			
+		Adresse Map +adresse en dessous (aside desktop)
+	    Admin
+   		CRUD User
+		CRUD Event
+		CRUD Témoignages
+		CRUD Offre d'emploi
+		Login
+		Inscription
+		
+ 	footer : liens réseaux sociaux, mentions légales
+	Aside (Desktop): liens réseaux sociaux
+
+Autres
+
+Langue : en français uniquement
+
+Remontées des réseaux sociaux
+
+Charte graphique : logo + orange
+
+Mentions légales
+
+Cookie et RGBD
+
+parallax ?
+
+mobile vs desktop
+
+police
+
+code couleurs
+
+api leaf let
+
+Contraintes :        
+
+BDD
+
+user:(id, username, email, image, rôle= Admin | User, contact)
+
+contact :(id, nom, prénom, email, tel, qualité(leader économique, description=null, logo=null user
+				       	centre de formation
+					association
+					pouvoir publics
+					partenaire
+					jeunes-partenaires))
+
+event : (id, date, adresse, description (null), positionX, positionY)
+
+meet:(contact, event)
+
+n,n
+Un contact peut être présent à n event.
+Un event peut réunirent n contacts.
+
+job(id, titre, description, contact, logo=null, createdAT, dateValidité)
+
+Une offre d'emploi peut avoir un seul contact
+Un acteur peut être le contact de plusieurs offres d'emploi
+
+bootstrap compiler:
+sass live compiler
