@@ -2,14 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link  rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+        
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link  rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        {% endblock %}
     </head>
     <body>
         <main>
@@ -42,30 +44,43 @@
             </nav>
             {# END NAVBAR #}
 
-            {# ASIDE #}
+            {# SECTION BACKGROUND IMAGE #}
+            {% block image %}
+                <img src="{{ asset('img/BG_HOME.jpg') }}" alt="Background_Accueil">
+            {% endblock %}
+            {# END SECTION BACKGROUND IMAGE #}
+
+            {# ASIDE INFOS ANNEXE #}
             <aside>
                 {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
                 <div>
-                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
-                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
-                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
+                    <a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="nav-link" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="nav-link" href="#"><i class="fas fa-rss"></i></a>
                 </div>
                 {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
 
                 {% block aside %}{% endblock %}
             </aside>
-            {# END ASIDE #}
+            {# END ASIDE INFOS ANNEXE #}
+
+            {# SECTION PRINCIPAL #}
+
 
             {% block body %}{% endblock %}
+
+            {# END SECTION PRINCIPAL #}
         </main>
     </body>
 
     <footer>
         {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
         <div>
-            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
-            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
-            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
+            <a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="nav-link" href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a class="nav-link" href="#"><i class="fas fa-rss"></i></a>
         </div>
         {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
 

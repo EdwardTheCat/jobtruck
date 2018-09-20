@@ -47,7 +47,7 @@ class EventsController extends AbstractController
 
     /**
     * @Route("/admin/events/create", name="createEvent")
-    * @Route("/admin/events/edit/{id}", name="editEvent")
+    * @Route("/admin/events/edit/{id}", requirements={"id"="\d+"}, name="editEvent")
     */
      public function create(Events $event = null, Request $request, ObjectManager $manager){
         if(is_null($event))
