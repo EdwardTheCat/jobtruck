@@ -5,8 +5,7 @@
          <caption>Tableau des utilisateurs</caption>
         <thead>
             <tr>
-                <th scope="col">utilisateur</th>
-                <th scope="col">username</th>
+                <th scope="col">pseudo</th>
                 <th scope="col">email</th>
                 <th scope="col">avatar</th>
                 <th scope="col">droits</th>
@@ -19,10 +18,9 @@
         <tbody>
         {% for user in users %}
                 <tr class="table-secondary">
-                    <td scope="row">{{user.id}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.avatar}}</td>
+                    <td><img class="avatar" src="{{ asset('uploads/avatar/' ~ user.avatar)  | imagine_filter('squared_avatar')}}" alt="image_user"/></td>
                     {% for role in user.roles %}
                         <td>{{role}}</td>
                     {% endfor %}

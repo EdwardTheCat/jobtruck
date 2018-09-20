@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+         
+        <ul>
+            {% for contact in contacts %}        
+                <li>
+                    <p>Prénom: {{contact.name}}</p>
+                    <p>Nom: {{contact.surname}}</p>
+                    <p>Email:{{contact.email}}</p>
+                    <p>Téléphone: {{contact.phone}}</p>
+                    <p>Qualité: {{contact.quality}}</p>
+                    <p>Description: {{contact.description}}</p>
+                    <p>Logo: <img class="logo" src="{{ asset('uploads/logo/' ~ contact.logo)  | imagine_filter('squared_avatar')}}" alt="image_logo"/></p>
+                    <p><a href="{{path('contactDetails',{id:contact.id}) }}">Details</a></p>
+                </li>
+            {% endfor %}
+        </ul>
+
+    <a href="{{ path('userAdd') }}">ADD</a>
+{% endblock %}
+

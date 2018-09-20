@@ -30,7 +30,7 @@ class UserType extends AbstractType
                 'required' => true))
             ->add('roles', ChoiceType::class, 
                 array('choices' => array( 'User' => 'ROLE_USER', 'Admin' => 'ROLE_ADMIN'),
-                'multiple'=> true , ) )
+                'multiple'=> true ) )
             // ->add('contact')
             
         ;

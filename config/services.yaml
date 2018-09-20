@@ -6,6 +6,7 @@
 parameters:
     locale: 'en'
     avatar_directory: '%kernel.project_dir%/public/uploads/avatar'
+    logo_directory: '%kernel.project_dir%/public/uploads/logo'
 
 services:
     # default configuration for services in *this* file

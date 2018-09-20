@@ -20,15 +20,15 @@ class ContactRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Contact[] Returns an array of Contact objects
+//     * @return Contact[] Returns an array of User objects
 //     */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('u.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -37,10 +37,10 @@ class ContactRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Contact
+    public function findOneBySomeField($value): ?User
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
