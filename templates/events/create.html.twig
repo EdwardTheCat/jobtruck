@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Admin - Évènements {% endblock %}
+
+{% block body %}
+    {% if action %}
+        <h2 class="card-title">Modifier un évènement</h2>
+    {% else %}
+        <h2 class="card-title">Créer un évènement</h2>
+    {% endif %}
+
+</div>
+
+    <div class="card mb-3">
+        {{ form_start(formEvent) }}
+            <div class="card-header">
+                {{ form_row(formEvent.date) }}
+            </div>
+            <div  class="card-body">
+                <div class="card-text">
+                    {{ form_row(formEvent.address, {'attr': {'placeholder': "Rue, Boulevard..."}}) }}
+                
+                    <p>Informations complémentaires : {{ form_row(formEvent.complement1, {'attr': {'placeholder': "Bâtiment, Digicode ..."}}) }}
+                    {{ form_row(formEvent.complement2, {'attr': {'placeholder': "Autres Informations"}}) }}</p>
+                
+                    {{ form_row(formEvent.city, {'attr': {'placeholder': "Marseille"}}) }}
+                    {{ form_row(formEvent.postalCode, {'attr': {'placeholder': "13014"}}) }}
+                </div>
+                <div class="card-text">
+                    <p>Decription de l'évènement :
+                    {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}}) }}</p>
+                </div>
+                <div class="card-text">
+                    <p>Coordonnées : {{ form_row(formEvent.longitude, {'attr': {'placeholder': "07.12445121"}}) }}
+                    {{ form_row(formEvent.latitude, {'attr': {'placeholder': "01.58754564"}}) }}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <input type="submit" value="Enregistrer">
+            </div>    
+        {{ form_end(formEvent) }}
+    </div>
+
+{% endblock %}
