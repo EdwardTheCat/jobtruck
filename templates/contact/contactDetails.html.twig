@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block body %}
 
@@ -13,5 +13,6 @@
         <p>logo: <img class="logo" src="{{ asset('uploads/logo/' ~ contact.logo)  | imagine_filter('squared_avatar')}}" alt="image_logo"/></p>
     {% endif %}
     <p>Date de création: {{contact.createdAt | date('Y-m-d:h:s')}}</p>
+    
     
 {% endblock %}

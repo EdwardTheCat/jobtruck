@@ -51,33 +51,12 @@
             {# END SECTION BACKGROUND IMAGE #}
         </header>
         <main>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-8">
-                    {# SECTION PRINCIPAL #}
-                        {% block principal %}{% endblock %}
-                    {# END SECTION PRINCIPAL #}
-                </div>
-                <div class="col-sm-4 aside" >
-                    {# ASIDE INFOS ANNEXE #}
-                        {% block aside %}{% endblock %}
-                    {# END ASIDE INFOS ANNEXE #}
-                </div>
-            </div>
-        </div>
+            {% block body %}
+            {% endblock %}
         </main>
     </body>
 
     <footer>
-        {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
-        <div>
-            <a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a>
-            <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
-            <a class="nav-link" href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a class="nav-link" href="#"><i class="fas fa-rss"></i></a>
-        </div>
-        {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
 
         {# MENTIONS LEGAL #}
         <div>
