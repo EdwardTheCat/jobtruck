@@ -14,7 +14,7 @@
         {% endblock %}
     </head>
     <body>
-        <main>
+        <header>
             {# NAVBAR #}
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="{# {{ path('home') }} #}">JOBTRUCK</a>
@@ -46,31 +46,26 @@
 
             {# SECTION BACKGROUND IMAGE #}
             {% block image %}
-                <img src="{{ asset('img/BG_HOME.jpg') }}" alt="Background_Accueil">
+                {# <img src="{{ asset('img/BG_HOME.jpg') }}" alt="Background_Accueil"> #}
             {% endblock %}
             {# END SECTION BACKGROUND IMAGE #}
+        </header>
+        <main>
 
-            {# ASIDE INFOS ANNEXE #}
-            <aside>
-                {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
-                <div>
-                    <a class="nav-link" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="nav-link" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="nav-link" href="#"><i class="fas fa-rss"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    {# SECTION PRINCIPAL #}
+                        {% block principal %}{% endblock %}
+                    {# END SECTION PRINCIPAL #}
                 </div>
-                {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
-
-                {% block aside %}{% endblock %}
-            </aside>
-            {# END ASIDE INFOS ANNEXE #}
-
-            {# SECTION PRINCIPAL #}
-
-
-            {% block body %}{% endblock %}
-
-            {# END SECTION PRINCIPAL #}
+                <div class="col-sm-4 aside" >
+                    {# ASIDE INFOS ANNEXE #}
+                        {% block aside %}{% endblock %}
+                    {# END ASIDE INFOS ANNEXE #}
+                </div>
+            </div>
+        </div>
         </main>
     </body>
 

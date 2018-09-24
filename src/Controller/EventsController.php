@@ -83,5 +83,26 @@ class EventsController extends AbstractController
         return $this->redirectToRoute('listEvents');
     }
 
+    /**
+    * @Route("admin/events/addOne/{id}", name="addOne", requirements={"id"="\d+"})
+    */
+    public function addOne(Events $event=null, ObjectManager $manager){
+        
+        //current user who is connected
+        $currentUser = $this->getUser();
+        dump($currentUser);
+
+        if(!is_null($event)){
+            //We add the current user in the event of the request
+            $users=$event->getUsers();
+            $users->add($currentUser);
+            
+            $manager->persist($event);
+            $manager->flush();
+           
+        }
+
+        return $this->redirectToRoute('listEvents');
+    }
 
 }

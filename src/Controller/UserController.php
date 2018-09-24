@@ -41,7 +41,7 @@ class UserController extends AbstractController
     }
 
 
-/**
+    /**
      * @Route("admin/user/add", name="userAdd")
      * @Route("admin/user/edit/{id}", name="userEdit" , requirements={"id"="\d+"})
      */
@@ -70,6 +70,7 @@ class UserController extends AbstractController
             $form->handleRequest($request);
             
             if ($form->isSubmitted() && $form->isValid()) {
+                dump($user);
                 
                     // $file stores the uploaded PDF file
                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
@@ -107,8 +108,6 @@ class UserController extends AbstractController
                 $user->setIsActive(true);
                 //$user->eraseCredentials();
                 
-                dump($user);
-
                 //save user
                 $manager->persist($user);
                 $manager->flush();
@@ -121,7 +120,6 @@ class UserController extends AbstractController
          
         
         return $this->render('user/userAdd.html.twig', [
-            'controller_name' => 'UserController',
             'form' => $form->createView(),
             'action' => is_null($user->getId()),
             'user' => $user

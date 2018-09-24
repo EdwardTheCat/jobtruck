@@ -2,18 +2,13 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
-    {{ form_start(form) }}
-        {{ form_row(form.name, { 'label': 'Prénom' }) }}
-        {{ form_row(form.surname, { 'label': 'Nom' }) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.phone, { 'label': 'Téléphone' }) }}
-        {{ form_row(form.quality, { 'label': 'Qualité' }) }}
-        {{ form_row(form.description, { 'label': 'Description' }) }}
-        {% if contact.logo is not empty %}
+    {{form_start(form)}} 
+        {{form_errors(form)}} 
+        {{form_widget(form)}} 
+        {% if action == false %}
             <p>Votre logo existe déja : </p>
-            <img class="logo" src="{{ asset('uploads/logo/' ~ contact.logo) | imagine_filter('squared_avatar')}}" alt="image_logo"/>
+            <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo) | imagine_filter('squared_avatar')}}" alt="image_logo"/>
         {% endif %}
-        {{ form_row(form.logo) }}    
 
         {% if action == true %}
             <input type="submit" value="Ajout contact"/>

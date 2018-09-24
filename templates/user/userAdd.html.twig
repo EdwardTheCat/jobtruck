@@ -5,23 +5,25 @@
     {{ form_start(form) }}
         {{ form_row(form.username, { 'label': 'Pseudo' }) }}
         {{ form_row(form.email) }}
-        {{ form_row(form.plainPassword) }}
-        {% if user.avatar is not empty %}
+        {{ form_row(form.plainPassword, { 'label': 'Mot de passe' }) }}
+        {% if action == false %}
             <p>Votre avatar existe déja : </p>
-            <img class="avatar" src="{{ asset('uploads/avatar/' ~ user.avatar) | imagine_filter('squared_avatar')}}" alt="image_user"/>
+            <img class="avatar" src="{{ asset('/uploads/avatar/' ~ user.avatar) | imagine_filter('squared_avatar')}}" alt="image_user"/>
         {% endif %}
 
-        {{ form_row(form.avatar) }}  
+        {{ form_row(form.avatar, {'attr': {'placeholder': 'Choisissez l\'avatar...'}}) }}  
 
         {{ form_row(form.roles) }}      
+
+        {{ form_row(form.contact) }}         
 
         {% if action == true %}
             <input type="submit" value="Ajout utilisateur"/>
         {% else %}
             <input type="submit" value="Modifier utilisateur"/>
         {% endif %}
-         
-        {{ form_end(form) }}
+    {{ form_end(form) }}
+     
 
 {% endblock %}
 

@@ -5,14 +5,14 @@
          <caption>Tableau des utilisateurs</caption>
         <thead>
             <tr>
-                <th scope="col">pseudo</th>
-                <th scope="col">email</th>
-                <th scope="col">avatar</th>
-                <th scope="col">droits</th>
-                <th scope="col">date de création</th>
-                <th scope="col">details</th>
-                <th scope="col">editer</th>
-                <th scope="col">supprimer</th>
+                <th scope="col">Pseudo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Avatar</th>
+                <th scope="col">Droits</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Details</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
             </tr>
         </thead>
         <tbody>
@@ -25,15 +25,15 @@
                         <td>{{role}}</td>
                     {% endfor %}
                     <td>{{user.createdAt|date('Y-m-d:h:s')}}</td>
-                    <td><a href="{{path('userDetails',{id:user.id}) }}">Details</a></td>
-                    <td><a href="{{path('userEdit',{id:user.id}) }}">Modify</a></td>
-                    <td><a href="{{path('userDelete',{id:user.id}) }}">Delete</a></td> 
+                    <td><a class="btn btn-outline-info"  href="{{path('userDetails',{id:user.id}) }}" role="button">Details</a></td>
+                    <td><a class="btn btn-outline-primary" href="{{path('userEdit',{id:user.id}) }}" role="button">Modifier</a></td>
+                    <td><a class="btn btn-outline-danger" href="{{path('userDelete',{id:user.id}) }}" role="button">Supprimer</a></td> 
                 </tr>
         
         {% endfor %}
         
         </tbody>
     </table>
-    <a href="{{ path('userAdd') }}">ADD</a>
+    <a href="{{ path('userAdd') }}">Ajouter</a>
 {% endblock %}
 

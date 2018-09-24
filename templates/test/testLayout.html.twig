@@ -1,0 +1,145 @@
+{% extends 'testBase.html.twig' %}
+{% block stylesheets %}
+    <link  rel="stylesheet" href="{{ asset('css/layout.css') }}">
+{% endblock %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+
+    {% block principal %}
+
+        <section id="principal">
+            <article>
+                <h2 class="titre-para-principal">Concept NOVATEUR</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
+                    Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
+                    Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
+                    Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                </p>
+            </article>
+            <article>
+                <h2 class="titre-para-principal">Concept NOVATEUR</h2>
+                <p class="para-principal">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
+                    Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
+                    Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
+                    Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                </p>
+            </article>
+            <article>
+                <h2 class="titre-para-principal">MAP</h2>
+                <p class="para-principal">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
+                    Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
+                    Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
+                    Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                </p>
+            </article>
+            <article>
+                <h2 class="titre-para-principal">PARTENAIRES</h2>
+                <p class="para-principal">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
+                    Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
+                    Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
+                    Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                </p>
+            </article>
+        </section>
+
+    {% endblock %}
+
+    {% block aside %}
+            <section id="aside" class>
+                {# ASIDE INFOS ANNEXE #}
+                <aside>
+                    {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                    <div>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a>
+                    </div>
+                    {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
+
+                
+                </aside>
+                {# END ASIDE INFOS ANNEXE #}
+
+                {# accordeon aside #}
+                <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <figure>
+                                <img class="avatar-aside" src="{{ asset('img/avatar_base.png') | imagine_filter('squared_avatar')}}" alt="image_user"/>
+                                <h2 class="stitre-aside">Associé 1</h2>
+                            </figure>
+                        </button>
+                    </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            <i class="fas fa-quote-left"></i>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi labore esse, voluptatum culpa corrupti ad omnis qui voluptates! Dolores deserunt voluptatibus excepturi iure eligendi animi voluptates corrupti quo architecto tempore.
+                            <i class="fas fa-quote-right"></i>
+                        <p>
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <figure>
+                                <img class="avatar-aside" src="{{ asset('img/avatar_base.png') | imagine_filter('squared_avatar')}}" alt="image_user"/>
+                                <h2 class="stitre-aside">Associé 2</h2>
+                            </figure>
+                        </button>
+                    </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            <i class="fas fa-quote-left"></i>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi labore esse, voluptatum culpa corrupti ad omnis qui voluptates! Dolores deserunt voluptatibus excepturi iure eligendi animi voluptates corrupti quo architecto tempore.
+                            <i class="fas fa-quote-right"></i>
+                        <p>
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <figure>
+                                <img class="avatar-aside" src="{{ asset('img/avatar_base.png') | imagine_filter('squared_avatar')}}" alt="image_user"/>
+                                <h2 class="stitre-aside">Associé 3</h2>
+                            </figure>
+                        </button>
+                    </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            <i class="fas fa-quote-left"></i>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi labore esse, voluptatum culpa corrupti ad omnis qui voluptates! Dolores deserunt voluptatibus excepturi iure eligendi animi voluptates corrupti quo architecto tempore.
+                            <i class="fas fa-quote-right"></i>
+                        <p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            </section>
+
+    {% endblock %}
+
+
+
+{% endblock %}

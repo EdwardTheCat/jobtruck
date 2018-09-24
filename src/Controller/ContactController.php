@@ -123,4 +123,15 @@ class ContactController extends AbstractController
         return md5(uniqid());
     }
 
+
+    /**
+     * @Route("admin/contact/witness/list", name="witnessList")
+     */
+    public function witnessList(ContactRepository $repo)
+    {   
+        $contacts=$repo->findBy(["quality" => "Témoignage"]);
+
+        return $this->render('contact/contactList.html.twig', ["contacts" => $contacts]);
+    }
+
 }
