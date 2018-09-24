@@ -1,16 +1,241 @@
-{% extends 'base.html.twig' %}
-
-{% block title %} Jobtruck - Concept {% endblock %}
-
-
-{% block aside %}
-    <h5>Notre premier contact</h5>
-
-    <div>
-    </div>
+{% extends 'testBase.html.twig' %}
+{% block stylesheets %}
+    <link  rel="stylesheet" href="{{ asset('css/concept.css') }}">
 {% endblock %}
- 
+
+{% block title %}JobTruck - Concept{% endblock %}
+
 {% block body %}
 
+    {% block principal %}
+        <section id="principal">
+            {# ASSOCIATION ARTICLE #}
+            <article>
+                <h2 class="titre-para-principal">L’association</h2>
+                <p class="para-principal">
+                    Notre association est le produit de la rencontre de quatre amis autour d’une même problématique :
+                     D’où provient l'éloignement de l’emploi subit par certains habitants ? Comment y remédier?
+                </p>
+                <p class="para-principal">
+                    Chacun des fondateurs a pu constater dans son parcours une distance propre ou figurée avec l’emploi.
+                     Sensibilisé à ce problème, nous décider de créer  ensemble le concept de Jobtruck, une association soumit à la loi de 1901 et à but non lucratif,
+                      qui vise à réduire la distance avec l’emploi et à créer une dynamique autour des activités économiques. 
+                </p>
+            </article>
+            {# END ASSOCIATION ARTICLE #}
+            {# CONCEPT ARTICLE #}
+            <article>
+                <h2 class="titre-para-principal">Le concept de job truck</h2>
+                <p class="para-principal">
+                    Notre démarche est simple, nous réalisons deux actions distinctes, les mises en relation avec des acteurs économique, associatif, et public,
+                     et le transport des personnes n'ayant pas le moyen de ce déplacer en entreprises.
+                </p>
+                <p class="para-principal">
+                    Dans un premier temps, nous cherchons à rapprocher les besoins d’emploi et de main d’œuvre en réduisant les éloignements entre les demandeurs d’emplois et les entreprises,
+                     en nous inspirant des camions de services ambulants comme les foodtrucks. Afin de faire disparaitre ces distances physique entre les jeunes et/ou les demandeurs d’emploi et leurs objectifs,
+                      notre association a mit en place des évènements emploi regroupants un maximum d'acteurs pour obtenir une formation, passer un entretien, ammener des offres d'emploi à ce qui en recherchent.
+                </p>
+                <p class="para-principal">
+                    Dans un second temps, nous souhaiterions nous occuper d'une autres problématique, le transport des demandeurs d'emploi en entreprises.
+                     Devant le coût prohibitif des transport en commun et personnel, nous avons mis en place une solution alternatives. Avec notre Jobtruck,
+                      nous accompagnons les habitants éloignés de l’emploi sur leur lieu de formation, d’apprentissage et d’entretien d’embauche.
+                </p>
+                <p class="para-principal">
+                    Jobtruck a la volonté de mettre en œuvre des actions simples, innovantes et différenciées pour aborder le retour à l'emploi sous une autre perception.
+                </p>
+            </article>
+            {# END CONCEPT ARTICLE #}
+            {# CONTACT ARTICLE #}
+            <article>
+                <h2 class="titre-para-principal">Au contact</h2>
+                <p class="para-principal">
+                    Au cœur des quartiers, le Job-Truck se veut le trait d’union entre les habitants éloigner des opportunités professionnelles et les emplois disponibles.
+                     Notre action s’adresse avant tout aux personnes en recherche d’emploi, aux jeunes décrocheurs, aux porteurs de projets d’entreprises, et à tous les acteurs de ces quartiers.
+                </p>
+                <p class="para-principal">
+                    Nous transportons dans les quartiers prioritaires un grand nombres d'acteurs économiques et sociaux.
+                     Cela comprend des représentants de branches industrielles, d'entreprises de toute tailles, ultra-locales ou international, des représentants de Pôle emploi,
+                      l’Education Nationale, les élus nationaux et locaux, des institutionnels comme les missions locales, Agefiph pour organiser, mais également d'autres associations locales.
+                </p>
+                <p class="para-principal">
+                    Nous mobilisons nos partenaires associatifs afin de sensibiliser autres associations locales, et les pouvoirs publics,
+                     pour engager un travail de médiatisation des évènements auprès du plus grand nombre.
+                      Le but est de faire grandir notre réseaux pour disposer de plus opportunitée d’emplois.
+                </p>
+            </article>
+            {# END CONTACT ARTICLE #}
+            {# ENGAGEMENT ARTICLE #}
+            <article>
+                <h2 class="titre-para-principal">Nos engagements</h2>
+                <h3>Favoriser le retour à l’emploi de chaqu'un en fonction d'un projet professionnel.</h3>
+                <p class="para-principal">Guider les jeunes en recherche d’emploi dans leur parcours, désireux d’entrer en apprentissage avec la concertation de l’éducation nationale.</p>
+                <p class="para-principal">Nous soutenons le retour à l’emploi :</p>
+                <ul class="para-principal">
+                    <li>Par une orientation et le soutient à un projet professionnel en accompagnant les candidats dans leur démarchent professionnelles.</li>
+                    <li>En informant sur les opportunités d’emploi et en préparant les habitants pour leurs rencontres professionnelle, en les préparant une futur embauche.</li>
+                    <li>Par le soutien à un projet de création d’entreprise incluant le support technique et financier directement au cœur des quartiers prioritaires.</li>
+                </ul>
+                <h3>Faire correspondre les besoins des filières et des entreprises.</h3>
+                <p class="para-principal">
+                    Répondre aux besoins des filières et des entreprises, en identifiants précisement leurs besoins et en leur permettant une exonération fiscale d’aide à l’embauche.
+                     Notre action local vise également à renforcer le tissus économique de Marseille et de ses environs, en apportant aux entreprises local la main d’œuvre nécessaire.
+                      Ainsi chaqu’un peut être gagnant de ce partenariat.
+                </p>
+                <h3>Assurer et développer le conseil en évolution professionnelle et orientation.</h3>
+                <p class="para-principal">
+                    L'évolution professionnel est une des clef pour lutter contre le chômages notament des jeunes et des quartier. Nous nous focalisons sur la découverte des métiers,
+                     des branches, la création d’entreprises, les centre de formation, mais également préparer un premier contact entre le candidat et le recruteur.
+                </p>
+            </article>
+            {# END ENGAGEMENT ARTICLE #}
+            {# YOUTUBE VIDEO #}
+            <article>
+                <h2 class="titre-para-principal">Au cœur de l'action !</h2>
+                <div style="position:relative; height:0; padding-bottom:56.13%">
+                    <iframe src="https://www.youtube.com/embed/B5aPLIkeh7Q?ecver=2" 
+                        style="position:absolute; width:100%; height:100%; left:0"{#  width="641" height="360" #} 
+                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </article>
+            {# END YOUTUBE VIDEO #}
+            {# PARTNERS ARTICLE #}
+            <article>
+                <h2 class="titre-para-principal">Nos partenaires</h2>
+                <p class="para-principal">
+                    Dans notre engagements vers l’emploi, nous avons la chance d’obtenir des soutiens important favorisant notre approche du retour à l’emploi.
+                     Tous engagé autour de valeurs communes et pour changer en profondeur les quartiers défavorisés.
+                </p>
+                <div id="blocImgPartenaire"></div>
+            </article>
+            {# END PARTNERS ARTICLE #}
+        </section>
+    {% endblock %}
 
-{% endblock %}%
+    {% block aside %}
+            <section id="aside" class>
+                {# ASIDE INFOS ANNEXE #}
+                <aside class="container" >
+                    {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                    <div class="row">
+                        <div class="reseau col alig-self-end">
+                            <a class="nav-link reseaux " href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="nav-link reseaux" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="nav-link reseaux" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a>
+                        </div>
+                    </div>
+                    {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                </aside>
+                {# END ASIDE INFOS ANNEXE #}
+
+                {# TITLE SECTION CARD #}
+                <h4 class="title-cardContainer">Notre premier contact</h4>
+                {# TITLE SECTION CARD #}
+
+                {# CARD IMAGE + DESCRIPTION #}
+                {# CARD 1 #}
+                <div class="containerCard">	
+                    {# DESCRIPTION #}
+                    <div class="product-details">
+                        {# TITLE INFORMATION #}
+                        <h1>Virginie Seclet</h1>
+
+                        {# BLOC INFORMATION #}
+                        <p class="information">
+                            <i class="fas fa-quote-left"></i>
+                                Présidente de l'association, je m'emploi à coordonner et apporter une réflexion sur l’employabilité des habitants dans le cadre de mes fonctions au Pôle emploi.
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                        
+                        {# FUNCTION #}
+                        <h5>Présidente de l'association</h5>   
+                        
+                    </div>
+                    {# END DESCRIPTION #}
+                    {# IMAGE CARD #}
+                    <div class="product-image">
+                        <img src="{{ asset('img/avatar_base.jpg') }}" alt="card image">
+                    </div>
+                    {# END IMAGE CARD #}
+                </div>
+                {# END CARD 1 #}
+                {# CARD 2 #}
+                <div class="containerCard">	
+                    <div class="product-details">
+                        {# TITLE INFORMATION #}
+                        <h1>Pierre Pariaud</h1>
+
+                        {# BLOC INFORMATION #}
+                        <p class="information">
+                            <i class="fas fa-quote-left"></i>
+                                Ma fonction est de répondre aux problématiques de formation et d’apprentissage dans l’exercice de ses missions auprès de l’Education Nationale.
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                        
+                        {# FUNCTION #}
+                        <h5>Trésorier de l'association</h5>   
+                        
+                    </div>
+                    {# END DESCRIPTION #}
+                    {# IMAGE CARD #}
+                    <div class="product-image">
+                        <img src="{{ asset('img/avatar_base.jpg') }}" alt="card image">
+                    </div>
+                </div>
+                {# END CARD 2 #}
+                {# CARD 3 #}
+                <div class="containerCard">	
+                    <div class="product-details">
+                        {# TITLE INFORMATION #}
+                        <h1>Gérard Blanc</h1>
+
+                        {# BLOC INFORMATION #}
+                        <p class="information">
+                            <i class="fas fa-quote-left"></i>
+                                Mon expérience me permet de pratiquer l’accompagnement des créateurs d’entreprises lors d’engagements associatifs dans les quartiers avec Positive Planet.
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                        
+                        {# FUNCTION #}
+                        <h5>Secrétaire général de l'association</h5>   
+                        
+                    </div>
+                    {# END DESCRIPTION #}
+                    {# IMAGE CARD #}
+                    <div class="product-image">
+                        <img src="{{ asset('img/avatar_base.jpg') }}" alt="card image">
+                    </div>
+                </div>
+                {# END CARD 3 #}
+                {# CARD 4 #}
+                <div class="containerCard">	
+                    <div class="product-details">
+                        {# TITLE INFORMATION #}
+                        <h1>Laurence Tchertchian</h1>
+
+                        {# BLOC INFORMATION #}
+                        <p class="information">
+                            <i class="fas fa-quote-left"></i>
+                                J'apporte mon expertise dans le cadre de la maitrise de projets immobiliers d’entreprise réfléchit à la mobilité urbaine, notamment en relation avec l’emploi.
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                        
+                        {# FUNCTION #}
+                        <h5>Membre fondateur de l'association</h5>   
+                        
+                    </div>
+                    {# END DESCRIPTION #}
+                    {# IMAGE CARD #}
+                    <div class="product-image">
+                        <img src="{{ asset('img/avatar_base.jpg') }}" alt="card image">
+                    </div>
+                </div>
+                {# END CARD 4 #}
+
+                {# FIN CARD IMAGE + DESCRIPTION #}
+            </section>
+
+
+
+    {% endblock %}
+{% endblock %}
