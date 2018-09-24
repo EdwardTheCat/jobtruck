@@ -24,6 +24,15 @@
                     <p>Longitude : {{ event.longitude }}</p>
                     <p>Latitude : {{ event.latitude }}</p>
                 </div>
+                 <div class="card-text">
+                    <p>Particpants : </p>
+                    <ul>
+                        {% for user in event.users %}
+                            <li>{{ user.pseudo }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p>Latitude : {{ event.latitude }}</p>
+                </div>
                 <div class="list-group-item">
                     <a href="{{ path('editEvent',{id:event.id}) }}">Éditer</a>
                     <a href="{{ path('deleteEvent',{id:event.id}) }}">Supprimer</a>

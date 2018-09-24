@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,36 +20,78 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(),
+     * @Assert\NotBlank(message = "Votre prénom '{{ value }}' ne doit pas être vide.")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     *      minMessage = "Votre prénom doit contenir au moins 3 caractères.",
+     *      maxMessage = "Votre prénom doit contenir moins de 255 caractères."
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\NotBlank(message = "Votre nom '{{ value }}' ne doit pas être vide.")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     *      minMessage = "Votre nom doit contenir au moins 3 caractères.",
+     *      maxMessage = "Votre nom doit contenir moins de 255 caractères."
+     * )
      */
     private $surname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Email(
+     *     message = "Votre email '{{ value }}' n'est pas un email valide.",
+     *     checkMX = false
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 10,
+     *      exactMessage = "Votre numéro de téléphone doit contenir exactement 10 chiffres avec le format 0XXXXXXXXX ."
+     * )
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     *      minMessage = "Votre qualité doit contenir au moins 3 caractères.",
+     *      maxMessage = "Votre qualité doit contenir moins de 255 caractères."
+     * )
      */
     private $quality;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotNull()
+     * @Assert\NotBlank(message = "Votre description ne doit pas être vide.")
+     * @Assert\Length(
+     *      min = 10,
+     *      minMessage = "Votre description doit contenir au moins 10 caractères."
+     * )
+     * 
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * 
      */
     private $logo;
 
@@ -55,6 +99,16 @@ class Contact
      * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="contact", cascade={"persist", "remove"})
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getName(): ?string
     {
@@ -105,7 +159,7 @@ class Contact
     }
 
     public function getQuality(): ?string
-    {
+    {   
         return $this->quality;
     }
 
@@ -148,6 +202,18 @@ class Contact
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

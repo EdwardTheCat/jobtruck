@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+         
+        {# <ul>
+            {% for contact in contacts %}        
+                <li>
+                    <p>Prénom: {{contact.name}}</p>
+                    <p>Nom: {{contact.surname}}</p>
+                    <p>Email:{{contact.email}}</p>
+                    <p>Téléphone: {{contact.phone}}</p>
+                    <p>Qualité: {{contact.quality}}</p>
+                    <p>Description: {{contact.description}}</p>
+                    <p>Logo: <img class="logo" src="{{ asset('uploads/logo/' ~ contact.logo)  | imagine_filter('squared_avatar')}}" alt="image_logo"/></p>
+                    <p><a href="{{path('contactDetails',{id:contact.id}) }}">Details</a></p>
+                    <a href="{{path('contactEdit',{id:contact.id}) }}">Editer</a>
+                    <a href="{{path('contactDelete',{id:contact.id}) }}">Effacer</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    <a href="{{ path('userAdd') }}">ADD</a> #}
+
+    <table class="table table-hover">
+         <caption>Tableau des contacts</caption>
+        <thead>
+            <tr>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Qualité</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Details</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+                <tr class="table-secondary">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.surname}}</td>
+                    <td>{{contact.email}}</td>
+                    <td><img class="avatar" src="{{ asset('uploads/avatar/' ~ contact.logo)  | imagine_filter('squared_avatar')}}" alt="image_logo"/></td>
+                    <td>{{contact.quality}}</td>
+                    <td>{{contact.createdAt|date('Y-m-d:h:s')}}</td>
+                    <td><a class="btn btn-outline-info" href="{{path('contactDetails',{id:contact.id}) }}">Details</a></td>
+                    <td><a class="btn btn-outline-primary" href="{{path('contactEdit',{id:contact.id}) }}">Modifier</a></td>
+                    <td><a class="btn btn-outline-danger" href="{{path('contactDelete',{id:contact.id}) }}">Supprimer</a></td> 
+                </tr>
+        
+        {% endfor %}
+        
+        </tbody>
+    </table>
+    <a href="{{ path('contactAdd') }}">Ajouter</a>
+{% endblock %}
+

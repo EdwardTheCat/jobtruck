@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -19,21 +23,38 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(),
+     * @Assert\NotBlank(message = "Votre pseudo '{{ value }}' ne doit pas être vide.")
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "Votre pseudo doit contenir au moins 3 caractères."
+     * )
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "Votre email '{{ value }}' n'est pas un email valide.",
+     *     checkMX = false
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      minMessage = "Votre mot de passe doit contenir au moins 3 caractères."
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $avatar;
 
@@ -64,6 +85,23 @@ class User implements UserInterface
 
     private $plainPassword;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Events", mappedBy="users")
+     * @Assert\NotNull()
+     * @Assert\NotBlank()
+     */
+    private $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->username;
+    }
+    
     public function getUsername(): ?string
     {
         return $this->email;
@@ -199,6 +237,34 @@ class User implements UserInterface
     public function setIsActive(?bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Events[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Events $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Events $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            $event->removeUser($this);
+        }
 
         return $this;
     }

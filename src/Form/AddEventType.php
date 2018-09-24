@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Entity\Events;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AddEventType extends AbstractType
@@ -21,6 +23,12 @@ class AddEventType extends AbstractType
             ->add('postalCode')
             ->add('complement1')
             ->add('complement2')
+            ->add('users', EntityType::class, array(
+                'class' => User::class,
+                'expanded' => true,
+                'multiple' => true,
+                'choice_label' => 'pseudo'
+            ) )
         ;
     }
 

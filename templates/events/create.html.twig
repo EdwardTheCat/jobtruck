@@ -34,6 +34,10 @@
                     <p>Coordonnées : {{ form_row(formEvent.longitude, {'attr': {'placeholder': "07.12445121"}}) }}
                     {{ form_row(formEvent.latitude, {'attr': {'placeholder': "01.58754564"}}) }}</p>
                 </div>
+                 <div class="card-text">
+                    <p>{{ form_row(formEvent.users, {'label': "Participants"}) }}</p>
+                    
+                </div>
             </div>
             <div class="card-footer">
                 <input type="submit" value="Enregistrer">
