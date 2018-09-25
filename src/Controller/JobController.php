@@ -45,9 +45,7 @@ class JobController extends AbstractController
         return $this->render('job/job.html.twig',[
             'form' => $formJob->createView(),
         ]);
-
     }
-
 
     /**
      * @Route("/admin/job/listJob", name="listJob")

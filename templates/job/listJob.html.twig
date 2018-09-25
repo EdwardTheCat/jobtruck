@@ -2,18 +2,20 @@
 
 {% block body %}
 
-
+    {% block principal %}
     
-    {% for one in all %} 
-     
-        <p>Titre: {{ one.title }}</p>
-        <p>Description:{{ one.description }}</p>
-        <p>Contacte:{{ one.contact }}</p>
-        <p>Logo:{{ one.logo }}</p>
-        <p>Validité:{{ one.validity}}</p>
-        <p>Crée le :{{ one.createdAT|date("m/d/Y") }}</p>      
+        {% for one in all %} 
+        
+            <p>Titre: {{ one.title }}</p>
+            <p>Description:{{ one.description }}</p>
+            <p>Contacte:{{ one.contact }}</p>
+            <p>Logo:{{ one.logo }}</p>
+            <p>Validité:{{ one.validity}}</p>
+            <p>Crée le :{{ one.createdAT|date("m/d/Y") }}</p>      
+        
+        
+        {% endfor %}   
 
-     
-    {% endfor %}    
+    {% endblock %} 
 
 {% endblock %}

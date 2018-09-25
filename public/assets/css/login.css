@@ -1,0 +1,61 @@
+/* ############### SECTION LOGIN ############### */
+/* body{
+  height: 20rem;
+} */
+/* main{
+  height: 100%;
+} */
+.sizeLinksLogin{
+    font-size: 1.4rem;
+}
+.card{
+  justify-content: center;
+  max-width: 80%;
+  margin: 10rem auto;
+}
+.card-header{
+  padding: 2%;
+  text-align: center;
+}
+div .card-body{
+  padding: 4%;
+}
+form{
+  margin: 4%;
+  flex-direction: column;
+}
+
+/* ############ END SECTION LOGIN ############ */
+
+
+
+/* ############### SECTION BACKGROUND IMAGE ############# */
+  /* DESKTOP __________________________________________________________________________________________*/
+  #bg-image{
+    /* Image parallax */
+    background: url("../img/bg-login.jpg") no-repeat;
+    /* Set a specific height */
+    height: 75rem; 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* TABLETTE __________________________________________________________________________________________*/
+  @media only screen and (max-width: 768px) {
+    #bg-image { 
+      background: url("../img/bg-login-pad.jpg") no-repeat;
+      height: 60%;
+    }
+  }
+
+  /* SMARTHPHONE __________________________________________________________________________________________*/
+  @media only screen and (max-width: 459px) {
+    #bg-image{
+      background: url("../img/bg-login-phone.jpg") no-repeat;
+      height: 40%; 
+    }
+  }
+/* ############ END SECTION BACKGROUND IMAGE ############ */
+
