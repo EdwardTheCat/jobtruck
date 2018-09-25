@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 
 {% block body %}
     <table class="table table-hover">
@@ -20,7 +20,7 @@
                 <tr class="table-secondary">
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
-                    <td><img class="avatar" src="{{ asset('uploads/avatar/' ~ user.avatar)  | imagine_filter('squared_avatar')}}" alt="image_user"/></td>
+                    <td><img class="avatar" src="{{ asset('/uploads/avatar/' ~ user.avatar)  | imagine_filter('thumb')}}" alt="image_user"/></td>
                     {% for role in user.roles %}
                         <td>{{role}}</td>
                     {% endfor %}
@@ -34,6 +34,9 @@
         
         </tbody>
     </table>
-    <a href="{{ path('userAdd') }}">Ajouter</a>
+    <a  class="btn btn-outline-primary bigButton" href="{{ path('userAdd') }}">Ajouter un utilisateur</a>
+
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
 {% endblock %}
 

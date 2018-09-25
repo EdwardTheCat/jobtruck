@@ -1,0 +1,129 @@
+body{
+    font-size: 1em;
+}
+
+html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+}
+
+main{
+    margin: 2% 5%;
+}
+
+/* Footer pour fixer le footer en bas de page */
+footer {
+    position: fixed; bottom: 0;
+    z-index: 999;
+}
+
+/* page user/list */
+
+table{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table td{
+    vertical-align: middle;
+}
+
+a.bigButton{
+    font-size: large;
+}
+
+a.btn{
+    font-size: large;
+}
+
+/* page details */
+
+div.details{
+    margin: 1% 0%;
+}
+
+/* page user/add */
+div{
+ font-size: initial;
+}
+
+
+form{
+    padding: 0% 30%;
+}
+
+/* boutons pour les formulaire */
+input[type="submit"]{
+     font-size: large;
+}
+
+/* formulaire user */
+#user_username, 
+#user_email, 
+#user_plainPassword_first,
+#user_plainPassword_second, 
+#user_avatar, 
+#user_roles, 
+#user_contact{
+    font-size: inherit;
+}
+
+/* formulaire contact */
+#contact_name,
+#contact_surname, 
+#contact_email, 
+#contact_phone, 
+#contact_quality, 
+#contact_description, 
+#contact_logo{
+    font-size: inherit;
+}
+
+/* formualire events */
+#add_event_date_date_month,
+#add_event_date_date_day,
+#add_event_date_date_year, 
+#add_event_date_time_hour, 
+#add_event_date_time_minute, 
+#add_event_address, 
+#add_event_complement1,
+#add_event_complement2,
+#add_event_city,
+#add_event_postalCode,
+#add_event_description,
+#add_event_longitude,
+#add_event_latitude,
+#add_event_users
+{
+    font-size: inherit;
+}
+
+/* pour les label de users dans event create */
+
+label.form-check-label{
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+input[type="submit"]{
+    margin : 1% auto;
+}
+
+/* pour la dashboard */
+#dashboard{
+    display: flex;
+    justify-content : center;
+}
+
+/* pour faire apparaître en colonne le dashboard pour les screens mobile */
+@media (max-width: 576px) { #dashboard { flex-wrap: wrap; }}
+div.card{
+    margin: 1% 0.5%;
+}
+
+/* pour le bouton dasboard sur les pages add... */
+#dashboard{
+    margin-top: 5%;
+}

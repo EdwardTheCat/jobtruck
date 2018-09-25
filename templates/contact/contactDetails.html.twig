@@ -1,17 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 
 {% block body %}
 
-    <h1>Details contact</h1>
-    <p>Prénom: {{contact.name}}</p>
-    <p>Nom: {{contact.surname}}</p>
-    <p>Email: {{contact.email}}</p>
-    <p>Téléphone: {{contact.phone}}</p>
-    <p>Qualité: {{contact.quality}}</p>
-    <p>Description: {{contact.description}}</p>
-    {% if contact.logo %}
-        <p>logo: <img class="logo" src="{{ asset('uploads/logo/' ~ contact.logo)  | imagine_filter('squared_avatar')}}" alt="image_logo"/></p>
-    {% endif %}
-    <p>Date de création: {{contact.createdAt | date('Y-m-d:h:s')}}</p>
+    <h4>Details contact</h4>
+    <div class="details">
+        <p>Prénom: {{contact.name}}</p>
+        <p>Nom: {{contact.surname}}</p>
+        <p>Email: {{contact.email}}</p>
+        <p>Téléphone: {{contact.phone}}</p>
+        <p>Qualité: {{contact.quality}}</p>
+        <p>Description: {{contact.description}}</p>
+        {% if contact.logo is not null %}
+            <p>logo: <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_logo"/></p>
+        {% endif %}
+        <p>Date de création: {{contact.createdAt | date('Y-m-d:h:s')}}</p>
+    </details>
+    
     
 {% endblock %}

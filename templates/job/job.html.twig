@@ -1,4 +1,5 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block title %}creation offre d'emploi {% endblock %}
 
@@ -8,6 +9,8 @@
         
         {{ form_start(form) }}
         {{ form_widget(form) }}
+            <input type="submit" class="btn btn-outline-info" value="Ajouter l'offre d'emploi"/>
+            <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
         {{ form_end(form) }}
 
     {% endblock %}

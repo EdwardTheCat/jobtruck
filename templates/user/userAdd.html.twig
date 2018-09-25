@@ -1,8 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
-    {# {% block principal %} #} {# LIGNE A DÉCOMMENTER QUAND ONT VEUT CREER UN ADMIN... #}
+    {% block principal %} {# LIGNE A DÉCOMMENTER QUAND ONT VEUT CREER UN ADMIN... #}
         {{ form_start(form) }}
             {{ form_row(form.username, { 'label': 'Pseudo' }) }}
             {{ form_row(form.email) }}
@@ -18,13 +18,16 @@
 
             {{ form_row(form.contact) }}         
 
-            {% if action == true %}
-                <input type="submit" value="Ajout utilisateur"/>
-            {% else %}
-                <input type="submit" value="Modifier utilisateur"/>
-            {% endif %}
+        {% if action == true %}
+           <input type="submit" class="btn btn-outline-info" value="Ajouter l'utilisateur"/>
+        {% else %}
+            <input type="submit" class="btn btn-outline-info" value="Modifier l'utilisateur"/>
+        {% endif %}
+
+        <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+
         {{ form_end(form) }}
-    {# {% endblock %}  #} {# LIGNE A DÉCOMMENTER QUAND ONT VEUT CREER UN ADMIN... #}
+    {% endblock %}  {# LIGNE A DÉCOMMENTER QUAND ONT VEUT CREER UN ADMIN... #}
 
 {% endblock %}
 

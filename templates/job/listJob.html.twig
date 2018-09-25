@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 
 {% block body %}
 
@@ -13,9 +13,12 @@
             <p>Validité:{{ one.validity}}</p>
             <p>Crée le :{{ one.createdAT|date("m/d/Y") }}</p>      
         
-        
         {% endfor %}   
 
+        <a  class="btn btn-outline-primary bigButton" href="{{ path('createJob') }}">Ajouter une offre d'emploi</a>
+        <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+
     {% endblock %} 
+
 
 {% endblock %}

@@ -47,4 +47,13 @@ class EventsRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findEventsAfter(\DateTime $createdBefore)
+    {
+    return $this->createQueryBuilder('m')
+                ->where("m.date > ?1")
+                ->setParameter(1, $createdBefore)
+                ->getQuery()
+                ->getResult();
+    }
 }
