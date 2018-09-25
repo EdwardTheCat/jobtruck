@@ -3,16 +3,13 @@
   #bg-image{
     /* Image parallax */
     background: url("../img/bg-testimony.jpg") no-repeat;
-    
     /* Set a specific height */
     height: 75rem; 
-  
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
   }
-
   /* TABLETTE __________________________________________________________________________________________*/
   @media only screen and (max-width: 768px) {
     #bg-image { 
@@ -20,7 +17,6 @@
       height: 60%;
     }
   }
-
   /* SMARTHPHONE __________________________________________________________________________________________*/
   @media only screen and (max-width: 459px) {
     #bg-image{
@@ -28,10 +24,10 @@
       height: 40%; 
     }
   }
-
 /* ############ END SECTION BACKGROUND IMAGE ############ */
-/* ############### SECTION IMAGE PARTNERS ############### */
-.modal-header{
+
+/* ############### SECTION MODAL JOB ############### */
+.modal-header-center{
     padding: 2% 42%;
     align-items: center;
 }
@@ -40,13 +36,12 @@
     max-width: 90%;
     padding: 2% 10%;
 }
-  /* ############ END SECTION IMAGE PARTNERS ############ */
-  /* ############### SECTION IMAGE RIGHT ################ */
+/* ############ END SECTION MODAL JOB ############ */
+
+/* ############### SECTION IMAGE RIGHT ################ */
 /* DESKTOP __________________________________________________________________________________________*/
-
-/* BLOC CARD */
-
-.title-cardContainer{
+  /* BLOC CARD */
+  .title-cardContainer{
     margin: 1%;
     font-size: 1.8rem;
     font-weight: bolder;
@@ -123,4 +118,12 @@
   .product-image-right:hover img {transform: scale(1.2);}
   /* FIN BLOC CARD */
 
-  /* ############# END SECTION CARDS RIGHT ############## */
+/* ############# END SECTION CARDS RIGHT ############## */
+
+/* ############ SECTION ASIDE INFO ############ */
+  /* POSITION RESEAUX SOCIAUX */
+  aside .row{
+    margin-top: 2rem;
+  }
+  /* END POSITION RESEAUX SOCIAUX */
+/* ############ END SECTION ASIDE INFO ############ */

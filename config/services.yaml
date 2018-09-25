@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
+    locale: 'fr'
     avatar_directory: '%kernel.project_dir%/public/uploads/avatar'
     logo_directory: '%kernel.project_dir%/public/uploads/logo'
 
@@ -31,3 +31,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+eu_cookie_law:
+    response_injection: true # default true
+    #template: cookie_law_bar.html.twig #cookieBar.html.twig # twig template name, default: EuCookieLawBundle::cookie_law_bar.html.twig

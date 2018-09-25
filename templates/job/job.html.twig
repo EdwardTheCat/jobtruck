@@ -4,14 +4,15 @@
 {% block title %}creation offre d'emploi {% endblock %}
 
 {% block body %}
-    
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    
-    <input type="submit" class="btn btn-outline-info" value="Ajouter l'offre d'emploi"/>
-    
-    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
-    
-    {{ form_end(form) }}
+
+    {% block principal %}
+        
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+            <input type="submit" class="btn btn-outline-info" value="Ajouter l'offre d'emploi"/>
+            <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+        {{ form_end(form) }}
+
+    {% endblock %}
 
 {% endblock %}

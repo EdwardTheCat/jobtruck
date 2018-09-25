@@ -113,6 +113,9 @@
     "monolog/monolog": {
         "version": "1.23.0"
     },
+    "mustangx/eu-cookie-law-bundle": {
+        "version": "1.0.1"
+    },
     "nikic/php-parser": {
         "version": "v4.0.3"
     },

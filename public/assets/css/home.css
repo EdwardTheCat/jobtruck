@@ -2,11 +2,9 @@
   /* DESKTOP __________________________________________________________________________________________*/
   #bg-image{
     /* Image parallax */
-    background: url("../img/bg-concept.jpg") no-repeat;
-    
+    background: url("../img/bg-home.jpg") no-repeat;
     /* Set a specific height */
     height: 75rem; 
-  
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -16,7 +14,7 @@
   /* TABLETTE __________________________________________________________________________________________*/
   @media only screen and (max-width: 768px) {
     #bg-image { 
-      background: url("../img/bg-concept-pad.jpg") no-repeat;
+      background: url("../img/bg-home-pad.jpg") no-repeat;
       height: 60%;
     }
   }
@@ -24,7 +22,7 @@
   /* SMARTHPHONE __________________________________________________________________________________________*/
   @media only screen and (max-width: 459px) {
     #bg-image{
-      background: url("../img/bg-concept-phone.jpg") no-repeat;
+      background: url("../img/bg-home-phone.jpg") no-repeat;
       height: 40%; 
     }
   }
@@ -35,33 +33,12 @@
     display: inline-grid;
     width: 100%;
     height: 5rem;
-    /* background-color: #7755; */
   }
 /* ############ END SECTION IMAGE PARTNERS ############ */
 /* ############ SECTION ASIDE INFO ############ */
   /* POSITION RESEAUX SOCIAUX */
-/*   aside .container{
-    padding-right: 0;
-    padding-left: 0;
-  } */
   aside .row{
     margin-top: 2rem;
   }
   /* END POSITION RESEAUX SOCIAUX */
 /* ############ END SECTION ASIDE INFO ############ */
-
-  /* ############### SECTION IMAGE CARDS ################ */
-/*   #cardInfo1{
-    background: url("../img/avatar_base.png") no-repeat;
-  }
-  #cardInfo2{
-    background: url("../img/avatar_base.png") no-repeat;
-  }
-  #cardInfo3{
-    background: url("../img/avatar_base.png") no-repeat;
-  }
-  #cardInfo4{
-    background: url("../img/avatar_base.png") no-repeat; */
-  /* } */
-
-  /* ############# END SECTION IMAGE CARDS ############## */
