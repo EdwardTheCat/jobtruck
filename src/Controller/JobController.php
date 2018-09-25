@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class JobController extends AbstractController
@@ -26,11 +27,10 @@ class JobController extends AbstractController
 
         $formJob = $this->createFormBuilder($job)
                         ->add('title',TextType::class)
-                        ->add('description',TextType::class)
+                        ->add('description',TextareaType::class)
                         ->add('contact',EmailType::class)
                         ->add('logo')
                         ->add('validity')
-                        ->add('enregister', SubmitType::class, array('label' => 'creation')) 
         ->getForm();
 
         $formJob->handleRequest($request);

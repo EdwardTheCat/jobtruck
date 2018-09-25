@@ -1,4 +1,4 @@
-{% extends 'admin.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
@@ -18,12 +18,16 @@
         {{ form_row(form.contact) }}         
 
         {% if action == true %}
-            <input type="submit" value="Ajout utilisateur"/>
+           <input type="submit" class="btn btn-outline-info" value="Ajouter l'utilisateur"/>
         {% else %}
-            <input type="submit" value="Modifier utilisateur"/>
+            <input type="submit" class="btn btn-outline-info" value="Modifier l'utilisateur"/>
         {% endif %}
-    {{ form_end(form) }}
+
+        <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+
+        {{ form_end(form) }}
      
+       
 
 {% endblock %}
 

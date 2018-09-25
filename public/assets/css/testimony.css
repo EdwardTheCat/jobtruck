@@ -1,0 +1,126 @@
+/* ############### SECTION BACKGROUND IMAGE ############# */
+  /* DESKTOP __________________________________________________________________________________________*/
+  #bg-image{
+    /* Image parallax */
+    background: url("../img/bg-testimony.jpg") no-repeat;
+    
+    /* Set a specific height */
+    height: 75rem; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* TABLETTE __________________________________________________________________________________________*/
+  @media only screen and (max-width: 768px) {
+    #bg-image { 
+      background: url("../img/bg-testimony-pad.jpg") no-repeat;
+      height: 60%;
+    }
+  }
+
+  /* SMARTHPHONE __________________________________________________________________________________________*/
+  @media only screen and (max-width: 459px) {
+    #bg-image{
+      background: url("../img/bg-testimony-phone.jpg") no-repeat;
+      height: 40%; 
+    }
+  }
+
+/* ############ END SECTION BACKGROUND IMAGE ############ */
+/* ############### SECTION IMAGE PARTNERS ############### */
+.modal-header{
+    padding: 2% 42%;
+    align-items: center;
+}
+.modal-dialog{
+    margin-top: 25%;
+    max-width: 90%;
+    padding: 2% 10%;
+}
+  /* ############ END SECTION IMAGE PARTNERS ############ */
+  /* ############### SECTION IMAGE RIGHT ################ */
+/* DESKTOP __________________________________________________________________________________________*/
+
+/* BLOC CARD */
+
+.title-cardContainer{
+    margin: 1%;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: left;
+    font-family: 'Raleway Bold', sans-serif;
+  }
+  
+  .containerCard-image-right{
+      background: #FBFBFB;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 1rem auto;
+      max-height: 18rem;
+      max-width: 90%;
+  }
+  
+  /*  details  */
+  .product-details-image-right {
+      position: relative;
+      text-align: left;
+      overflow: hidden;
+      padding: 1rem;
+      height: 100%;
+      float: left;
+      width: 80%;
+  }
+  
+  /* 	Product Name */
+  .containerCard-image-right .product-details-image-right h1{
+    font-family: 'Raleway bold', sans-serif;
+    display: inline-block;
+    position: relative;
+    color: #344055;
+    margin: 1%;
+    font-size: 2.4rem;
+    font-weight: bolder;
+  }
+  
+  /* The most important information about the product */
+  .containerCard-image-right .product-details-image-right > p {
+      font-family: 'Raleway Thin', sans-serif;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+      color: #333333;
+  }
+  
+  /* DISPLAY IMAGE CARD WITH RESPONSIVE < 1000PX */
+  @media only screen and (max-width: 1350px) {
+    .product-image-right {
+      transition: all 0.3s ease-in-out;
+      display: none;
+    }
+    .product-details-image-right {
+      width: 100%;
+      padding: 2rem;
+    }
+  }
+  /* Card image  */
+  .product-image-right {
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      height: 100%;
+      float: left;
+      width: 20%;
+  }
+  
+  .containerCard-image-right img {
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+  
+  .product-image-right:hover img {transition: all 0.3s ease-out;}
+  .product-image-right:hover img {transform: scale(1.2);}
+  /* FIN BLOC CARD */
+
+  /* ############# END SECTION CARDS RIGHT ############## */

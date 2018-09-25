@@ -1,4 +1,4 @@
-{% extends 'admin.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 
 {% block body %}
          
@@ -42,7 +42,7 @@
                     <td>{{contact.name}}</td>
                     <td>{{contact.surname}}</td>
                     <td>{{contact.email}}</td>
-                    <td><img class="avatar" src="{{ asset('uploads/avatar/' ~ contact.logo)  | imagine_filter('squared_avatar')}}" alt="image_logo"/></td>
+                    <td><img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_logo"/></td>
                     <td>{{contact.quality}}</td>
                     <td>{{contact.createdAt|date('Y-m-d:h:s')}}</td>
                     <td><a class="btn btn-outline-info" href="{{path('contactDetails',{id:contact.id}) }}">Details</a></td>
@@ -54,6 +54,9 @@
         
         </tbody>
     </table>
-    <a href="{{ path('contactAdd') }}">Ajouter</a>
+    <a  class="btn btn-outline-primary" href="{{ path('contactAdd') }}">Ajouter un contact</a>
+
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
 {% endblock %}
 

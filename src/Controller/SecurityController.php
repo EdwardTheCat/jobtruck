@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\EventsRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -27,11 +28,14 @@ class SecurityController extends AbstractController
     }   
 
     /**
-    * @Route("admin/", name="admin")
+    * @Route("admin/dashboard", name="admin")
     */
+    public function admin(EventsRepository $repo){
 
-    public function admin(){
-        return $this->render('admin.html.twig');
+       $events = $repo->findEventsAfter(new \DateTime());
+
+        return $this->render('dashboard.html.twig', ["events" => $events]);
+    
     }
     
 }

@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("admin/contact/details/{id}", name="contactDetails" , requirements={"id"="\d+"})
+     * @Route("admin/contact/{id}", name="contactDetails" , requirements={"id"="\d+"})
      */
     public function details(ContactRepository $repo, $id)
     {   

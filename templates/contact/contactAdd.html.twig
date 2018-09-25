@@ -1,20 +1,23 @@
-{% extends 'admin.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
     {{form_start(form)}} 
         {{form_errors(form)}} 
-        {{form_widget(form)}} 
+        {{form_widget(form)}}  
         {% if action == false %}
             <p>Votre logo existe déja : </p>
-            <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo) | imagine_filter('squared_avatar')}}" alt="image_logo"/>
+            <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo) | imagine_filter('thumb')}}" alt="image_logo"/>
         {% endif %}
 
         {% if action == true %}
-            <input type="submit" value="Ajout contact"/>
+            <input type="submit"  class="btn btn-outline-info" value="Ajouter contact"/>
         {% else %}
-            <input type="submit" value="Modifier contact"/>
+            <input type="submit" class="btn btn-outline-info" value="Modifier contact"/>
         {% endif %}
+
+         <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+         
     {{ form_end(form) }}
 
 {% endblock %}

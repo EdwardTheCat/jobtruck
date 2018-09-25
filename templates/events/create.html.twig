@@ -1,48 +1,38 @@
-{% extends 'admin.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
+{% form_theme formEvent 'bootstrap_4_layout.html.twig' %}
 
 {% block title %} Admin - Évènements {% endblock %}
 
 {% block body %}
-    {% if action %}
-        <h2 class="card-title">Modifier un évènement</h2>
-    {% else %}
-        <h2 class="card-title">Créer un évènement</h2>
-    {% endif %}
 
-</div>
-
-    <div class="card mb-3">
         {{ form_start(formEvent) }}
-            <div class="card-header">
-                {{ form_row(formEvent.date) }}
-            </div>
-            <div  class="card-body">
-                <div class="card-text">
-                    {{ form_row(formEvent.address, {'attr': {'placeholder': "Rue, Boulevard..."}}) }}
+            
+                {{ form_row(formEvent.date, {'label': 'Date: ' }) }}
+        
+                {{ form_row(formEvent.address, {'attr': {'placeholder': "Rue, Boulevard..."}, 'label': 'Adresse: ' }) }}
                 
-                    <p>Informations complémentaires : {{ form_row(formEvent.complement1, {'attr': {'placeholder': "Bâtiment, Digicode ..."}}) }}
-                    {{ form_row(formEvent.complement2, {'attr': {'placeholder': "Autres Informations"}}) }}</p>
+                {{ form_row(formEvent.complement1, {'attr': {'placeholder': "Bâtiment, Digicode ..."}, 'label': 'Complément 1: ' }) }}
+                {{ form_row(formEvent.complement2, {'attr': {'placeholder': "Autres Informations"}, 'label': 'Complémentaires 2: ' }) }}</p>
                 
-                    {{ form_row(formEvent.city, {'attr': {'placeholder': "Marseille"}}) }}
-                    {{ form_row(formEvent.postalCode, {'attr': {'placeholder': "13014"}}) }}
-                </div>
-                <div class="card-text">
-                    <p>Decription de l'évènement :
-                    {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}}) }}</p>
-                </div>
-                <div class="card-text">
-                    <p>Coordonnées : {{ form_row(formEvent.longitude, {'attr': {'placeholder': "07.12445121"}}) }}
-                    {{ form_row(formEvent.latitude, {'attr': {'placeholder': "01.58754564"}}) }}</p>
-                </div>
-                 <div class="card-text">
-                    <p>{{ form_row(formEvent.users, {'label': "Participants"}) }}</p>
+                {{ form_row(formEvent.city, {'attr': {'placeholder': "Marseille"},  'label': 'Ville: ' }) }}
+                {{ form_row(formEvent.postalCode, {'attr': {'placeholder': "13014"}, 'label': 'Code postal: ' }) }}
+                
+                {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}, 'label': 'Decription de l\'évènement: ' }) }}</p>
+               
+
+                {{ form_row(formEvent.longitude, {'attr': {'placeholder': "07.12445121"}, 'label': 'Longitude: ' }) }}
+                {{ form_row(formEvent.latitude, {'attr': {'placeholder': "01.58754564"}, 'label': 'Latitude: ' }) }}</p>
+            
+                {{ form_row(formEvent.users, {'label': "Participants"}) }}</p>
                     
-                </div>
-            </div>
-            <div class="card-footer">
-                <input type="submit" value="Enregistrer">
-            </div>    
+                 {% if action %}
+                     <input type="submit" class="btn btn-outline-info" value="Modifier l'évênement"/>
+                {% else %}
+                   <input type="submit" class="btn btn-outline-info" value="Ajouter l'évênement"/>
+                {% endif %}    
+
+                <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+
         {{ form_end(formEvent) }}
-    </div>
 
 {% endblock %}
