@@ -1,13 +1,13 @@
-{% extends 'adminBase.html.twig' %}
+{% extends 'adminTemplate.html.twig' %}
 
-{% block title %} Admin - Évènements {% endblock %}
+{% block title %} Details Évènements {% endblock %}
 
 {% block body %}
 
     <article>
         <div class="card mb-3">
             <div class="card-header">
-                <h2 class="card-title">Évènement du {{ event.date | date('d/m/Y') }}</h2>
+                <h2 class="card-title">Details Évènement du {{ event.date | date('d/m/Y') }}</h2>
             </div>
             <div class="card-body">
                 <div class="card-text">
@@ -33,14 +33,16 @@
                     </ul>
                 </div>
                 <div class="list-group-item">
-                    <a href="{{ path('editEvent',{id:event.id}) }}">Éditer</a>
-                    <a href="{{ path('deleteEvent',{id:event.id}) }}">Supprimer</a>
+                    <a class="btn btn-outline-primary" href="{{ path('editEvent',{id:event.id}) }}">Éditer</a>
+                    <a class="btn btn-outline-danger" href="{{ path('deleteEvent',{id:event.id}) }}">Supprimer</a>
                 </div>
             </div>
             <div class="card-footer">
-                <a href="{{ path('listEvents') }}">Retour</a>
+                <a class="btn btn-outline-secondary" href="{{ path('listEvents') }}">Retour</a>
             </div>
         </div>
     <article>
+
+<a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
 
 {% endblock %}

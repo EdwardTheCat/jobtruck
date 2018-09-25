@@ -70,4 +70,15 @@ class JobController extends AbstractController
         return $this->redirectToRoute("listJob");  
     }
 
+     /**
+     * @Route("/admin/job/{id}", name="jobDetails", requirements={"id"="\d+"})
+     */
+    public function DetailsJob($id, JobRepository $repo )
+    {
+        $job=$repo->findOneById($id);
+        return $this->render('job/jobDetails.html.twig', [
+            'job' => $job
+        ]);
+    }
+
 }

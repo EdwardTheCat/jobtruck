@@ -3,18 +3,20 @@
 {% block body %}
 
 
-    
+    </ul>
     {% for one in all %} 
-     
-        <p>Titre: {{ one.title }}</p>
-        <p>Description:{{ one.description }}</p>
-        <p>Contacte:{{ one.contact }}</p>
-        <p>Logo:{{ one.logo }}</p>
-        <p>Validité:{{ one.validity}}</p>
-        <p>Crée le :{{ one.createdAT|date("m/d/Y") }}</p>      
-
-     
+        <li>
+            <p>Titre : <strong>{{ one.title }}</strong></p>
+            <p>Contact : {{ one.contact }}</p>
+            <p>Logo : {{ one.logo }}</p>
+            <p>Validité : {{ one.validity}}</p>
+            <p>Crée le : {{ one.createdAT|date("m/d/Y") }}</p>       
+            <a class="btn btn-outline-info"  href="{{path('jobDetails',{id:one.id}) }}" role="button">Details</a>
+            <a class="btn btn-outline-primary"  href="{{path('editJob',{id:one.id}) }}" role="button">Modifier</a>
+            <a class="btn btn-outline-danger" href="{{path('deleteJob',{id:one.id}) }}" role="button">Supprimer</a>
+        </li>
     {% endfor %}    
+    </ul>
     <a  class="btn btn-outline-primary bigButton" href="{{ path('createJob') }}">Ajouter une offre d'emploi</a>
 
     <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>

@@ -1,0 +1,20 @@
+{% extends 'adminTemplate.html.twig' %}
+
+{% block body %}
+
+
+        <h4>Details job:</h4>
+            <p>Titre : <strong>{{ job.title }}</strong></p>
+            <p>Contact : {{ job.contact }}</p>
+            <p>Description : </p>
+            <p>{{ job.description }}</p>
+            <p>Logo : {{ job.logo }}</p>
+            <p>Validité : {{ job.validity}}</p>
+            <p>Crée le : {{ job.createdAT|date("m/d/Y") }}</p>       
+           
+    <a class="btn btn-outline-info"  href="{{path('editJob',{id:job.id}) }}" role="button">Modifier</a>
+    <a class="btn btn-outline-danger" href="{{path('userDelete',{id:job.id}) }}" role="button">Supprimer</a>
+
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+
+{% endblock %}

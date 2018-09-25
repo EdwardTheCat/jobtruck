@@ -2,18 +2,24 @@
 
 {% block body %}
 
-    <h4>Details utilisateur:</h4>
+    <h4>Details utilisateur</h4>
     <div class="details">
         <p><img class="avatar" src="{{ asset('/uploads/avatar/' ~ user.avatar)  | imagine_filter('thumb')}}" alt="image_user"/></p>
-        <p>Pseudo: {{user.username}}</p>
-        <p>Email: {{user.email}}</p>
-        <p>Roles:
+        <p>Pseudo : {{user.username}}</p>
+        <p>Email : {{user.email}}</p>
+        <p>Roles :
         {% for role in user.roles %}
             {{role}}
         {% endfor %}
-        <p>Date de création: {{user.createdAt|date('Y-m-d:h:s')}}</p>
+        <p>Date de création : {{user.createdAt|date('Y-m-d:h:s')}}</p>
         {% if user.dateLastLogin %}}
-            <p>Date dernière visite: {{user.dateLastLogin|date('Y-m-d:h:s')}}</p>
+            <p>Date dernière visite : {{user.dateLastLogin|date('Y-m-d:h:s')}}</p>
         {% endif %}
     </div>
+    
+    <a class="btn btn-outline-primary" href="{{path('userEdit',{id:user.id}) }}" role="button">Modifier</a>
+    <a class="btn btn-outline-danger" href="{{path('userDelete',{id:user.id}) }}" role="button">Supprimer</a>
+    
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+     
 {% endblock %}
