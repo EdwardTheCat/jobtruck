@@ -2,14 +2,17 @@
 
 {% block body %}
 
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
     <h4>Details utilisateur</h4>
     <div class="details">
         <p><img class="avatar" src="{{ asset('/uploads/avatar/' ~ user.avatar)  | imagine_filter('thumb')}}" alt="image_user"/></p>
         <p>Pseudo : {{user.username}}</p>
         <p>Email : {{user.email}}</p>
-        <p>Roles :
+        <p>Droits :
         {% for role in user.roles %}
-            {{role}}
+            {% if role == "ROLE_ADMIN" %} Administrateur {% endif %}
+            {% if role == "ROLE_USER" %} Utilisateur {% endif %}
         {% endfor %}
         <p>Date de création : {{user.createdAt|date('Y-m-d:h:s')}}</p>
         {% if user.dateLastLogin %}}
@@ -20,6 +23,6 @@
     <a class="btn btn-outline-primary" href="{{path('userEdit',{id:user.id}) }}" role="button">Modifier</a>
     <a class="btn btn-outline-danger" href="{{path('userDelete',{id:user.id}) }}" role="button">Supprimer</a>
     
-    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
      
 {% endblock %}

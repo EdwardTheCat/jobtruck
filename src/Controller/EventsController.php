@@ -66,7 +66,7 @@ class EventsController extends AbstractController
 
         return $this->render('events/create.html.twig', [
             'formEvent' => $form->createView(),
-            'action' =>  !is_null($event->getId())
+            'action' =>  is_null($event->getId())
         ]);
     }
 

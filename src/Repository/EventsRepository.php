@@ -48,11 +48,26 @@ class EventsRepository extends ServiceEntityRepository
     }
     */
 
+    //function to get recents event from now
     public function findEventsAfter(\DateTime $createdBefore)
     {
     return $this->createQueryBuilder('m')
                 ->where("m.date > ?1")
                 ->setParameter(1, $createdBefore)
+                ->getQuery()
+                ->getResult();
+    }
+
+    //function to get the most recent event
+    public function findOneEventAfter(\DateTime $createdBefore)
+    {
+        $limit=1;
+
+        return $this->createQueryBuilder('m')
+                ->where("m.date > ?1")
+                ->setParameter(1, $createdBefore)
+                ->orderBy('m.date', 'ASC')
+                ->setMaxResults($limit)
                 ->getQuery()
                 ->getResult();
     }

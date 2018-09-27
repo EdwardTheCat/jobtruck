@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Entity\Events;
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -23,11 +24,10 @@ class AddEventType extends AbstractType
             ->add('postalCode')
             ->add('complement1')
             ->add('complement2')
-            ->add('users', EntityType::class, array(
-                'class' => User::class,
-                'expanded' => true,
+            ->add('contacts', EntityType::class, array(
+                'class' => Contact::class,
                 'multiple' => true,
-                'choice_label' => 'pseudo'
+                'choice_label' => 'displayName'
             ) )
         ;
     }

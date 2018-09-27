@@ -1,0 +1,35 @@
+{% extends 'adminTemplate.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+     <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a> 
+
+        {% if action == true %}
+             <h4>Formulaire d'ajout : Témoignage</h4>
+        {% else %}
+            <h4>Formulaire de modification : Témoignage</h4>
+        {% endif %}
+    
+        {{ form_start(form) }}
+            {{ form_row(form.name, { 'label': 'Prénom' ,'attr': {'placeholder': 'prénom...'}}) }}
+            {{ form_row(form.lastname, { 'label': 'Nom' ,'attr': {'placeholder': 'nom...'}}) }}
+            {{ form_row(form.description, { 'label': 'Description' ,'attr': {'placeholder': 'description...'}}) }}
+            {% if action == false %}
+                <p>La photo existe déja : </p>
+                <img class="photo" src="{{ asset('/uploads/avatar/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="image_testimony"/>
+            {% endif %}
+
+            {{ form_row(form.photo, {'attr': {'placeholder': 'Choisissez la photo...'}}) }}  
+
+        {% if action == true %}
+           <input id="submitAdd" type="submit" class="btn btn-outline-info" value="Ajouter le témoignage"/>
+        {% else %}
+            <input id="submitEdit" type="submit" class="btn btn-outline-info" value="Modifier le témoignage"/>
+        {% endif %}
+
+       
+
+        {{ form_end(form) }}
+
+{% endblock %}
+

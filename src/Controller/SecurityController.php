@@ -32,7 +32,9 @@ class SecurityController extends AbstractController
     */
     public function admin(EventsRepository $repo){
 
-       $events = $repo->findEventsAfter(new \DateTime());
+    
+        $events = $repo->findOneEventAfter(new \DateTime());
+        // $events = $repo->findEventsAfter(new \DateTime());
 
         return $this->render('dashboard.html.twig', ["events" => $events]);
     

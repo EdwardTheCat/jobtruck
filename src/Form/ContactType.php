@@ -23,23 +23,18 @@ class ContactType extends AbstractType
             ->add('quality', ChoiceType::class, 
                 array('choices' => array( 'Leader économique' => 'leader_economique', 
                                         'Centre de formation' => 'centre_formation', 
-                                        'Pouvoir publics' => 'pouvoir_publics',
+                                        'Pouvoirs publics' => 'pouvoirs_publics',
                                         'Association' => 'association',
-                                        'Partenaire' => 'partenaire',
-                                        'Témoignage' => 'temoignage'),
+                                        'Partenaire économique' => 'partenaire_economique'),
             ))
             ->add('description', TextareaType::class, array('label' => 'Description'))
             ->add('logo', FileType::class, array(
                 'label' => 'Logo', 
                 'data_class' => null,
-                'required' => false))
+                'required' => false,
+                'empty_data' => "empty_logo"
+                ))
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => Contact::class,
-        ]);
-    }
 }

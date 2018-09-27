@@ -1,0 +1,45 @@
+{% extends 'adminTemplate.html.twig' %}
+{% block javascripts %}
+    <script>
+        $(function(){
+            $('#listtestimony').DataTable();
+        });
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{% endblock %}
+{% block body %}
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    <a  class="btn btn-outline-primary bigButton" href="{{ path('testimonyAdd') }}">Ajouter un témoignage</a>
+
+    <table class="table table-hover" id="listtestimony">
+         <caption>Tableau des utilisateurs</caption>
+        <thead>
+            <tr>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Details</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for testimony in testimonies %}
+                <tr class="table-secondary">
+                    <td>{{testimony.name}}</td>
+                    <td>{{testimony.lastname}}</td>
+                    <td><img class="avatar" src="{{ asset('/uploads/logo/' ~ testimony.photo)  | imagine_filter('thumb')}}" alt="photo_testimony"/></td>
+                    <td><a class="btn btn-outline-info"  href="{{path('testimonyDetails',{id:testimony.id}) }}" role="button">Details</a></td>
+                    <td><a class="btn btn-outline-primary" href="{{path('testimonyEdit',{id:testimony.id}) }}" role="button">Modifier</a></td>
+                    <td><a class="btn btn-outline-danger" href="{{path('testimonyDelete',{id:testimony.id}) }}" role="button">Supprimer</a></td> 
+                </tr>
+        
+        {% endfor %}
+        
+        </tbody>
+    </table>
+    
+{% endblock %}
+

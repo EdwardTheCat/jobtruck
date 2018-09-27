@@ -2,21 +2,43 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
 
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
+    {% if action == true %}
+        <h4>Formulaire d'ajout : Contact</h4>
+    {% else %}
+        <h4>Formulaire de modification : Contact</h4>
+    {% endif %}
+
     {{form_start(form)}} 
-        {{form_errors(form)}} 
-        {{form_widget(form)}}  
+
+        {{form_row(form.name , {'attr': {'placeholder': 'prénom...'}})}}
+       
+        {{form_row(form.surname, {'attr': {'placeholder': 'nom...'}})}}
+       
+        {{form_row(form.email, {'attr': {'placeholder': 'email...'}})}}
+
+        {{form_row(form.phone, {'attr': {'placeholder': 'Sous le format 0XXXXXXXXX...'}})}}
+
+
+        {{form_row(form.quality)}}
+
+        {{form_row(form.description, {'attr': {'placeholder': 'Description du contact en lien avec le JobTruck...'}})}}
+
         {% if action == false %}
             <p>Votre logo existe déja : </p>
             <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo) | imagine_filter('thumb')}}" alt="image_logo"/>
         {% endif %}
 
+        {{form_row(form.logo, {'attr': {'placeholder': 'Choisissez le logo du contact...'}})}}
+      
         {% if action == true %}
-            <input type="submit"  class="btn btn-outline-info" value="Ajouter contact"/>
+            <input id="submitAdd" type="submit"  class="btn btn-outline-info" value="Ajouter le contact"/>
         {% else %}
-            <input type="submit" class="btn btn-outline-info" value="Modifier contact"/>
+            <input id="submitEdit" type="submit" class="btn btn-outline-info" value="Modifier le contact"/>
         {% endif %}
 
-         <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+         
          
     {{ form_end(form) }}
 

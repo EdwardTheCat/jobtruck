@@ -1,16 +1,109 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-    <link  rel="stylesheet" href="{{ asset('/assets/css/home.css') }}">
+    {# <link  rel="stylesheet" href="{{ asset('/assets/css/home.css') }}"> #}
+    <link  rel="stylesheet" href="{{ asset('/assets/css/layout.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
 {% endblock %}
 
-{% block title %}JobTruck - Acceuil{% endblock %}
+{% block title %}JobTruck - Accueil{% endblock %}
 
 {% block body %}
 
     {% block principal %}
+    
+        <section id="principal">
+            <article>
+                <h2 class="titre-para-principal">Un concept NOVATEUR</h2>
+                <p class="para-principal">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
+                    Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
+                    Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
+                    Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                </p>
+            </article>
+            <article>
+                <h2 class="titre-para-principal">Nos engagements</h2>
+                <p class="para-principal">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
+                    Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
+                    Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
+                    Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                </p>
+            </article>
+            <article>
+                <h2 class="titre-para-principal">MAP</h2>
+                    <div onload="initialize()">
+                        <div id="mapid" style="width:100%  ; height:400px">
+                        </div>
+                    </div>
+            </article>
+            <article id="partners">
+                <h2 class="titre-para-principal">PARTENAIRES</h2>        
+                    <div class="container">
+                        {% for partenaire in partenaires %}
+                            <figure><img class="logo homeLogo" src="{{ asset('/uploads/logo/' ~ partenaire.logo)  | imagine_filter('thumb')}}" alt="image_logo"/></figure>
+                        {% endfor %}
+                    </div>
+                    <a id="btn-partners" class="btn btn-outline-secondary" href="{{path('conceptPage')}}" role="button">Plus</a>
+            </article>
+        </section>
+        <script type="text/javascript">
+            var mymap = L.map('mapid').setView([43.2803692, 5.310457], 11);
+        
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoiZWR3YXJkbWFwYm94IiwiYSI6ImNqbWh2eG96aDBlNzgzcG8yemQwOTVocmkifQ.UqN0_yvLiNBhR7YhMVnKuQ'
+            }).addTo(mymap);
+
+            var marker = L.marker([43.2803692, 5.310457]).addTo(mymap);
+
+        </script>
     {% endblock %}
 
     {% block aside %}
-    {% endblock %}
+     <section id="aside" class>
+                {# ASIDE INFOS ANNEXE #}
+                <aside>
+                    {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                    <div>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a>
+                    </div>
+                    {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
 
+                
+                </aside>
+                {# END ASIDE INFOS ANNEXE #}
+
+               <article class="article-aside"> 
+                    <h2 class="titre-aside"><strong>Nos témoignages</strong></h2>
+                    {% for testimony in testimonies %}
+                    <div class="container">
+                        <figure>
+                            <img class="avatar-aside" src="{{asset('/uploads/logo/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="image_logo"/>
+                        </figure>
+                        <div class="aside-para">
+                            <h2 class="stitre-aside">{{testimony.name}}</h2>
+                            <p>
+                                <i class="fas fa-quote-left"></i>
+                                    {{testimony.description}}
+                                <i class="fas fa-quote-right"></i>
+                            <p>
+                        </div>
+                    </div>
+                {% endfor %}
+                </article>
+            </section>
+
+    {% endblock %}
 {% endblock %}

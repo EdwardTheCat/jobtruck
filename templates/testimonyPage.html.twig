@@ -9,33 +9,34 @@
 
     {% block principal %}
         <section id="principal">
-
+        
+        
         {# TESTIMONIES CARD #}
-        {# {% for contacts in 'witnessList' %} #}
+        {% for contact in contacts %}
         {# CARD IMAGE RIGHT #}
-            {# <div class="containerCard-image-right">	 #}
+            <div class="containerCard-image-right">	
                 {# DESCRIPTION #}
-                {# <div class="product-details-image-right"> #}
+                <div class="product-details-image-right">
                     {# TITLE INFORMATION #}
-                    {# <h1>{{ contact.name.Témoignages }}</h1> #}
+                    <h1>{{ contact.name }}</h1>
 
                     {# BLOC INFORMATION #}
-                   {#  <p class="information">
+                   {# {#  <p class="information"> #}
                         <i class="fas fa-quote-left"></i>
-                            "Lorem Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut,
-                             bring them inside and you'll notice a light scent that some say is reminiscent of apples. 
+                            {{ contact.description }}
                         <i class="fas fa-quote-right"></i>
-                    </p> #}
+                    </p>
 
-                {# </div> #}
+                </div>
                 {# END DESCRIPTION #}
                 {# IMAGE CARD #}
-                {# <div class="product-image-right">
-                    <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
-                </div> #}
+                <div class="product-image-right">
+                    <img class="avatar" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_contact"/>
+                </div>
                 {# END IMAGE CARD #}
-            {# </div> #}
-            {# END CARD IMAGE RIGHT #}
+            </div>
+            {% endfor %}
+            {# END CARD IMAGE RIGHT
 
             {# ############################# COPY CARD = FAKERS ############################### #}
 
@@ -215,7 +216,7 @@
         
             {% endfor %}  #}  
 
-                {% for one in all %}
+                {% for job in jobs %}
                     {# {% if one | length > 3 %}...{% endif %} #}
                     {# MODAL OFFRE #}
                     <div id="jobModal" class="modal fade" role="dialog">
@@ -223,16 +224,16 @@
                             {# MODAL CONTENT #}
                             <div class="modal-content">
                                 <div class="modal-header-center">
-                                    <h3 class="modal-title">Offre n° {{ one.id }}</h3>
+                                    <h3 class="modal-title">Offre n° {{ job.id }}</h3>
                                 </div>
                                 <div class="modal-body jobModalStyle">
-                                    <h4 class="modal-title">{{ one.title }}</h4>
+                                    <h4 class="modal-title">{{ job.title }}</h4>
                                     <p>Descriptif de l'offre : </p>
                                     {# <p>{{ one.description | truncate (50, fasle, '...') }}</p> #}
                                     {# {% if; | length > 10 %} {{ one.description }} {% endif %} #}
                                     
-                                    <p>Date de dépot de l'offre : {{ one.createdAT|date("m/d/Y") }}</p>
-                                    <p>Contact : {{ one.contact }}</p>
+                                    <p>Date de dépot de l'offre : {{ job.createdAT|date("m/d/Y") }}</p>
+                                    <p>Contact : {{ job.contact }}</p>
                                 </div>
                                 <div class={# "modal-footer" #}>
                                     <button type="button" class="btn btn-lg badge-success" data-dismiss="modal">Retour</button>
@@ -247,10 +248,10 @@
                         {# DESCRIPTION #}
                         <div class="product-details">
                             {# TITLE INFORMATION #}
-                            <h1>{{ one.title }}</h1>
+                            <h1>{{ job.title }}</h1>
 
                             {# BLOC INFORMATION #}
-                            <p class="information">{{ one.description }}</p>
+                            <p class="information">{{ job.description }}</p>
                             
                             {# Button #}
                             <button class="btn btn-success-outline" data-toggle="modal" data-target="#jobModal">Détails</button>
@@ -259,7 +260,7 @@
                         {# END DESCRIPTION #}
                         {# IMAGE CARD #}
                         <div class="product-image">
-                            <img src="{{ one.logo }}" alt="Logo d'entreprise">
+                            <img src="{{ job.logo }}" alt="Logo d'entreprise">
                         </div>
                         {# END IMAGE CARD #}
                     </div>

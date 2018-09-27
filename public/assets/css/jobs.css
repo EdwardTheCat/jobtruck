@@ -42,3 +42,12 @@
   }
   /* END POSITION RESEAUX SOCIAUX */
 /* ############ END SECTION ASIDE INFO ############ */
+
+.containerCard-image-right{
+  background: #FBFBFB;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem auto;
+  max-height: 18rem;
+  max-width: 90%;
+}

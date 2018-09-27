@@ -2,8 +2,13 @@
 
 {% block body %}
 
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
     <h4>Details contact</h4>
     <div class="details">
+        {% if contact.logo is not null %}
+            <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_logo"/></p>
+        {% endif %}
         <p>Prénom : {{contact.name}}</p>
         <p>Nom : {{contact.surname}}</p>
         <p>Email: {{contact.email}}</p>
@@ -11,14 +16,11 @@
         <p>Qualité : {{contact.quality}}</p>
         <p>Description :</p>
         <p> {{contact.description}}</p>
-        {% if contact.logo is not null %}
-            <p>logo: <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_logo"/></p>
-        {% endif %}
         <p>Date de création: {{contact.createdAt | date('Y-m-d:h:s')}}</p>
     </div>
     <td><a class="btn btn-outline-primary" href="{{path('contactEdit',{id:contact.id}) }}">Modifier</a></td>
     <td><a class="btn btn-outline-danger" href="{{path('contactDelete',{id:contact.id}) }}">Supprimer</a></td> 
 
-    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
      
 {% endblock %}

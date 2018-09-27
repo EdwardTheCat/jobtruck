@@ -1,23 +1,49 @@
 {% extends 'adminTemplate.html.twig' %}
-
+{% block javascripts %}
+    <script>
+        $(function(){
+            $('#listjob').DataTable();
+        });
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{% endblock %}
 {% block body %}
+    
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    <a class="btn btn-outline-primary bigButton" href="{{ path('createJob') }}" role="button">Ajouter une offre d'emploi</a>
 
+    <table class="table table-hover" id="listjob">
+         <caption>Tableau des offres d'emploi</caption>
+        <thead>
+            <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Validité</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Details</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr class="table-secondary">
+                <td>{{job.title }}</td>
+                <td>{{job.contact}}</td>
+                <td><img class="logo" src="{{ asset('/uploads/logo/' ~ job.logo)  | imagine_filter('thumb')}}" alt="logo_entreprise"/></td>
+                <td>{{job.validity}} mois</td>
+                <td>{{job.createdAT|date('Y-m-d:h:s')}}</td>
+                <td><a class="btn btn-outline-info"  href="{{path('jobDetails',{id:job.id}) }}" role="button">Details</a></td>
+                <td><a class="btn btn-outline-primary" href="{{path('editJob',{id:job.id}) }}" role="button">Modifier</a></td>
+                <td><a class="btn btn-outline-danger" href="{{path('deleteJob',{id:job.id}) }}" role="button">Supprimer</a></td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-    </ul>
-    {% for one in all %} 
-        <li>
-            <p>Titre : <strong>{{ one.title }}</strong></p>
-            <p>Contact : {{ one.contact }}</p>
-            <p>Logo : {{ one.logo }}</p>
-            <p>Validité : {{ one.validity}}</p>
-            <p>Crée le : {{ one.createdAT|date("m/d/Y") }}</p>       
-            <a class="btn btn-outline-info"  href="{{path('jobDetails',{id:one.id}) }}" role="button">Details</a>
-            <a class="btn btn-outline-primary"  href="{{path('editJob',{id:one.id}) }}" role="button">Modifier</a>
-            <a class="btn btn-outline-danger" href="{{path('deleteJob',{id:one.id}) }}" role="button">Supprimer</a>
-        </li>
-    {% endfor %}    
-    </ul>
-    <a  class="btn btn-outline-primary bigButton" href="{{ path('createJob') }}">Ajouter une offre d'emploi</a>
-
+    
 
 {% endblock %}

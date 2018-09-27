@@ -8,9 +8,194 @@
 {% block body %}
 
     {% block principal %}
+        <section id="principal">
+        
+        
+        {# TESTIMONIES CARD #}
+        {% for job in jobs %}
+        {# CARD IMAGE RIGHT #}
+        {# CARD #}
+                    <div class="containerCard">	
+                        {# DESCRIPTION #}
+                        <div class="product-details">
+                            {# TITLE INFORMATION #}
+                            <h1>{{ job.title }}</h1>
+
+                            {# BLOC INFORMATION #}
+                            <p class="information">{{job.createdAT|date('Y-m-d')}}</p>
+                            
+                            {# Button #}
+                            <button class="btn btn-success-outline" data-toggle="modal" data-target="#jobModal">Détails</button>
+                            
+                        </div>
+                        {# END DESCRIPTION #}
+                        {# IMAGE CARD #}
+                        <div class="product-image">
+                            <img src="{{ job.logo }}" alt="Logo d'entreprise">
+                        </div>
+                        {# END IMAGE CARD #}
+                    </div>
+                    {# END CARD 1 #}
+            
+        {% endfor %}
+         </section>
     {% endblock %}
 
     {% block aside %}
+                <section id="aside" class>
+                {# ASIDE INFOS ANNEXE #}
+                <aside class="container" >
+                    {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                    <div class="row">
+                        <div class="reseau col alig-self-end">
+                            <a class="nav-link reseaux " href="https://www.facebook.com/lejobtruck/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="nav-link reseaux" href="https://twitter.com/lejobtruck?lang=fr"><i class="fab fa-twitter"></i></a>
+                            <a class="nav-link reseaux" href="https://fr.linkedin.com/in/job-truck-7a9b81165"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a>
+                        </div>
+                    </div>
+                    {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                </aside>
+                {# END ASIDE INFOS ANNEXE #}
+
+                {# TITLE SECTION CARD #}
+                <h4 class="title-cardContainer">Nos partenaires recrutent !</h4>
+                {# TITLE SECTION CARD #}
+
+                {# MODAL OFFRE #} {# FAKERS !!!!!!! #}
+                <div id="jobModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        {# MODAL CONTENT #}
+                        <div class="modal-content">
+                            <div class="modal-header-center">
+                                <h3 class="modal-title">Offre n°</h3>
+                            </div>
+                            <div class="modal-body jobModalStyle">
+                                <h4 class="modal-title">Function recherché</h4>
+                                <p>Nom de l'entreprise</p>
+                                <p><br>Descriptif de l'offre: </br>
+                                    Qualitée requise ect...</p>
+                                <p>Date de dépot de l'offre</p>
+                                <p>Contact : job@gmail.com</p>
+                                <p>Hébergeur : OVH</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-lg badge-success" data-dismiss="modal">Retour</button>
+                            </div>
+                        </div>
+                        {# END MODAL CONTENT #}
+                    </div>
+                </div>
+                {# END MODAL OFFRE #}{# FAKERS !!!!!!! #}
+
+                {# MODAL OFFRE #}
+
+                {# END MODAL OFFRE #}
+
+                {# TESTIMONIES CARD #}
+                {# {% for job in jobs %} #}
+
+                    {# CARD #} {# FAKERS !!!!!!! #}
+                    {# <div class="containerCard">	 #}
+                        {# DESCRIPTION #}
+                        {# <div class="product-details"> #}
+                            {# TITLE INFORMATION #}
+                            {# <h1>Nom du job</h1> #}
+
+                            {# BLOC INFORMATION #}
+{#                             <p class="information">
+                                <br>Un descriptif rapide de l'offre d'emplois.</br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                 Alias architecto labore velit distinctio ab natus.
+                            </p> #}
+                            
+                            {# Button #}
+{#                             <button class="btn btn-success-outline" data-toggle="modal" data-target="#jobModal">Détails</button>
+                            
+                        </div> #}
+                        {# END DESCRIPTION #}
+                        {# IMAGE CARD #}
+{#                         <div class="product-image">
+                            <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
+                        </div> #}
+                        {# END IMAGE CARD #}
+                    {# </div> #}
+                    {# END CARD 1 #} {# FAKERS !!!!!!! #}
+                    
+                {# {% endfor %} #}
+                {# CARD IMAGE + DESCRIPTION #}
+
+
+
+{#                 <p>les jobs</p>
+
+             {% for one in all %} 
+        
+                <p>Titre: {{ one.title }}</p>
+                <p>Description:{{ one.description }}</p>
+                <p>Contacte:{{ one.contact }}</p>
+                <p>Logo:{{ one.logo }}</p>
+                <p>Validité:{{ one.validity}}</p>
+                <p>Crée le :{{ one.createdAT|date("m/d/Y") }}</p>      
+        
+        
+            {% endfor %}  #}  
+
+                {% for job in jobs %}
+                    {# {% if one | length > 3 %}...{% endif %}
+                    {# MODAL OFFRE #}
+                    <div id="jobModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            {# MODAL CONTENT #}
+                            <div class="modal-content">
+                                <div class="modal-header-center">
+                                    <h3 class="modal-title">Offre n° {{ job.id }}</h3>
+                                </div>
+                                <div class="modal-body jobModalStyle">
+                                    <h4 class="modal-title">{{ job.title }}</h4>
+                                    <p>Descriptif de l'offre : </p>
+                                    {# <p>{{ one.description | truncate (50, fasle, '...') }}</p> #}
+                                    {# {% if; | length > 10 %} {{ one.description }} {% endif %} #}
+                                    
+                                    <p>Date de dépot de l'offre : {{ job.createdAT|date("m/d/Y") }}</p>
+                                    <p>Contact : {{ job.contact }}</p>
+                                </div>
+                                <div class={# "modal-footer" #}>
+                                    <button type="button" class="btn btn-outline-secondary"  data-dismiss="modal">Retour</button>
+                                </div>
+                            </div>
+                            {# END MODAL CONTENT #}
+                        </div>
+                    </div>
+                    {# END MODAL OFFRE #}
+                    <div class="containerCard-image-right">
+                {# DESCRIPTION #}
+                <div class="product-details-image-right">
+                    {# TITLE INFORMATION #}
+                    <h1>{{ job.title }}</h1>
+                    <p>Contact : {{ job.contact }}</p>
+                    {# BLOC INFORMATION #}
+                   {# {#  <p class="information"> #}
+                        <i class="fas fa-quote-left"></i>
+                            {{ job.description }}
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+
+                </div>
+                {# END DESCRIPTION #}
+                {# IMAGE CARD #}
+                <div class="product-image-right">
+                    <p>{{ job.logo }}</p>
+                    <p>{{job.createdAT|date('Y-m-d')}}</p>
+                    {# pas de logo image #}
+                    {# <img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_contact"/> #}
+                </div>
+                {# END IMAGE CARD #}
+            </div>
+            {# END CARD IMAGE RIGH #}
+              
+                {% endfor %}
     {% endblock %}
+    </section>
 
 {% endblock %}

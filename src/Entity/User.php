@@ -54,12 +54,21 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\File(
+     *      maxSize="5242880",
+     *      mimeTypes = {
+     *          "image/png",
+     *          "image/jpeg",
+     *          "image/jpg",
+     *          "image/gif",
+     *      }
+     * )
      * 
      */
     private $avatar;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Contact", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Contact", inversedBy="user")
      */
     private $contact;
 
@@ -84,18 +93,6 @@ class User implements UserInterface
     }
 
     private $plainPassword;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Events", mappedBy="users")
-     * @Assert\NotNull()
-     * @Assert\NotBlank()
-     */
-    private $events;
-
-    public function __construct()
-    {
-        $this->events = new ArrayCollection();
-    }
 
     public function getPseudo(): ?string
     {
@@ -240,34 +237,5 @@ class User implements UserInterface
 
         return $this;
     }
-
-    /**
-     * @return Collection|Events[]
-     */
-    public function getEvents(): Collection
-    {
-        return $this->events;
-    }
-
-    public function addEvent(Events $event): self
-    {
-        if (!$this->events->contains($event)) {
-            $this->events[] = $event;
-            $event->addUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Events $event): self
-    {
-        if ($this->events->contains($event)) {
-            $this->events->removeElement($event);
-            $event->removeUser($this);
-        }
-
-        return $this;
-    }
-
     }
 
