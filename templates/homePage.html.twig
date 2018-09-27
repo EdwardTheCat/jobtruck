@@ -2,11 +2,17 @@
 {% block stylesheets %}
     
     <link  rel="stylesheet" href="{{ asset('/assets/css/layout.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-   crossorigin=""/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
+    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
    <link  rel="stylesheet" href="{{ asset('/assets/css/home.css') }}">
 {% endblock %}
+{% block javascripts %}    
+    <script src="{{ asset('/map/js/leaflet.js') }}"></script>    
+    <script src="{{ asset('/map/js/map.js') }}"></script>
+    
+    <script> var markers = new Array();</script>
+{% endblock %}
+{% set jsMap = '' %}
 
 {% block title %}JobTruck - Accueil{% endblock %}
 
@@ -69,14 +75,44 @@
 
         {# EVENTS ARTICLE #}
         <article>
-            <h2 class="titre-para-principal">Évènements</h2>
-                <div onload="initialize()">
-                    <div id="mapid" style="width:100%  ; height:400px">
+            <h2 class="titre-para-principal">Évènements</h2>            
+            <div id="map" style="border: 1px solid #ccc" class="mb-3"></div>                    
+            {% set cpt = 0 %}
+            {% for event in events %} 
+            
+                {% set jsMap = jsMap ~ 'markers['~ cpt ~'] = L.marker([' ~ event.latitude ~','~ event.longitude ~']).bindPopup("<p><strong>'~ event.date|date('Y-m-d:h:s')~'</strong></p><p>'~event.address~'</p>");'~"\r" %}          
+            
+                <div class="card bg-light mb-3 card-event" id= "card{{ cpt }}" onclick="markers[{{ cpt }}].openPopup();">
+                    <div class="card-header" >Date de l'evenement {{event.date|date('Y-m-d:h:s')}}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Adresse {{event.address}} Ville {{event.city}}</h5>
+                        <p class="card-text">personneparticipante</p>
                     </div>
-                    <div>
-                        <h3 class="titre-para-principal">Détails</h3>
-                    </div>
-            </article>
+                </div>
+            {% set cpt = cpt + 1 %}
+            {% endfor %}
+            <script>
+            $(function(){
+                {{ jsMap |raw }}
+                var group = L.featureGroup(markers).addTo(map);
+                map.fitBounds(group.getBounds());
+
+                function callbackClick(id) {
+                    return function() {
+                        $('.card-event').removeClass("highlight ");
+                        $('#card'+id).toggleClass("highlight ");
+                        console.log(id);
+                    }
+                }
+
+                for(var id in markers)
+                {
+                    markers[id].on('click',callbackClick(id));
+                }
+               
+            });
+            </script>
+        </article>
             {# END EVENTS ARTICLE #}
 
             {# PARTNERS ARTICLE #}

@@ -8,7 +8,7 @@ function load_map() {
 		osmAttribution = 'Map data &copy; 2012 <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 		osm = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
 
-	map.setView(new L.LatLng(51.5, -0.09), 13).addLayer(osm);
+	map.setView(new L.LatLng(43.296482, 5.36978), 12).addLayer(osm);
 	
 }
 
@@ -34,7 +34,7 @@ function chooseAddr(lat1, lng1, lat2, lng2, osm_type) {
 }
 
 function addr_search() {
-	var inp = document.getElementById("addr");
+	var inp = document.getElementById("add_event_address");
 
     $.getJSON('https://nominatim.openstreetmap.org/search?format=json&limit=5&q=' + encodeURI(inp.value), function(data) {
 		var items = [];

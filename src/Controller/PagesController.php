@@ -19,14 +19,17 @@ class PagesController extends AbstractController
     public function showHomePage(ContactRepository $contactRepo, TestimonyRepository $testimonyRepo, EventsRepository $eventsRepo)
     {
         $event=$eventsRepo->findEventsAfter(new \Datetime());
-
+        $events = $this->getDoctrine()
+        ->getRepository(Events::class)
+        ->findAll();
         $testimonies=$testimonyRepo->findAll();
         $partners=$contactRepo->findBy(["quality" => "partenaire"]);
 
         return $this->render('homePage.html.twig', [
             'testimonies' => $testimonies,
             'partners' => $partners,
-            'event' => $event
+            'event' => $event,
+            'events' => $events
         ]);
     }
 

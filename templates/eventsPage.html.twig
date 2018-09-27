@@ -15,20 +15,20 @@
 
 {% set jsMap = '' %}
 
-{% block title %}JobTruck - Évènements{% endblock %}
-
-{% block body %}                   
+{% block title %}JobTruck - Évènements{% endblock %}                
 
     {% block principal %}    
         <div id="map" style="border: 1px solid #ccc" class="mb-3"></div>
 
+    {% endblock %}
+     {% block aside %} 
         {% set cpt = 0 %}
         {% for event in events %} 
            
-            {% set jsMap = jsMap ~ 'markers['~ cpt ~'] = L.marker([' ~ event.latitude ~','~ event.longitude ~']);'~"\r" %}          
+            {% set jsMap = jsMap ~ 'markers['~ cpt ~'] = L.marker([' ~ event.latitude ~','~ event.longitude ~']).bindPopup("<p><strong>'~ event.date|date('Y-m-d:h:s')~'</strong></p><p>'~event.address~'</p>");'~"\r" %}          
             
-            <div class="card bg-light mb-3">
-                <div class="card-header">Date de l'evenement {{event.date|date('Y-m-d:h:s')}}</div>
+            <div class="card bg-light mb-3 card-event" id= "card{{ cpt }}" onclick="markers[{{ cpt }}].openPopup() .removeClass("highlight ");">
+                <div class="card-header" >Date de l'evenement {{event.date|date('Y-m-d:h:s')}}</div>
                 <div class="card-body">
                     <h5 class="card-title">Adresse {{event.address}} Ville {{event.city}}</h5>
                     <p class="card-text">personneparticipante</p>
@@ -38,12 +38,23 @@
         {% endfor %}
         <script>
             $(function(){
-                {{ jsMap }}
+                {{ jsMap |raw }}
                 var group = L.featureGroup(markers).addTo(map);
                 map.fitBounds(group.getBounds());
+
+                function callbackClick(id) {
+                    return function() {
+                        $('.card-event').removeClass("highlight ");
+                        $('#card'+id).toggleClass("highlight ");
+                        console.log(id);
+                    }
+                }
+
+                for(var id in markers)
+                {
+                    markers[id].on('click',callbackClick(id));
+                }
+               
             });
         </script>
-
-    {% endblock %}
-
-{% endblock %} 
+{% endblock %}

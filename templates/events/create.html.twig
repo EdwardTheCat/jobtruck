@@ -2,7 +2,7 @@
 {% form_theme formEvent 'bootstrap_4_layout.html.twig' %}
 {% block stylesheets %}
     <link  rel="stylesheet" href="{{ asset('/assets/css/chosen.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}"> />
+    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
 {% endblock %}
 {% block javascripts %}
@@ -34,13 +34,13 @@
                         <div class="col">
                                 {{ form_row(formEvent.date, {'label': 'Date: ' }) }}
                         
-                                {{ form_row(formEvent.address, {'attr': {'placeholder': "Rue, Boulevard..."}, 'label': 'Adresse: ' }) }}
+                                {{ form_row(formEvent.address, {'attr': {'placeholder': ""}, 'label': 'Adresse: ' }) }}
                                 
                                 {{ form_row(formEvent.complement1, {'attr': {'placeholder': "Bâtiment, Digicode ..."}, 'label': 'Complément 1: ' }) }}
                                 {{ form_row(formEvent.complement2, {'attr': {'placeholder': "Autres Informations"}, 'label': 'Complémentaires 2: ' }) }}</p>
                                 
-                                {{ form_row(formEvent.city, {'attr': {'placeholder': "Marseille"},  'label': 'Ville: ' }) }}
-                                {{ form_row(formEvent.postalCode, {'attr': {'placeholder': "13014"}, 'label': 'Code postal: ' }) }}
+                                {{ form_row(formEvent.city, {'attr': {'placeholder': ""},  'label': 'Ville: ' }) }}
+                                {{ form_row(formEvent.postalCode, {'attr': {'placeholder': ""}, 'label': 'Code postal: ' }) }}
                                 
                                 {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}, 'label': 'Decription de l\'évènement: ' }) }}</p>                         
                         
@@ -59,8 +59,7 @@
                         </div>
                         <div class="col">
                                 <div id="map" style="; border: 1px solid #ccc"></div>
-                                <div id="search">
-                                        <input type="text" name="addr" value="" id="addr" placeholder="Adresse" class="form-control"/>
+                                <div id="search">                                
                                         <button type="button" class="btn btn-outline-secondary-blue sizeLinksLogin" onclick="addr_search();" >Search</button>
                                 <div id="results"/>
                         </div>

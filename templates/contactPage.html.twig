@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}   
-    <link  rel="stylesheet" href="{{ asset('/assets/css/contact.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
     <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
+    <link  rel="stylesheet" href="{{ asset('/assets/css/contact.css') }}">
 {% endblock %}
 
 {% block javascripts %} 
     <script src="{{ asset('/map/js/leaflet.js') }}"></script>
-    <script src="{{ asset('/map/js/map.js') }}"></script>     
+    <script src="{{ asset('/map/js/map.js') }}"></script>        
 {% endblock %}
 
 {% block title %}JobTruck - Contact{% endblock %}
@@ -81,7 +81,12 @@
             <h4 class="title-cardContainer">Notre bureau</h4>
             {# TITLE SECTION CARD #}
             {# ASIDE INFOS MAP #}
-                <div id="map"  class="col-sm-12 aside " style=" border: 1px solid #ccc"></div>              
+                <div id="map"  class="col-sm-12 aside " style=" border: 1px solid #ccc"></div> 
+                <script>
+                    $(function(){                        
+                        var marker = L.marker([43.33166900000001, 5.418576300000041]).addTo(map);
+                    });
+                </script>             
             {# END ASIDE INFOS MAP #}
 
             {# ADDRESS #}
@@ -92,5 +97,6 @@
             {# END ADDRESS #}
         </section>
     {% endblock %}
+    
 
 {% endblock %}
