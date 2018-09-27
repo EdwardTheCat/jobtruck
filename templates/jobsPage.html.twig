@@ -8,9 +8,108 @@
 {% block body %}
 
     {% block principal %}
+            <section id="principal">
+                {# JOBS CARD #}
+                {% for job in jobs %}
+                    {# CARD IMAGE RIGHT #}
+                    <div class="containerCard-image-right">	
+                        {# DESCRIPTION #}
+                        <div class="product-details-image-right">
+                            {# TITLE INFORMATION #}
+                            <h1>{{ job.title }}</h1>
+                            {# BLOC INFORMATION #}
+                            <p class="information">
+                                {# {{ job.description }} #}
+                            </p>
+                            {# Button #}
+                            <div class="btn-right">
+                                <button class="btn btn-outline-secondary sizeLinks" data-toggle="modal" data-target="#jobModal{{ job.id }}">Détails</button>
+                            </div>
+                        </div>
+                        {# END DESCRIPTION #}
+                        {# IMAGE CARD #}
+                        <div class="product-image-right">
+                            <img src="{{ asset('/uploads/logo/' ~ job.logo)  | imagine_filter('thumb') }}" alt="Photo témoins">
+                        </div>
+                        {# END IMAGE CARD #}
+                    </div>
+                    {# END CARD IMAGE RIGHT #}
+
+                    {# MODAL OFFRE #}
+                    <div id="jobModal{{ job.id }}" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            {# MODAL CONTENT #}
+                            <div class="modal-content">
+                                <div class="modal-header-center">
+                                    <h3 class="modal-title">Offre n° {{ job.id }}</h3>
+                                </div>
+                                <div class="modal-body jobModalStyle">
+                                    <h4 class="modal-title">{{ job.title }}</h4>
+                                    <p class="boldModal">Descriptif de l'offre : </p>
+                                    <p>{{ job.description }}</p>                                   
+                                    <p class="boldModal">Date de dépot de l'offre : </p>
+                                    <p>{{ job.createdAT|date("m/d/Y") }}</p>
+                                    <p class="boldModal">Contact : </p>
+                                    <p>{{ job.contact }}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary sizeLinks" data-dismiss="modal">Retour</button>
+                                </div>
+                            </div>
+                            {# END MODAL CONTENT #}
+                        </div>
+                    </div>
+                    {# END MODAL OFFRE #}
+            {% endfor %}
+
+        </section>
     {% endblock %}
 
     {% block aside %}
+        <section id="aside" class>
+            {# ASIDE INFOS ANNEXE #}
+            <aside class="container" >
+                {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                <div class="row">
+                    <div class="reseau col alig-self-end">
+                        <a class="nav-link reseaux " href="https://www.facebook.com/lejobtruck/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="nav-link reseaux" href="https://twitter.com/lejobtruck?lang=fr"><i class="fab fa-twitter"></i></a>
+                        <a class="nav-link reseaux" href="https://fr.linkedin.com/in/job-truck-7a9b81165"><i class="fab fa-linkedin-in"></i></a>
+                        {# <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a> #}
+                    </div>
+                </div>
+                {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
+            </aside>
+            {# END ASIDE INFOS ANNEXE #}
+
+            {# TITLE SECTION CARD #}
+            <h4 class="title-cardContainer">Découvrez nos partenaires !</h4>
+            {# TITLE SECTION CARD #}
+        </section>
+        {# TESTIMONIES CARD #}
+        {% for partner in partners %}
+            {# CARD IMAGE RIGHT #}
+            <div class="containerCard">	
+                {# DESCRIPTION #}
+                <div class="product-details">
+                    {# TITLE INFORMATION #}
+                    <h1>{{ partner.name }} {{ partner.surname }} </h1>
+                    {# BLOC INFORMATION #}
+                    <p class="information">
+                        <i class="fas fa-quote-left"></i>
+                            {{ partner.description }} 
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                </div>
+                {# END DESCRIPTION #}
+                {# IMAGE CARD #}
+                <div class="product-image">
+                    <img src="{{ asset('/uploads/logo/' ~ partner.logo)  | imagine_filter('thumb') }}" alt="Photo témoins">
+                </div>
+                {# END IMAGE CARD #}
+            </div>
+            {# END CARD IMAGE RIGHT #}
+        {% endfor %}
     {% endblock %}
 
 {% endblock %}

@@ -31,6 +31,3 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-eu_cookie_law:
-    response_injection: true # default true
-    #template: cookie_law_bar.html.twig #cookieBar.html.twig # twig template name, default: EuCookieLawBundle::cookie_law_bar.html.twig

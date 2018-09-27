@@ -28,7 +28,7 @@
                 <h2 class="titre-para-principal">Le concept de job truck</h2>
                 <p class="para-principal">
                     Notre démarche est simple, nous réalisons deux actions distinctes, les mises en relation avec des acteurs économique, associatif, et public,
-                     et le transport des personnes n'ayant pas le moyen de ce déplacer en entreprises.
+                     ainsi que le transport des personnes n'ayant pas le moyen de ce déplacer en entreprises.
                 </p>
                 <p class="para-principal">
                     Dans un premier temps, nous cherchons à rapprocher les besoins d’emploi et de main d’œuvre en réduisant les éloignements entre les demandeurs d’emplois et les entreprises,
@@ -83,7 +83,7 @@
                 </p>
                 <h3>Assurer et développer le conseil en évolution professionnelle et orientation.</h3>
                 <p class="para-principal">
-                    L'évolution professionnel est une des clef pour lutter contre le chômages notament des jeunes et des quartier. Nous nous focalisons sur la découverte des métiers,
+                    L'évolution professionnel est une des clef pour lutter contre le chômages notament des jeunes et des demandeurs d'emploi dans les quartiers prioritaires. Nous nous focalisons sur la découverte des métiers,
                      des branches, la création d’entreprises, les centre de formation, mais également préparer un premier contact entre le candidat et le recruteur.
                 </p>
             </article>
@@ -92,7 +92,7 @@
             <article>
                 <h2 class="titre-para-principal">Au cœur de l'action !</h2>
                 <div style="position:relative; height:0; padding-bottom:56.13%">
-                    <iframe src="https://www.youtube.com/embed/B5aPLIkeh7Q?ecver=2" 
+                    <iframe src="https://www.youtube.com/embed/VfD2iIvj2NI" 
                         style="position:absolute; width:100%; height:100%; left:0"{#  width="641" height="360" #} 
                             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
@@ -105,23 +105,28 @@
                     Dans notre engagements vers l’emploi, nous avons la chance d’obtenir des soutiens important favorisant notre approche du retour à l’emploi.
                      Tous engagé autour de valeurs communes et pour changer en profondeur les quartiers défavorisés.
                 </p>
-                <div id="blocImgPartenaire"></div>
+                <div id="blocImgPartenaire">
+                    <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-aiming.png') }}" alt="Entreprise Aiming">
+                    <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-positivePlanetFrance.png') }}" alt="Association Positive Planet France">
+                    <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-webforce3.png') }}" alt="Entreprise webforce 3">
+                    {# <img class="logoPartner" src="{{ asset('/assets/img/test.jpg') }}" alt="card image"> #}
+                </div>
             </article>
             {# END PARTNERS ARTICLE #}
         </section>
     {% endblock %}
 
     {% block aside %}
-            <section id="aside" class>
+            <section id="aside">
                 {# ASIDE INFOS ANNEXE #}
                 <aside class="container" >
                     {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
                     <div class="row">
                         <div class="reseau col alig-self-end">
-                            <a class="nav-link reseaux " href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="nav-link reseaux" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="nav-link reseaux" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a>
+                            <a class="nav-link reseaux " href="https://www.facebook.com/lejobtruck/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="nav-link reseaux" href="https://twitter.com/lejobtruck?lang=fr"><i class="fab fa-twitter"></i></a>
+                            <a class="nav-link reseaux" href="https://fr.linkedin.com/in/job-truck-7a9b81165"><i class="fab fa-linkedin-in"></i></a>
+                            {# <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a> #}
                         </div>
                     </div>
                     {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}

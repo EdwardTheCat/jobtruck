@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
+{% block stylesheets %}   
     <link  rel="stylesheet" href="{{ asset('/assets/css/contact.css') }}">
+    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
+{% endblock %}
+
+{% block javascripts %} 
+    <script src="{{ asset('/map/js/leaflet.js') }}"></script>
+    <script src="{{ asset('/map/js/map.js') }}"></script>     
 {% endblock %}
 
 {% block title %}JobTruck - Contact{% endblock %}
@@ -8,9 +15,82 @@
 {% block body %}
 
     {% block principal %}
+        <h2>Nous contacter</h2>
+        <form>
+            <fieldset>
+                <div class="form-group">
+                    {# <label class="col-form-label" for="formName">Votre nom</label> #}
+                    <input class="form-control" placeholder="Nom" id="formName" type="text">
+                </div>
+                <div class="form-group">
+                    {# <label class="col-form-label" for="formSurame">Votre prénom</label> #}
+                    <input class="form-control" placeholder="Prénom" id="formSurame" type="text">
+                </div>
+                <div class="form-group">
+                    {# <label class="col-form-label" for="formphone">Votre numéro de téléphone</label> #}
+                    <input class="form-control" placeholder="Téléphone" id="formphone" type="text">
+                </div>
+                <div class="form-group">
+                    {# <label for="formEmail">Email address</label> #}
+                    <input class="form-control" id="formEmail" aria-describedby="emailHelp" placeholder="Email" type="email">
+                    {# <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> #}
+                </div>
+                <div class="form-group">
+                    <select class="custom-select">
+                    <option selected="">Vous-êtes...</option>
+                        <option>Une entreprise</option>
+                        <option>Un particulier</option>
+                    </select>
+                </div>
+                  <div class="form-group">
+                    <select class="custom-select">
+                    <option selected="">Raison du contact...</option>
+                        <option>Déposer une offre d'emploi</option>
+                        <option>Informations</option>
+                        <option>Faire un don</option>
+                        <option>Autres</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    {# <label for="formMessage">Message</label> #}
+                    <textarea class="form-control" id="formMessage" rows="3" placeholder="Votre message..."></textarea>
+                </div>
+            </fieldset>
+                <button type="submit" class="btn btn-outline-secondary">Envoyer</button>
+            </fieldset>
+        </form>
     {% endblock %}
 
     {% block aside %}
+        <section id="aside">
+            {# ASIDE INFOS ANNEXE #}
+            <aside class="container" >
+                {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                <div class="row">
+                    <div class="reseau col alig-self-end">
+                        <a class="nav-link reseaux " href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="nav-link reseaux" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        {# <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a> #}
+                    </div>
+                </div>
+                {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
+            </aside>
+            {# END ASIDE INFOS ANNEXE #}
+            {# TITLE SECTION CARD #}
+            <h4 class="title-cardContainer">Notre bureau</h4>
+            {# TITLE SECTION CARD #}
+            {# ASIDE INFOS MAP #}
+                <div id="map"  class="col-sm-12 aside " style=" border: 1px solid #ccc"></div>              
+            {# END ASIDE INFOS MAP #}
+
+            {# ADDRESS #}
+            <div class="addressAside">
+                <p>12 Boulevard Charles Zeytountzian</p>
+                <p>13013 Marseille</p>
+            </div>
+            {# END ADDRESS #}
+        </section>
     {% endblock %}
 
 {% endblock %}

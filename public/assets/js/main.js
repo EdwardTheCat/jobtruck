@@ -1,5 +1,11 @@
 $(function(){
-    console.log('jquery');
+    /* console.log('jquery'); */
+
+    // APPEL COOKIEBAR
+    $(document).ready(function(){
+        $.cookieBar({
+        });
+    });
 
     // HOVER JOBTRUCK BUTTON
     $('#nav-jobtruck').ready(function() {

@@ -28,13 +28,36 @@
 
 /* ############### SECTION MODAL JOB ############### */
 .modal-header-center{
-    padding: 2% 42%;
-    align-items: center;
+  text-align: center;
 }
 .modal-dialog{
-    margin-top: 25%;
-    max-width: 90%;
-    padding: 2% 10%;
+  margin-top: 8%;
+  max-width: 90%;
+  padding: 2% 10%;
+}
+.modal-body{
+  padding: .5rem 3rem;
+}
+.product-image img{
+/* height: 100%; */
+width: 60%;
+}
+.jobModalStyle h4{
+  font-size: 2.5rem;
+  font-family: "Raleway Bold", sans-serif;
+  /* font-family: "Helvetica Neue Medium"; */
+  margin-bottom: 2.5rem;
+}
+.jobModalStyle p{
+  font-size: 1.7rem;
+  line-height: 3rem;
+  /* font-family: "Helvetica Neue Light"; */
+  font-family: "Raleway Light", sans-serif;
+}
+.boldModal{
+  font-weight: bolder;
+  margin-bottom: 0;
+  letter-spacing: 0.08rem;
 }
 /* ############ END SECTION MODAL JOB ############ */
 
@@ -63,7 +86,7 @@
       position: relative;
       text-align: left;
       overflow: hidden;
-      padding: 1rem;
+      padding: 0 1rem;
       height: 100%;
       float: left;
       width: 80%;
@@ -74,7 +97,7 @@
     font-family: 'Raleway bold', sans-serif;
     display: inline-block;
     position: relative;
-    color: #344055;
+    color: #005C7D;
     margin: 1%;
     font-size: 2.4rem;
     font-weight: bolder;
@@ -85,8 +108,38 @@
       font-family: 'Raleway Thin', sans-serif;
       font-size: 1.5rem;
       line-height: 2.5rem;
-      color: #333333;
+      color: #344055;
   }
+
+@media only screen and (max-width: 1600px) {
+
+  /* 	Product Name */
+  .containerCard-image-right .product-details-image-right h1{
+    font-size: 2.1rem;
+  }
+
+  /* The most important information about the product */
+  .containerCard-image-right .product-details-image-right > p {
+    font-size: 1.35rem;
+    line-height: 2rem;
+  }
+}
+
+  /* RETURN BUTTON */
+/*   .btn-outline-secondary{
+    color: #005C7D;
+  }
+  .btn-outline-secondary:hover{
+    background-color: #005C7D;
+    border-color: #005C7D;
+  }
+  .btn{
+    border-radius: 1rem;
+  }
+  .sizeLinks{
+    font-size: 1.4rem;
+  } */
+/* END RETURN BUTTON */
   
   /* DISPLAY IMAGE CARD WITH RESPONSIVE < 1000PX */
   @media only screen and (max-width: 1350px) {
@@ -96,9 +149,10 @@
     }
     .product-details-image-right {
       width: 100%;
-      padding: 2rem;
+      padding-top: 1rem;
     }
   }
+
   /* Card image  */
   .product-image-right {
       transition: all 0.3s ease-in-out;
