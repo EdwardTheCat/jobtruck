@@ -28,7 +28,7 @@ class SecurityController extends AbstractController
     }   
 
     /**
-    * @Route("dashboard", name="admin")
+    * @Route("/admin", name="admin")
     */
     public function admin(EventsRepository $repo){
 

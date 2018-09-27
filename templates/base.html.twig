@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        {% block stylesheets %}{% endblock %}
+        
         {# END ONLINE #}
 
         {# OFFLINE #}
@@ -20,6 +20,7 @@
 
         <link rel="stylesheet" href="{{ asset ('/assets/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset ('/assets/css/cookiebar.css') }}">
+        {% block stylesheets %}{% endblock %}
 
         {# ONLINE CDN #}
         
@@ -29,9 +30,9 @@
         {# END ONLINE CDN #}
 
         {# OFFLINE #}
-        {# <script src="{{ asset ('/assets/js/jquery-3.3.1.js') }}"></script>
-        <script src="{{ asset ('/assets/js/bootstrap/bootstrap.min.js') }}"></script> #}
-        {# <script defer src="{{ asset ('/assets/js/fontawesome/all.min.js') }}"></script> #} {# LOGO RESEAUX SOCIAUX OFFLINE§ ATTENTION EN BLEU #}
+        <script src="{{ asset ('/assets/js/jquery-3.3.1.js') }}"></script>
+        <script src="{{ asset ('/assets/js/bootstrap/bootstrap.min.js') }}"></script> 
+        {# <script defer src="{{ asset ('/assets/js/fontawesome/all.min.js') }}"></script> #} {# LOGO RESEAUX SOCIAUX OFFLINE§ ATTENTION EN BLEU
         {# END OFFLINE #}        
 
         <script src="{{ asset ('/assets/js/main.js') }}"></script>
@@ -145,7 +146,7 @@
                             <h3 class="modal-title-footer styleModal">Mention légal</h3>
                         </div>
                         <div class="modal-body-footer">
-                            <h4 class="modal-title-footer">Le Jobtruck.fr</h4>
+                            <h4 class="modal-title-footer heigthTitle">Le Jobtruck.fr</h4>
                             <p>Nom de l'association : Le Job Truck</p>
                             <p>Numéro Association : W 133 02 80 10</p>
                             <p>Adresse : 12 boulevard Charles Zeytountzian, 13013 Marseille</p>
@@ -168,21 +169,16 @@
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title-footer" style="justify-self: flex-start">Condition Générale d'Utilisation</h3>
+                            <h3 class="modal-title-footer heigthTitle" style="justify-self: flex-start">Condition Générale d'Utilisation</h3>
                         </div>
                         <div class="modal-body-footer">
-                            <h4 class="modal-title-footer">Condition Générale d'Utilisation</h4>
+                            <h4 class="modal-title-footer">Champ d'application</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
-                                Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
-                                Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
-                                Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
-                                Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
-                                Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
-                                Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                                Le Site est d'accès libre et gratuit à tout Internaute. La navigation sur le Site suppose l'acceptation par tout Internaute des présentes conditions générales. La simple connexion au Site emportera acceptation pleine et entière des présentes conditions générales.
+                                Lors de l'inscription sur le Site, cette acceptation sera confirmée par le fait de cocher la case correspondant à la phrase suivante :« J'ai lu et j'accepte les conditions générales de vente et d'utilisation ». L'Internaute reconnaît du même fait en avoir pris pleinement connaissance et les accepter sans restriction.
+                                Le fait de cocher la case susvisée sera réputé avoir la même valeur qu'une signature manuscrite de la part de l'Internaute. L'Internaute reconnaît la valeur de preuve des systèmes d'enregistrement automatique de LesNumériques.com et, sauf pour lui d'apporter preuve contraire, il renonce à les contester en cas de litige.
+                                Les présentes conditions générales sont applicables aux relations entre les parties à l'exclusion de toutes autres conditions, et notamment celles de l'Internaute.
+                                L'acceptation des présentes conditions générales suppose de la part des Internautes qu'ils jouissent de la capacité juridique nécessaire pour cela, ou à défaut qu'ils en aient l'autorisation d'un tuteur ou d'un curateur s'ils sont incapables, de leur représentant légal s'ils sont mineurs, ou encore qu'ils soient titulaires d'un mandat s'ils agissent pour le compte d'une personne morale. 
                             </p>
                         </div>
                         <div class="modal-footer">
@@ -200,21 +196,19 @@
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title-footer" style="justify-self: flex-start">Charte de confidentialitée</h3>
+                            <h3 class="modal-title-footer heigthTitle" style="justify-self: flex-start">Charte de confidentialitée</h3>
                         </div>
                         <div class="modal-body-footer">
-                            <h4 class="modal-title-footer">Charte de confidentialitée</h4>
+                            <h4 class="modal-title-footer">Respect de la finalité de la collecte de données personnelles</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
-                                Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
-                                Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
-                                Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                                Les Informations Personnelles collectées font l'objet d'un traitement informatique et sont exclusivement réservées à JobTruck.org.com. Les données récoltées sont nécessaires à la bonne administration du Site, ainsi qu'au respect de ses obligations contractuelles par LesNumériques.com. Ces données sont conservées par LesNumériques.com en cette unique qualité. L'Internaute autorise Factory Eleven à effectuer des études et analyses statistiques sur l'utilisation et la typologie des Internautes du Site.
+                                Aucune Information Personnelle de l'Internaute du site www.JobTruck.org.com n'est collectée, publiée, échangée, transférée, cédée ou vendue à l'insu de l'Internaute sur un support quelconque à des tiers. Seule l'hypothèse du rachat de Factory Eleven et de ses droits permettrait la transmission desdites informations à l'éventuel acquéreur qui serait à son tour tenu de la même obligation de conservation et de modification des données vis à vis de l'Internaute du Site.
+                                Les Informations Personnelles récoltées ne font l'objet d'aucun transfert vers l'étranger. 
                             </p>
+                            <h4 class="modal-title-footer">Droit d'accès, de rectification et d'opposition</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
-                                Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
-                                Nam maxime doloremque delectus magni, illum quos dicta quasi nemo debitis ipsa ipsam expedita quo rerum culpa, dolores odio nobis fugit commodi adipisci? Culpa animi vel dolor corrupti ab modi!
-                                Odio eveniet dolorum, voluptatum quis iusto voluptatibus vel commodi illum. A ducimus explicabo distinctio eos cupiditate, tempore quos quod deleniti, doloremque ipsa, id magnam dolore! Tempora alias voluptates vel dicta.
+                                Les coordonnées de tous les Internautes inscrits sur le présent Site sont sauvegardées pour une durée raisonnable nécessaire à la bonne administration du Site. Ces données sont conservées dans des conditions sécurisées, selon les moyens actuels de la technique, dans le respect des dispositions de la Loi Informatique et Libertés du 6 janvier 1978.
+                                Conformément à cette dernière, les Internautes disposent d'un droit d'opposition, d'interrogation, d'accès et de rectification des données qu'ils ont fournies. 
                             </p>
                         </div>
                         <div class="modal-footer">
@@ -276,8 +270,7 @@
                     </div>
                 </div>
             </div>
-        {# FIN MENTIONS LEGAL #}
+            {# FIN MENTIONS LEGAL #}
         </footer>
-</body>
-
+    </body>
 </html>

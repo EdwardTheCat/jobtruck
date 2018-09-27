@@ -89,20 +89,35 @@
   background-color: #005C7D;
 }
 .btn{
-  margin-top: 3rem;
+  margin: 3rem auto;
+  display: block;
   border-radius: 1rem;
   font-size: 1.4rem;
+}
+.btnSize{
+  width: 6rem;
 }
 /* ############ END SECTION PARTNERS ############ */
 
 /* ############### SECTION IMAGE PARTNERS ############### */
 #blocImgPartenaire{
-  display: block;
+  display: flex;
   width: 100%;
 }
 .logoPartner{
-  max-height: 5rem;
+  max-height: 6rem;
+  display: block;
+  justify-items: center;
+  margin: 0 auto;
+  width: auto;
 }
+ /* SMARTHPHONE __________________________________________________________________________________________*/
+ @media only screen and (max-width: 459px) {
+  #blocImgPartenaire{
+    display: block;
+    margin-top: 2rem;
+  }
+ }
 /* ############ END SECTION IMAGE PARTNERS ############ */
 
 /* ############ SECTION ASIDE INFO ############ */

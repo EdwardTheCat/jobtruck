@@ -53,24 +53,19 @@
         <article>
             <h2 class="titre-para-principal">Nos engagements</h2>
 
-            <p class="para-principal">Guider les jeunes en recherche d’emploi dans leur parcours, désireux d’entrer en apprentissage avec la concertation de l’éducation nationale.</p>
-            <p class="para-principal">Nous soutenons le retour à l’emploi :</p>
-            <ul class="para-principal">
-                <li>Par une orientation et le soutient à un projet professionnel en accompagnant les candidats dans leur démarchent professionnelles.</li>
-                <li>En informant sur les opportunités d’emploi et en préparant les habitants pour leurs rencontres professionnelle, en les préparant une futur embauche.</li>
-                <li>Par le soutien à un projet de création d’entreprise incluant le support technique et financier directement au cœur des quartiers prioritaires.</li>
-            </ul>
-            
-            <p class="para-principal">
-                Notre action local vise également à renforcer le tissus économique de Marseille et de ses environs, en apportant aux entreprises local la main d’œuvre nécessaire.
-            </p>
-{# 
-            <p class="para-principal">
-                L'évolution professionnel est une des clef pour lutter contre le chômages notament des jeunes et des demandeurs d'emploi dans les quartiers prioritaires. Nous nous focalisons sur la découverte des métiers,
-                    des branches, la création d’entreprises, les centre de formation, mais également préparer un premier contact entre le candidat et le recruteur.
-            </p> #}
-        </article>
-        {# END ENGAGEMENT ARTICLE #}
+                <p class="para-principal">Guider les jeunes en recherche d’emploi dans leur parcours, désireux d’entrer en apprentissage avec la concertation de l’éducation nationale.</p>
+                <p class="para-principal">Nous soutenons le retour à l’emploi :</p>
+                <ul class="para-principal">
+                    <li>Par une orientation et le soutient à un projet professionnel en accompagnant les candidats dans leur démarchent professionnelles.</li>
+                    <li>En informant sur les opportunités d’emploi et en préparant les habitants pour leurs rencontres professionnelle, en les préparant une futur embauche.</li>
+                    <li>Par le soutien à un projet de création d’entreprise incluant le support technique et financier directement au cœur des quartiers prioritaires.</li>
+                </ul>
+                
+                <p class="para-principal">
+                    Notre action local vise également à renforcer le tissu économique de Marseille et de ses environs, en apportant aux entreprises local la main d’œuvre nécessaire.
+                </p>
+            </article>
+            {# END ENGAGEMENT ARTICLE #}
 
         {# EVENTS ARTICLE #}
         <article>
@@ -78,39 +73,27 @@
                 <div onload="initialize()">
                     <div id="mapid" style="width:100%  ; height:400px">
                     </div>
+                    <div>
+                        <h3 class="titre-para-principal">Détails</h3>
+                    </div>
+            </article>
+            {# END EVENTS ARTICLE #}
+
+            {# PARTNERS ARTICLE #}
+            <article {# id="partners" #}>
+                <h2 class="titre-para-principal">Nos partenaires</h2>        
+                    {# <div class="container"> #}
+                <div id="blocImgPartenaire">
+                    <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-aiming.png') }}" alt="Entreprise Aiming">
+                    <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-positivePlanetFrance.png') }}" alt="Association Positive Planet France">
+                    <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-webforce3.png') }}" alt="Entreprise webforce 3">
+                    {# <img class="logoPartner" src="{{ asset('/assets/img/test.jpg') }}" alt="card image"> #}
                 </div>
-        </article>
-        {# END EVENTS ARTICLE #}
-
-        {# PARTNERS ARTICLE #}
-        <article {# id="partners" #}>
-            <h2 class="titre-para-principal">Nos partenaires</h2>        
-                {# <div class="container"> #}
-            <div id="blocImgPartenaire">
-                <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-aiming.png') }}" alt="Entreprise Aiming">
-                <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-positivePlanetFrance.png') }}" alt="Association Positive Planet France">
-                <img class="logoPartner" src="{{ asset('/assets/img/partners/logo-partner-webforce3.png') }}" alt="Entreprise webforce 3">
-                {# <img class="logoPartner" src="{{ asset('/assets/img/test.jpg') }}" alt="card image"> #}
-            </div>
-                {# </div> #}
-            <a id="btn-partners" class="btn btn-outline-secondary" href="{{path('conceptPage')}}" role="button">Plus</a>
-        </article>
-        {# END PARTNERS ARTICLE #}
-    </section>
-    <script type="text/javascript">
-        var mymap = L.map('mapid').setView([43.2803692, 5.310457], 11);
-    
-
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoiZWR3YXJkbWFwYm94IiwiYSI6ImNqbWh2eG96aDBlNzgzcG8yemQwOTVocmkifQ.UqN0_yvLiNBhR7YhMVnKuQ'
-        }).addTo(mymap);
-
-        var marker = L.marker([43.2803692, 5.310457]).addTo(mymap);
-
-    </script>
+                    {# </div> #}
+                <a id="btn-partners" class="btn btnSize btn-outline-secondary" href="{{path('conceptPage')}}" role="button">Plus</a>
+            </article>
+            {# END PARTNERS ARTICLE #}
+        </section>
 {% endblock %}
 
 {% block aside %}
@@ -132,21 +115,21 @@
 
         <article class="article-aside"> 
             <h2 class="titre-aside"><strong>Nos témoignages</strong></h2>
-            {# {% for testimony in testimonies %} #}
+            {% for testimony in testimonies %}
                 <div class="container">
                     <figure>
-                        <img class="avatar-aside" src="{# {{asset('/uploads/logo/' ~ testimony.photo) | imagine_filter('thumb')}} #}" alt="image_logo"/>
+                        <img class="avatar-aside" src="{{asset('/uploads/logo/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="image_logo"/>
                     </figure>
                     <div class="aside-para">
-                        <h2 class="stitre-aside">{# {{testimony.name}} #}</h2>
+                        <h2 class="stitre-aside">{{testimony.name}} {{testimony.lastname}}</h2>
                         <p>
                             <i class="fas fa-quote-left"></i>
-                                {# {{testimony.description}} #}
+                                {{testimony.description}}
                             <i class="fas fa-quote-right"></i>
                         <p>
                     </div>
                 </div>
-            {# {% endfor %} #}
+            {% endfor %}
         </article>
     </section>
 {% endblock %}

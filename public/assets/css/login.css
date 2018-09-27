@@ -71,7 +71,7 @@ input{
       margin: 0rem auto;
     }
     .navbar{
-      margin-top: 2%;
+      /* margin-top: 2%; */
       margin-bottom: 20%;
     }
   }
@@ -79,7 +79,7 @@ input{
 /* SMARTHPHONE __________________________________________________________________________________________*/
 @media only screen and (max-width: 475px){
   .navbar{
-    margin-top: 2%;
+    /* margin-top: 2%; */
     margin-bottom: 0%;
   }
   .card{

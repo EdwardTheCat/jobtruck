@@ -36,17 +36,20 @@
 
 /* ############ SECTION PRINCIPAL ############ */
   /* TITRE PRINCIPAL */
+  .titre-para-principal{
+    margin: 4rem 0;
+  }
   .centerForm{
     text-align: center;
   }
-    h2 {
-      margin-top: 6rem;
-      margin-bottom: 6rem;
-      font-size: 2.4rem;
-      font-weight: bolder;
-      text-align: center;
-      font-family: 'Raleway Bold', sans-serif;
-    }
+  h3 {
+/*     margin-top: 6rem;
+    margin-bottom: 6rem; */
+    font-size: 2.4rem;
+    font-weight: bolder;
+    text-align: center;
+    font-family: 'Raleway Bold', sans-serif;
+  }
   /* END TITRE PRINCIPAL */
   /* FORM */
   form{

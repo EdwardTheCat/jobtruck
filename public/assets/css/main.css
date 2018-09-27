@@ -254,9 +254,7 @@ body {
       font-size: 1.8rem;
       margin-top: 50%;
     }
-
   } 
-
 
 /* DESKTOP __________________________________________________________________________________________*/
 /* ############### MODAL ############### */
@@ -278,6 +276,13 @@ body {
   .modal-header-center{
     padding: 2% auto;
     align-items: center;
+  }
+  h4>.heigthTitle{
+    font-family: "Raleway Bold", sans-serif;;
+    
+  }
+  .h4, h4{
+    font-weight: 800;
   }
   /* RETURN BUTTON */
   .btn-outline-secondary{

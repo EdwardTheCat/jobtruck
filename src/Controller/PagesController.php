@@ -41,13 +41,13 @@ class PagesController extends AbstractController
     /**
     * @Route("/temoignages", name="testimonyPage")
     */
-    public function showTestimonyPage(ContactRepository $contactRepo, JobRepository $jobRepo)
+    public function showTestimonyPage(TestimonyRepository $testimonyRepo, JobRepository $jobRepo)
     {
-        $contacts=$contactRepo->findBy(["quality" => "temoignage"]);
+        $testimonies=$testimonyRepo->findAll();
         $jobs  =$jobRepo->findAll();
 
         return $this->render('testimonyPage.html.twig', [
-            'contacts' => $contacts,
+            'testimonies' => $testimonies,
                'jobs' => $jobs
         ]);
     }
