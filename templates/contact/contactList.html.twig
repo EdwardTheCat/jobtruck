@@ -3,6 +3,41 @@
     <script>
         $(function(){
             $('#listcontact').DataTable();
+
+        ///rename results
+        var content=$('#listcontact_length > label').html();
+        content=content.replace(/show/i, 'Affiche');
+        content=content.replace(/entries/, 'résulats');
+        $('#listcontact_length > label').html(content);
+
+        //rename search
+        content=$('#listcontact_filter > label').html();
+        content=content.replace(/search/i, 'Cherche');
+        $('#listcontact_filter > label').html(content);
+
+         //rename showing
+        content=$('#listcontact_info').html();
+        content=content.replace(/showing/i, 'Affiche');
+        content=content.replace(/to/, 'à');
+        content=content.replace(/of/, 'de');
+        content=content.replace(/entries/, 'résultats');
+        $('#listcontact_info').html(content);
+
+         //rename previous
+        content=$('#listcontact_previous').html();
+        content=content.replace(/previous/i, 'Précédent');
+        $('#listcontact_previous').html(content);
+
+        //rename next
+        content=$('#listcontact_next').html();
+        content=content.replace(/next/i, 'Suivant');
+        $('#listcontact_next').html(content);
+
+        $('.btn-outline-danger').click(function(){
+
+            return confirm("Attention la suprression du contact ne supprimera pas l'utilisateur, veuillez confirmer la suprresion !");
+        })
+
         });
     </script>
 {% endblock %}
@@ -10,6 +45,8 @@
     <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 {% endblock %}
 {% block body %}
+
+
 
     <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
     <a  class="btn btn-outline-primary bigButton" href="{{ path('contactAdd') }}">Ajouter un contact</a>
@@ -23,6 +60,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Logo</th>
                 <th scope="col">Qualité</th>
+                <th scope="col">Utilisateur associé</th>
                 <th scope="col">Date de création</th>
                 <th scope="col">Details</th>
                 <th scope="col">Modifier</th>
@@ -47,10 +85,16 @@
 
                         
                     </td>
+                   
+
+                    <td> 
+                        {% if contact.user %} {{contact.user.pseudo}} - {{contact.user.username}} {% endif %}
+                    </td>
                     <td>{{contact.createdAt|date('Y-m-d:h:s')}}</td>
                     <td><a class="btn btn-outline-info" href="{{path('contactDetails',{id:contact.id}) }}">Details</a></td>
                     <td><a class="btn btn-outline-primary" href="{{path('contactEdit',{id:contact.id}) }}">Modifier</a></td>
-                    <td><a class="btn btn-outline-danger" href="{{path('contactDelete',{id:contact.id}) }}">Supprimer</a></td> 
+                    <td>
+                        <a class="btn btn-outline-danger" href="{{path('contactDelete',{id:contact.id}) }}">Supprimer</a></td> 
                 </tr>
         
         {% endfor %}
