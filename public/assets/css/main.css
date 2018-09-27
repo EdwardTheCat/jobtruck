@@ -115,8 +115,7 @@ body, html{
     height: 100%;
 }
 body {
-  /* line-height: 2; */
-  font-family: "Helvetica Neue";
+  font-family: 'Raleway Medium', sans-serif;
   color: #005C7D;    
 }
 /* END ICONE MENU */
@@ -136,7 +135,6 @@ body {
   .navbar-light
   .navbar-brand {
     width: 22rem;
-
   }
   #nav-jobtruck{
     justify-self: flex-start;
@@ -243,25 +241,61 @@ body {
 
   /* END SECTION PRINCIPAL */
   @media only screen and (max-width: 991px) {
-  #navbarColor03 .nav-link{
-    transition: all 0.5s ease-in-out;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    font-size: 1.8rem;
-  }
-  #navbarColor03 .nav-link:hover{
-    transform: translate(2rem);
-  }
-  a.reseaux {
-    font-size: 1.8rem;
-    margin-top: 50%;
-  }
+    #navbarColor03 .nav-link{
+      transition: all 0.5s ease-in-out;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+    #navbarColor03 .nav-link:hover{
+      transform: translate(2rem);
+    }
+    a.reseaux {
+      font-size: 1.8rem;
+      margin-top: 50%;
+    }
 
   } 
 
 
 /* DESKTOP __________________________________________________________________________________________*/
+/* ############### MODAL ############### */
+  .modal-content{
+    border-radius: 1rem;
+    /* width: 34rem; */
+  }
+  .modal-body-footer {
+	text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+  }
+  .modal-body-footer p{
+    margin-top: 1rem;
+  }
+  .modal-title {
+    line-height: 4rem;
+  }
+  .modal-header-center{
+    padding: 2% auto;
+    align-items: center;
+  }
+  /* RETURN BUTTON */
+  .btn-outline-secondary{
+    color: #005C7D;
+  }
+  .btn-outline-secondary:hover{
+    background-color: #005C7D;
+    border-color: #005C7D;
+  }
+  .btn{
+    border-radius: 1rem;
+  }
+  .sizeLinks{
+    font-size: 1.4rem;
+  }
+/* END RETURN BUTTON */
 
+/* ############# END MODAL ############# */
 /* BLOC CARD */
 .title-cardContainer{
   margin: 1%;
@@ -340,6 +374,9 @@ body {
 /* FIN BLOC CARD */
 
 /* SECTION PRINCIPAL */
+article h3{
+  margin-top: 2rem;
+}
 .fullSize {margin-top: 1rem;}
 .containerPosition{
  margin-left: 2%;
@@ -380,11 +417,15 @@ section#principal>article{
 a.reseaux{
   display:inline-block;
   margin-top: 3%;
+  text-align: right;
 }
 aside .reseau{
   background-color: transparent;
-  max-width: 22rem;
-  padding-right: 0px;
+/*   max-width: 22rem; */
+/*   padding-right: 0px; */
+}
+div.reseau{
+  text-align: end;
 }
 aside .row{
   justify-content: flex-end;
@@ -405,12 +446,6 @@ aside .fas:hover{
 
 
 /* ################################################################################################# */
-/* div.aside-para{
-    background-color: #EFEFEF;
-    padding: 3% 3%;
-    margin-bottom: 4%;
-    width:60%;
-} */
 
 /* FIN SECTION ASIDE INFO */
 /* ############ FIN BODY ############ */
@@ -436,15 +471,22 @@ aside .fas:hover{
   .mention{
     background-color : black;
   }
+  div .nav-link{
+    align-self: center;
+  }
+  
+  .mention p{
+    margin: 0;
+  }
   .mention a{
-    font-size: 1rem;
+    font-size: 1.4rem;
     transition: all 0.2s ease-in 0.1s;
+    text-align: center;
   }
   .reseau{
     font-size: 3rem;
     background-color : #005C7D; 
     transition: all 1s ease-in 0.2s;
-/*     justify-content: space-around; */
   }
   /* SPECIFIC POSITIONNEMENT FOR FOOTER SECTION */
 /*   .reseau-footer{
@@ -471,11 +513,11 @@ aside .fas:hover{
     justify-items: flex-end;
   }
   /* FIN DISPLAY BURGER BUTTON */
-  /* DEBUT FOOTER*/ /* rajouter v3 */
-  .button3{ /* rajouter v3 */
-    display: none;    /* rajouter v3 */
+  /* DEBUT FOOTER*/
+  .button3{
+    display: none;
   }
-  /* FIN FOOTER  */ /* rajouter v3 */
+  /* FIN FOOTER  */
 }
 
 /* SMARTHPHONE __________________________________________________________________________________________*/
@@ -535,25 +577,5 @@ aside .fas:hover{
   /* END ICONE CGU */
 /* ############ END FOOTER ############ */
 
-/* ############### MODAL ############### */
-/* .modal-content{ */
-/*   border-radius: 1rem; */
-/* } */
- /*  .modal-body { */
-    /* font-family: 'Raleway Thin', sans-serif; */
-/* 	text-align: center; */
- /*  font-size: 1.2rem;
-  padding: 2rem; */
-/*   } */
-/*   .modal-body p{ */
-/*     margin-top: 1rem; */
-/*   } */
-/*   .modal-title { */
-/*     justify-self: flex-start;
-    line-height: 4rem;
-    font-family: 'Raleway Bold', sans-serif; */
-/*   } */
-
-/* ############# END MODAL ############# */
 }
 /* ######################## END GENERAL ######################## */

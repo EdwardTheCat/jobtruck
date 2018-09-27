@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Events;
 use App\Repository\JobRepository;
+use App\Repository\EventsRepository;
+use App\Repository\ContactRepository;
+use App\Repository\TestimonyRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -11,11 +14,20 @@ class PagesController extends AbstractController
 {
 
     /**
-    * @Route("/acceuil", name="homePage")
+    * @Route("/", name="homePage")
     */
-    public function showHomePage()
+    public function showHomePage(ContactRepository $contactRepo, TestimonyRepository $testimonyRepo, EventsRepository $eventsRepo)
     {
-        return $this->render('homePage.html.twig');
+        $event=$eventsRepo->findEventsAfter(new \Datetime());
+
+        $testimonies=$testimonyRepo->findAll();
+        $partners=$contactRepo->findBy(["quality" => "partenaire"]);
+
+        return $this->render('homePage.html.twig', [
+            'testimonies' => $testimonies,
+            'partners' => $partners,
+            'event' => $event
+        ]);
     }
 
     /**
@@ -29,11 +41,15 @@ class PagesController extends AbstractController
     /**
     * @Route("/temoignages", name="testimonyPage")
     */
-    public function showTestimonyPage(JobRepository $repo)
+    public function showTestimonyPage(ContactRepository $contactRepo, JobRepository $jobRepo)
     {
-        $allJob  =$repo->findAll();
+        $contacts=$contactRepo->findBy(["quality" => "temoignage"]);
+        $jobs  =$jobRepo->findAll();
+
         return $this->render('testimonyPage.html.twig', [
-            'all' => $allJob    ]);
+            'contacts' => $contacts,
+               'jobs' => $jobs
+        ]);
     }
 
     /**
@@ -52,9 +68,34 @@ class PagesController extends AbstractController
     /**
     * @Route("/jobs", name="jobsPage")
     */
-    public function showJobsPage()
+    public function showJobsPage(JobRepository $jobRepo, ContactRepository $contactRepo)
     {
-        return $this->render('jobsPage.html.twig');
+        $jobs  =$jobRepo->findAll();
+        /* $partners=$contactRepo->findBy(["quality" => "partenaire"]); */
+        $partners = $contactRepo->findAll();
+        return $this->render('jobsPage.html.twig', [
+            'jobs' => $jobs,
+            'partners' => $partners
+        ]);
     }
 
+<<<<<<< HEAD
+    /**
+    * @Route("/contact", name="contactPage")
+    */
+    public function showContactPage()
+    {
+        return $this->render('contactPage.html.twig');
+    }
+
+    /**
+    * @Route("/404", name="404Page")
+    */
+    public function show404Exception()
+    {
+        return $this->render('404Page.html.twig');
+    }
+    
+=======
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
 }

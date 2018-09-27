@@ -1,0 +1,53 @@
+#cookie-bar {
+    background:#005C7D;
+    height:auto;
+    line-height:2.4rem;
+    font-family: "Raleway Light";
+    font-size: 1.5rem;
+    color: white;
+    text-align:center;
+    padding: 1rem 0;
+    }
+#cookie-bar.fixed {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    }
+#cookie-bar.fixed.bottom {
+    bottom:0;
+    top:auto;
+}
+#cookie-bar p {
+    margin: 0;
+    padding: 0;
+    }
+#cookie-bar a {
+    color:white;
+    display: block;
+    border-radius: 1rem;
+    text-decoration: none;
+    padding:0 6px;
+    /* margin-left:0.8rem; */
+    width: 15rem;
+    margin: .8rem auto;
+}
+#cookie-bar .cb-enable {
+    background: transparent;
+    /* background:#FBA919; */
+    border-radius: 1rem;
+    border: .1rem solid white;
+}
+
+#cookie-bar .cb-enable:hover {
+    background: white;
+    color: #005C7D;
+}
+
+#cookie-bar .cb-disable {background:#990000;}
+
+#cookie-bar .cb-disable:hover {background:#bb0000;}
+
+#cookie-bar .cb-policy {background:#0033bb;}
+
+#cookie-bar .cb-policy:hover {background:#0055dd;}
