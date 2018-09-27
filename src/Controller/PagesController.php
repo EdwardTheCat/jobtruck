@@ -21,7 +21,7 @@ class PagesController extends AbstractController
         $event=$eventsRepo->findEventsAfter(new \Datetime());
 
         $testimonies=$testimonyRepo->findAll();
-        $partners=$contactRepo->findBy(["quality" => "partenaire"]);
+        $partners=$contactRepo->findBy(["quality" => "partenaire_economique"]);
 
         return $this->render('homePage.html.twig', [
             'testimonies' => $testimonies,
