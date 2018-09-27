@@ -259,7 +259,7 @@
                         {# END DESCRIPTION #}
                         {# IMAGE CARD #}
                         <div class="product-image">
-                            <img src="{{ one.logo }}" alt="Logo d'entreprise">
+                            <img src="{{ asset ('/uploads/logo/' ~ one.logo) | imagine_filter('thumb')}}" alt="Logo d'entreprise">
                         </div>
                         {# END IMAGE CARD #}
                     </div>

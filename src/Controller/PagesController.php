@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Events;
 use App\Repository\JobRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,7 +41,12 @@ class PagesController extends AbstractController
     */
     public function showEventsPage()
     {
-        return $this->render('eventsPage.html.twig');
+        $events = $this->getDoctrine()
+            ->getRepository(Events::class)
+            ->findAll();
+        return $this->render('eventsPage.html.twig', [
+            'events' => $events
+        ]);
     }
 
     /**
@@ -49,14 +55,6 @@ class PagesController extends AbstractController
     public function showJobsPage()
     {
         return $this->render('jobsPage.html.twig');
-    }
-
-    /**
-    * @Route("/contact", name="contactPage")
-    */
-    public function showContactPage()
-    {
-        return $this->render('contactPage.html.twig');
     }
 
 }

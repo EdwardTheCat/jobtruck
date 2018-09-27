@@ -127,3 +127,10 @@ div.card{
 #dashboard{
     margin-top: 5%;
 }
+
+div#map{
+    width: 600px;
+    height: 400px;
+    border-radius:1rem;
+    margin-top: 10rem; 
+}
