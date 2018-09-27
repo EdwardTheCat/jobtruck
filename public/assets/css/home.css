@@ -30,6 +30,9 @@
     font-size: 3.1rem;
     text-align: center;
   }
+  .navbar{
+    z-index: 100;
+  }
   /* TABLETTE __________________________________________________________________________________________*/
   @media only screen and (max-width: 768px) {
     #svgTruck{
@@ -112,12 +115,12 @@
   width: auto;
 }
  /* SMARTHPHONE __________________________________________________________________________________________*/
- @media only screen and (max-width: 459px) {
+@media only screen and (max-width: 459px) {
   #blocImgPartenaire{
     display: block;
     margin-top: 2rem;
   }
- }
+}
 /* ############ END SECTION IMAGE PARTNERS ############ */
 
 /* ############ SECTION ASIDE INFO ############ */
@@ -126,4 +129,12 @@
     margin-top: 2rem;
   }
   /* END POSITION RESEAUX SOCIAUX */
+  /* CARD TESTIMONY ASIDE */
+  /* Card Details */
+  .product-details {
+    overflow: hidden;
+    height: 12.2rem;
+  }
+  /*End Card Details */
+/* END CARD TESTIMONY ASIDE */
 /* ############ END SECTION ASIDE INFO ############ */

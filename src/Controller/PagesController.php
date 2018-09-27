@@ -23,7 +23,7 @@ class PagesController extends AbstractController
         ->getRepository(Events::class)
         ->findAll();
         $testimonies=$testimonyRepo->findAll();
-        $partners=$contactRepo->findBy(["quality" => "partenaire"]);
+        $partners=$contactRepo->findBy(["quality" => "partenaire_economique"]);
 
         return $this->render('homePage.html.twig', [
             'testimonies' => $testimonies,
@@ -74,7 +74,7 @@ class PagesController extends AbstractController
     public function showJobsPage(JobRepository $jobRepo, ContactRepository $contactRepo)
     {
         $jobs  =$jobRepo->findAll();
-        $partners=$contactRepo->findBy(["quality" => "partenaire_economique"]);
+        $partners=$contactRepo->findAll();
 
         return $this->render('jobsPage.html.twig', [
             'jobs' => $jobs,

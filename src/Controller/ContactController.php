@@ -136,6 +136,7 @@ class ContactController extends AbstractController
     {
         //vérification à faire sur le user avec id
         if(!is_null($contact)){
+    
             $manager->remove($contact);
             $manager->flush();
         }

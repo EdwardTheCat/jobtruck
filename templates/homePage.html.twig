@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
+{% block stylesheets %}   
     
-    <link  rel="stylesheet" href="{{ asset('/assets/css/layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
     <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
    <link  rel="stylesheet" href="{{ asset('/assets/css/home.css') }}">
 {% endblock %}
 {% block javascripts %}    
@@ -152,7 +154,7 @@
         <article class="article-aside"> 
             <h2 class="titre-aside"><strong>Nos témoignages</strong></h2>
             {% for testimony in testimonies %}
-                <div class="container">
+{#                 <div class="container">
                     <figure>
                         <img class="avatar-aside" src="{{asset('/uploads/logo/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="image_logo"/>
                     </figure>
@@ -164,7 +166,29 @@
                             <i class="fas fa-quote-right"></i>
                         <p>
                     </div>
+                </div> #}
+
+                {# CARD IMAGE RIGHT #}
+                <div class="containerCard">	
+                    {# DESCRIPTION #}
+                    <div class="product-details">
+                        {# TITLE INFORMATION #}
+                        <h1>{{testimony.name}} {{testimony.lastname}}</h1>
+                        {# BLOC INFORMATION #}
+                        <p class="information">
+                            <i class="fas fa-quote-left"></i>
+                                {{ testimony.description }} 
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                    </div>
+                    {# END DESCRIPTION #}
+                    {# IMAGE CARD #}
+                    <div class="product-image">
+                         <img class="avatar-aside" src="{{asset('/uploads/logo/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="Photo témoins">
+                    </div>
+                    {# END IMAGE CARD #}
                 </div>
+                {# END CARD IMAGE RIGHT #}
             {% endfor %}
         </article>
     </section>

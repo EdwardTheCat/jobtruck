@@ -3,6 +3,37 @@
     <script>
         $(function(){
             $('#listtestimony').DataTable();
+
+        ///rename results
+        var content=$('#listtestimony_length > label').html();
+        content=content.replace(/show/i, 'Affiche');
+        content=content.replace(/entries/, 'résulats');
+        $('#listtestimony_length > label').html(content);
+
+        //rename search
+        content=$('#listtestimony_filter > label').html();
+        content=content.replace(/search/i, 'Cherche');
+        $('#listtestimony_filter > label').html(content);
+
+         //rename showing
+        content=$('#listtestimony_info').html();
+        content=content.replace(/showing/i, 'Affiche');
+        content=content.replace(/to/, 'à');
+        content=content.replace(/of/, 'de');
+        content=content.replace(/entries/, 'résultats');
+        $('#listtestimony_info').html(content);
+
+        
+        //rename previous
+        content=$('#listtestimony_previous').html();
+        content=content.replace(/previous/i, 'Précédent');
+        $('#listtestimony_previous').html(content);
+
+        //rename next
+        content=$('#listtestimony_next').html();
+        content=content.replace(/next/i, 'Suivant');
+        $('#listtestimony_next').html(content);
+
         });
     </script>
 {% endblock %}

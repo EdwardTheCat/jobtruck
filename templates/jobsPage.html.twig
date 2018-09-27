@@ -17,10 +17,6 @@
                         <div class="product-details-image-right">
                             {# TITLE INFORMATION #}
                             <h1>{{ job.title }}</h1>
-                            {# BLOC INFORMATION #}
-                            <p class="information">
-                                {# {{ job.description }} #}
-                            </p>
                             {# Button #}
                             <div class="btn-right">
                                 <button class="btn btn-outline-secondary sizeLinks" data-toggle="modal" data-target="#jobModal{{ job.id }}">Détails</button>
@@ -96,9 +92,9 @@
                     <h1>{{ partner.name }} {{ partner.surname }} </h1>
                     {# BLOC INFORMATION #}
                     <p class="information">
-                        <i class="fas fa-quote-left"></i>
+                        {# <i class="fas fa-quote-left"></i> #}
                             {{ partner.description }} 
-                        <i class="fas fa-quote-right"></i>
+                        {# <i class="fas fa-quote-right"></i> #}
                     </p>
                 </div>
                 {# END DESCRIPTION #}

@@ -55,13 +55,13 @@
   height: 80%;
 }
 .jobModalStyle h4{
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-family: "Raleway Bold", sans-serif;
   /* font-family: "Helvetica Neue Medium"; */
   margin-bottom: 2.5rem;
 }
 .jobModalStyle p{
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   line-height: 3rem;
   /* font-family: "Helvetica Neue Light"; */
   font-family: "Raleway Light", sans-serif;
@@ -114,7 +114,7 @@
     position: relative;
     color: #005C7D;
     margin: 1%;
-    font-size: 2.4rem;
+    font-size: 2.1rem;
     font-weight: bolder;
   }
 
