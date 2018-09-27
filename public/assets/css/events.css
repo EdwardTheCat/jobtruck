@@ -42,3 +42,8 @@
   }
   /* END POSITION RESEAUX SOCIAUX */
 /* ############ END SECTION ASIDE INFO ############ */
+
+div#map{
+  width: 600px;
+  height: 600px;
+}
