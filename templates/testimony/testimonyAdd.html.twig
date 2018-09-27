@@ -16,7 +16,7 @@
             {{ form_row(form.description, { 'label': 'Description' ,'attr': {'placeholder': 'description...'}}) }}
             {% if action == false %}
                 <p>La photo existe déja : </p>
-                <img class="photo" src="{{ asset('/uploads/avatar/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="image_testimony"/>
+                <img class="photo" src="{{ asset('/uploads/logo/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="image_testimony"/>
             {% endif %}
 
             {{ form_row(form.photo, {'attr': {'placeholder': 'Choisissez la photo...'}}) }}  

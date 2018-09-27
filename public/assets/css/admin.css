@@ -211,10 +211,7 @@ p.content{
 .btn{
     border-radius: 1rem;
   }
-/* pour le bouton dasboard sur les pages add... */
-#dashboard{
-    margin-top: 5%;
-}
+
 
 div#map{
     width: 600px;
