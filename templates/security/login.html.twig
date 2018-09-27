@@ -3,26 +3,26 @@
     <link  rel="stylesheet" href="{{ asset('/assets/css/login.css') }}">
 {% endblock %}
 
-{# {% block title %}Accès Administrateur{% endblock %} #}
-
 {% block body %}
     {% block login %}
-        <div class="card border-warning mb-8">
-            <h1 class="card-header">Connection</h1>
+        <div class="card mb-8">
+            <h1 class="card-header">Connexion</h1>
             <div class="card-body">
-
                 <form action="{{ path('login') }}" method="post">
-                    <label for="username" class="card-text">Identifiant :</label>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
-
-                    <label for="password" class="card-text">Mot de passe :</label>
-                    <input type="password" id="password" name="_password" />
-
+                    <div class="card-center">
+                        <label for="username" class="card-text">Identifiant : </label>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                    </div>
+                    <div class="card-center">
+                        <label for="password" class="card-text">Mot de passe :</label>
+                        <input type="password" id="password" name="_password" />
+                    </div>
                     <button type="submit" class="card-text btn btn-success sizeLinksLogin">Se connecter</button>
-                </form>
-
+                </form >
+            </div>
+            <div class="card-body-right">
                 <a class="btn btn-outline-secondary sizeLinksLogin" href="{{ path('homePage') }}">
-                    Retourner à l'acceuil
+                    Retour à l'acceuil
                 </a>
             </div>
         </div>

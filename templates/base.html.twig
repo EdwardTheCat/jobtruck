@@ -7,33 +7,36 @@
 
         <title>{% block title %}JobTruck{% endblock %}</title>
         {# ONLINE CDN #}
-        {# <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css"> #}
-        {# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> #}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        {% block stylesheets %}{% endblock %}
         {# END ONLINE #}
 
         {# OFFLINE #}
-        <link rel="stylesheet" href="{{ asset ('/assets/css/bootstrap/bootstrap.min.css') }}">
-        <link href="{{ asset ('/assets/css/fontawesome/all.min.css') }}" rel="stylesheet">
+        {# <link rel="stylesheet" href="{{ asset ('/assets/css/bootstrap/bootstrap.min.css') }}">
+        <link href="{{ asset ('/assets/css/fontawesome/all.min.css') }}" rel="stylesheet"> #}
         {# END OFFLINE#}
 
         <link rel="stylesheet" href="{{ asset ('/assets/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset ('/assets/css/cookiebar.css') }}">
 
         {# ONLINE CDN #}
-        {# <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> #}
-        {# <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> #}
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
         {# END ONLINE CDN #}
 
         {# OFFLINE #}
-        <script src="{{ asset ('/assets/js/jquery-3.3.1.js') }}"></script>
-        <script src="{{ asset ('/assets/js/bootstrap/bootstrap.min.js') }}"></script>
+        {# <script src="{{ asset ('/assets/js/jquery-3.3.1.js') }}"></script>
+        <script src="{{ asset ('/assets/js/bootstrap/bootstrap.min.js') }}"></script> #}
         {# <script defer src="{{ asset ('/assets/js/fontawesome/all.min.js') }}"></script> #} {# LOGO RESEAUX SOCIAUX OFFLINE§ ATTENTION EN BLEU #}
-        {# END OFFLINE #}
+        {# END OFFLINE #}        
 
         <script src="{{ asset ('/assets/js/main.js') }}"></script>
-        {% block stylesheets %}
-        {% endblock %}
+        <script src="{{ asset ('/assets/js/cookiebar.js') }}"></script>
+        {% block javascripts %}{% endblock %}
     </head>
     <body>
         <header id="bg-image"> 
@@ -41,7 +44,6 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-blue navfloat">
                 <a class="navbar-brand" href="{{ path('homePage') }}">
                     {# SVG JOBTRUCK #}
-                    <?xml version="1.0" encoding="utf-8"?>
                     <svg version="1.1" id="nav-jobtruck" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                    viewBox="0 0 210 32" style="enable-background:new 0 0 190.5 29.3;" xml:space="preserve">
                         <style type="text/css">.st0{fill:#FBA919;}</style>
@@ -109,14 +111,16 @@
                 {# END LINKS PAGES #}
             </nav>
             {# END NAVBAR #}
+            {% block logo %}{% endblock %}
             {% block login %}{% endblock %}
+            {% block error %}{% endblock %}
         </header>
 
         <main>
             {# SECTION BODY #}
             <div class="containerPosition">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-8 fullSize">
+                    <div class="col-xs-12 col-sm-12 col-md-8 fullSize centerForm">
                     
                         {# SECTION PRINCIPAL #}
                             {% block principal %}{% endblock %}
@@ -132,18 +136,16 @@
             {# FIN SECTION BODY #}
 
             {# SECTION MODAL FOOTER #} {# NE PAS CHANGER DE POSITION ATTENTION DANGER ! #}
-
             {# MODAL MENTIONS LEGAL #}
             <div id="legalModal" class="modal fade" role="dialog">
                 <div class="modal-dialog modal-lg">
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title styleModal">Mention légal</h3>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title-footer styleModal">Mention légal</h3>
                         </div>
-                        <div class="modal-body">
-                            <h4 class="modal-title">Le Jobtruck.fr</h4>
+                        <div class="modal-body-footer">
+                            <h4 class="modal-title-footer">Le Jobtruck.fr</h4>
                             <p>Nom de l'association : Le Job Truck</p>
                             <p>Numéro Association : W 133 02 80 10</p>
                             <p>Adresse : 12 boulevard Charles Zeytountzian, 13013 Marseille</p>
@@ -152,7 +154,7 @@
                             <p>Hébergeur : OVH</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-lg badge-success" data-dismiss="modal">Compris</button>
+                            <button type="button" class="btn btn-outline-secondary sizeLinks" data-dismiss="modal">Compris</button>
                         </div>
                     </div>
                     {# END MODAL CONTENT #}
@@ -166,11 +168,10 @@
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" style="justify-self: flex-start">Condition Générale d'Utilisation</h3>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title-footer" style="justify-self: flex-start">Condition Générale d'Utilisation</h3>
                         </div>
-                        <div class="modal-body">
-                            <h4 class="modal-title">Condition Générale d'Utilisation</h4>
+                        <div class="modal-body-footer">
+                            <h4 class="modal-title-footer">Condition Générale d'Utilisation</h4>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
                                 Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
@@ -185,7 +186,7 @@
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-lg badge-success" data-dismiss="modal">Compris</button>
+                            <button type="button" class="btn btn-outline-secondary sizeLinks" data-dismiss="modal">Compris</button>
                         </div>
                     </div>
                     {# END MODAL CONTENT #}
@@ -199,11 +200,10 @@
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" style="justify-self: flex-start">Charte de confidentialitée</h3>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title-footer" style="justify-self: flex-start">Charte de confidentialitée</h3>
                         </div>
-                        <div class="modal-body">
-                            <h4 class="modal-title">Charte de confidentialitée</h4>
+                        <div class="modal-body-footer">
+                            <h4 class="modal-title-footer">Charte de confidentialitée</h4>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut dolore culpa quos in natus fugiat assumenda, magnam, quae modi, illum iusto obcaecati? Beatae nobis animi autem consequatur perspiciatis repellendus quam!
                                 Iste repellendus debitis labore, voluptas non sit sapiente, quis repudiandae perspiciatis quae eius eaque id minima odit praesentium, minus autem et quisquam. Odit consequatur similique, corrupti accusantium officiis nobis tenetur!
@@ -218,69 +218,66 @@
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-lg badge-success" data-dismiss="modal">Compris</button>
+                            <button type="button" class="btn btn-outline-secondary sizeLinks" data-dismiss="modal">Compris</button>
                         </div>
                     </div>
                     {# END MODAL CONTENT #}
                 </div>
             </div>
             {# FIN MODAL CHARTE CONFIDENTIALITEE  #}
-
             {# END SECTION MODAL FOOTER #} {# NE PAS CHANGER DE POSITION ATTENTION DANGER ! #}
 
         </main>
-    </body>
+        <footer class="container-fluid" >
+            {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
+            <div class="reseau row">
+                <div class="reseau row">
 
-    <footer class="container-fluid" >
-        {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
-        <div class="reseau {# .reseau-footer #} row">
-            <div class="reseau {# .reseau-footer #} row">
-
-                <a class="nav-link " href="https://www.facebook.com/lejobtruck/"><i class="fab fa-facebook-f"></i></a>
-                <a class="nav-link " href="https://twitter.com/lejobtruck?lang=fr"><i class="fab fa-twitter"></i></a>
-                <a class="nav-link " href="https://fr.linkedin.com/in/job-truck-7a9b81165"><i class="fab fa-linkedin-in"></i></a>
-                <a class="nav-link " href="#"><i class="fas fa-rss"></i></a>
-            </div>
-            <div class="reseau {# .reseau-footer #}">   {#rajouter v3  #}
-                <a class="button3 nav-link col" data-toggle="modal" data-target="#cguModal">
-                    <svg version="1.1" id="cgu" x="0px" y="0px" viewBox="0 0 260 100" style="enable-background:new 0 0 246.7 87.3;" xml:space="preserve">
-                        <style type="text/css">
-                            .st0{fill:#FFFFFF;}
-                        </style>
-                        <g>
+                    <a class="nav-link " href="https://www.facebook.com/lejobtruck/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="nav-link " href="https://twitter.com/lejobtruck?lang=fr"><i class="fab fa-twitter"></i></a>
+                    <a class="nav-link " href="https://fr.linkedin.com/in/job-truck-7a9b81165"><i class="fab fa-linkedin-in"></i></a>
+                    {# <a class="nav-link " href="#"><i class="fas fa-rss"></i></a> #}
+                </div>
+                <div class="reseau">   {#rajouter v3  #}
+                    <a class="button3 nav-link col" data-toggle="modal" data-target="#cguModal">
+                        <svg version="1.1" id="cgu" x="0px" y="0px" viewBox="0 0 260 100" style="enable-background:new 0 0 246.7 87.3;" xml:space="preserve">
+                            <style type="text/css">
+                                .st0{fill:#FFFFFF;}
+                            </style>
                             <g>
-                                <path class="st0" d="M44.3,1.6c15,0,26.6,7.5,32,18.4l-15,10.5C57.8,21.6,50,19,43.8,19C30,19,23.5,32.1,23.5,44.3
-                                    c0,13.4,8.1,25.6,20.6,25.6c6.4,0,14.1-3.2,17.2-11.6l16,9.4c-5,12.5-20.4,19.6-33.8,19.6c-23.4,0-39.9-22-39.9-43.6
-                                    C3.6,23.2,18.6,1.6,44.3,1.6z"/>
-                                <path class="st0" d="M142,78.3c-6.1,6.1-12.7,8.8-20.6,8.8c-21.3,0-38.9-20.4-38.9-43.4c0-23.3,17.6-42.2,40.4-42.2
-                                    c14.9,0,26.6,7.1,32.2,18.4l-14.6,10.9c-3.4-7.5-10.6-12-18.2-12c-11.9,0-20,11.3-20,25.6c0,14.6,8.6,25.3,20.7,25.3
-                                    c6.9,0,13.4-3.4,18.9-10.3v-2.9h-16.3V42.4h32.5v44.1H142V78.3z"/>
-                                <path class="st0" d="M225.2,45.3V2.1h19.5v43.2c0,23.3-11.4,42-37.4,42c-27,0-37.4-19.9-37.4-42V2.1h19.5v43.2
-                                    c0,12.8,4.8,24.6,17.9,24.6C220.7,69.9,225.2,57.8,225.2,45.3z"/>
+                                <g>
+                                    <path class="st0" d="M44.3,1.6c15,0,26.6,7.5,32,18.4l-15,10.5C57.8,21.6,50,19,43.8,19C30,19,23.5,32.1,23.5,44.3
+                                        c0,13.4,8.1,25.6,20.6,25.6c6.4,0,14.1-3.2,17.2-11.6l16,9.4c-5,12.5-20.4,19.6-33.8,19.6c-23.4,0-39.9-22-39.9-43.6
+                                        C3.6,23.2,18.6,1.6,44.3,1.6z"/>
+                                    <path class="st0" d="M142,78.3c-6.1,6.1-12.7,8.8-20.6,8.8c-21.3,0-38.9-20.4-38.9-43.4c0-23.3,17.6-42.2,40.4-42.2
+                                        c14.9,0,26.6,7.1,32.2,18.4l-14.6,10.9c-3.4-7.5-10.6-12-18.2-12c-11.9,0-20,11.3-20,25.6c0,14.6,8.6,25.3,20.7,25.3
+                                        c6.9,0,13.4-3.4,18.9-10.3v-2.9h-16.3V42.4h32.5v44.1H142V78.3z"/>
+                                    <path class="st0" d="M225.2,45.3V2.1h19.5v43.2c0,23.3-11.4,42-37.4,42c-27,0-37.4-19.9-37.4-42V2.1h19.5v43.2
+                                        c0,12.8,4.8,24.6,17.9,24.6C220.7,69.9,225.2,57.8,225.2,45.3z"/>
+                                </g>
                             </g>
-                        </g>
-                    </svg>
-                </a>{#rajouter v3  #}
-            </div>{#rajouter v3  #}
-        </div>
-        
-        {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
+                        </svg>
+                    </a>{#rajouter v3  #}
+                </div>{#rajouter v3  #}
+            </div>
+            
+            {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
 
-        {# MENTIONS LEGAL #}
-        <div class="mention row justify-content-between">
-            <div class="nav-link col-3 ">Copyright 2018</div>
-            <div class="col-8" >
-                <div class="row">
-                    {# Trigger of modals #}
-                    <a class="nav-link col" data-toggle="modal" data-target="#legalModal">Mentions Légal</a>
-                    <a class="nav-link col" data-toggle="modal" data-target="#cguModal">Conditions Générales d'Utilisation</a>
-                    <a class="nav-link col" data-toggle="modal" data-target="#confidentialModal">Charte de confidencialitée</a>
-                    {# END Trigger of modals #}
+            {# MENTIONS LEGAL #}
+            <div class="mention row justify-content-between">
+                <div class="nav-link col-3"><p>Copyright 2018</p></div>
+                <div class="col-8" >
+                    <div class="row">
+                        {# Trigger of modals #}
+                        <a class="nav-link col linkModalFooter" data-toggle="modal" data-target="#legalModal">Mentions Légal</a>
+                        <a class="nav-link col" data-toggle="modal" data-target="#cguModal">Conditions Générales d'Utilisation</a>
+                        <a class="nav-link col" data-toggle="modal" data-target="#confidentialModal">Charte de confidencialitée</a>
+                        {# END Trigger of modals #}
+                    </div>
                 </div>
             </div>
-        </div>
         {# FIN MENTIONS LEGAL #}
-    </footer>
-    {% include 'EuCookieLawBundle::cookie_law_bar.html.twig' %}
-    {% block javascripts %}{% endblock %}
+        </footer>
+</body>
+
 </html>

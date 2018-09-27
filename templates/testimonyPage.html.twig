@@ -9,110 +9,32 @@
 
     {% block principal %}
         <section id="principal">
-        
-        
-        {# TESTIMONIES CARD #}
-        {% for contact in contacts %}
-        {# CARD IMAGE RIGHT #}
-            <div class="containerCard-image-right">	
-                {# DESCRIPTION #}
-                <div class="product-details-image-right">
-                    {# TITLE INFORMATION #}
-                    <h1>{{ contact.name }}</h1>
 
-                    {# BLOC INFORMATION #}
-                   {# {#  <p class="information"> #}
-                        <i class="fas fa-quote-left"></i>
-                            {{ contact.description }}
-                        <i class="fas fa-quote-right"></i>
-                    </p>
+            {# TESTIMONIES CARD #}
+            {% for contact in contacts %}
+            {# CARD IMAGE RIGHT #}
+                <div class="containerCard-image-right">	
+                    {# DESCRIPTION #}
+                    <div class="product-details-image-right">
+                        {# TITLE INFORMATION #}
+                        <h1>{{ contact.name }} {{ contact.surname }} </h1>
+                        {# BLOC INFORMATION #}
+                        <p class="information">
+                            <i class="fas fa-quote-left"></i>
+                                {{ contact.description }} 
+                            <i class="fas fa-quote-right"></i>
+                        </p>
+                    </div>
+                    {# END DESCRIPTION #}
+                    {# IMAGE CARD #}
+                    <div class="product-image-right">
+                        <img src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb') }}" alt="Photo témoins">
+                    </div>
+                    {# END IMAGE CARD #}
+                </div>
+                {# END CARD IMAGE RIGHT #}
 
-                </div>
-                {# END DESCRIPTION #}
-                {# IMAGE CARD #}
-                <div class="product-image-right">
-                    <img class="avatar" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_contact"/>
-                </div>
-                {# END IMAGE CARD #}
-            </div>
             {% endfor %}
-            {# END CARD IMAGE RIGHT
-
-            {# ############################# COPY CARD = FAKERS ############################### #}
-
-            {# CARD #}
-            <div class="containerCard-image-right">	
-                <div class="product-details-image-right">
-                    <h1>Témoin n°</h1>
-                    <p class="information">
-                        <i class="fas fa-quote-left"></i>Lorem Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut,
-                            bring them inside and you'll notice a light scent that some say is reminiscent of apples.<i class="fas fa-quote-right"></i>
-                    </p>                
-                </div>
-                <div class="product-image-right">
-                    <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
-                </div>
-            </div>
-            {# END CARD #}
-            {# CARD #}
-            <div class="containerCard-image-right">	
-                <div class="product-details-image-right">
-                    <h1>Témoin n°</h1>
-                    <p class="information">
-                        <i class="fas fa-quote-left"></i>Lorem Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut,
-                            bring them inside and you'll notice a light scent that some say is reminiscent of apples.<i class="fas fa-quote-right"></i>
-                    </p>                
-                </div>
-                <div class="product-image-right">
-                    <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
-                </div>
-            </div>
-            {# END CARD #}
-            {# CARD #}
-            <div class="containerCard-image-right">	
-                <div class="product-details-image-right">
-                    <h1>Témoin n°</h1>
-                    <p class="information">
-                        <i class="fas fa-quote-left"></i>Lorem Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut,
-                            bring them inside and you'll notice a light scent that some say is reminiscent of apples.<i class="fas fa-quote-right"></i>
-                    </p>                
-                </div>
-                <div class="product-image-right">
-                    <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
-                </div>
-            </div>
-            {# END CARD #}
-            {# CARD #}
-            <div class="containerCard-image-right">	
-                <div class="product-details-image-right">
-                    <h1>Témoin n°</h1>
-                    <p class="information">
-                        <i class="fas fa-quote-left"></i>Lorem Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut,
-                            bring them inside and you'll notice a light scent that some say is reminiscent of apples.<i class="fas fa-quote-right"></i>
-                    </p>                
-                </div>
-                <div class="product-image-right">
-                    <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
-                </div>
-            </div>
-            {# END CARD #}
-            {# CARD #}
-            <div class="containerCard-image-right">	
-                <div class="product-details-image-right">
-                    <h1>Témoin n°</h1>
-                    <p class="information">
-                        <i class="fas fa-quote-left"></i>Lorem Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut,
-                            bring them inside and you'll notice a light scent that some say is reminiscent of apples.<i class="fas fa-quote-right"></i>
-                    </p>                
-                </div>
-                <div class="product-image-right">
-                    <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
-                </div>
-            </div>
-            {# END CARD #}
-            {# ############################# COPY CARD = FAKERS ############################### #}
-
-        {# {% endfor %} #}
 
         </section>
     {% endblock %}
@@ -126,7 +48,7 @@
                             <a class="nav-link reseaux " href="https://www.facebook.com/lejobtruck/"><i class="fab fa-facebook-f"></i></a>
                             <a class="nav-link reseaux" href="https://twitter.com/lejobtruck?lang=fr"><i class="fab fa-twitter"></i></a>
                             <a class="nav-link reseaux" href="https://fr.linkedin.com/in/job-truck-7a9b81165"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a>
+                            {# <a class="nav-link reseaux" href="#"><i class="fas fa-rss"></i></a> #}
                         </div>
                     </div>
                     {# FIN TWITTER, FACEBOOK, LINKEDIN, RSS #}
@@ -137,89 +59,37 @@
                 <h4 class="title-cardContainer">Nos partenaires recrutent !</h4>
                 {# TITLE SECTION CARD #}
 
-                {# MODAL OFFRE #} {# FAKERS !!!!!!! #}
-                <div id="jobModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        {# MODAL CONTENT #}
-                        <div class="modal-content">
-                            <div class="modal-header-center">
-                                <h3 class="modal-title">Offre n°</h3>
-                            </div>
-                            <div class="modal-body jobModalStyle">
-                                <h4 class="modal-title">Function recherché</h4>
-                                <p>Nom de l'entreprise</p>
-                                <p><br>Descriptif de l'offre: </br>
-                                    Qualitée requise ect...</p>
-                                <p>Date de dépot de l'offre</p>
-                                <p>Contact : job@gmail.com</p>
-                                <p>Hébergeur : OVH</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-lg badge-success" data-dismiss="modal">Retour</button>
-                            </div>
-                        </div>
-                        {# END MODAL CONTENT #}
-                    </div>
-                </div>
-                {# END MODAL OFFRE #}{# FAKERS !!!!!!! #}
-
-                {# MODAL OFFRE #}
-
-                {# END MODAL OFFRE #}
-
-                {# TESTIMONIES CARD #}
-                {# {% for job in jobs %} #}
-
-                    {# CARD #} {# FAKERS !!!!!!! #}
-                    {# <div class="containerCard">	 #}
+                {% for job in jobs %}
+                    
+                    {# CARD #}
+                    <div class="containerCard">	
                         {# DESCRIPTION #}
-                        {# <div class="product-details"> #}
+                        <div class="product-details">
                             {# TITLE INFORMATION #}
-                            {# <h1>Nom du job</h1> #}
-
+                            <h1>{{ job.title }}</h1>
                             {# BLOC INFORMATION #}
-{#                             <p class="information">
-                                <br>Un descriptif rapide de l'offre d'emplois.</br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                 Alias architecto labore velit distinctio ab natus.
-                            </p> #}
+                            {# <p class="information">{{ job.description | truncate (50, fasle, '...') }}</p> #}
+                            {# <p class="information">{{ job.description | length > 10 }}</p> #}
+                            {# {% if job.description | length > 10 %}{{ job.description }}{% endif %} #}
+                            
+                            {# <p class="information">{{ job.description }}</p> #}
                             
                             {# Button #}
-{#                             <button class="btn btn-success-outline" data-toggle="modal" data-target="#jobModal">Détails</button>
-                            
-                        </div> #}
+                            <div class="">
+                                <button class="btn btn-outline-secondary sizeLinks" data-toggle="modal" data-target="#jobModal{{ job.id }}">Détails</button>
+                            </div>
+                        </div>
                         {# END DESCRIPTION #}
                         {# IMAGE CARD #}
-{#                         <div class="product-image">
-                            <img src="{{ asset('/assets/img/avatar_base.jpg') }}" alt="card image">
-                        </div> #}
+                        <div class="product-image">
+                            <img src="{{ asset('/uploads/logo/' ~ job.logo) | imagine_filter('thumb') }}" alt="Logo d'entreprise">
+                        </div>
                         {# END IMAGE CARD #}
-                    {# </div> #}
-                    {# END CARD 1 #} {# FAKERS !!!!!!! #}
-                    
-                {# {% endfor %} #}
-                {# CARD IMAGE + DESCRIPTION #}
-
-
-
-{#                 <p>les jobs</p>
-
-             {% for one in all %} 
-        
-                <p>Titre: {{ one.title }}</p>
-                <p>Description:{{ one.description }}</p>
-                <p>Contacte:{{ one.contact }}</p>
-                <p>Logo:{{ one.logo }}</p>
-                <p>Validité:{{ one.validity}}</p>
-                <p>Crée le :{{ one.createdAT|date("m/d/Y") }}</p>      
-        
-        
-            {% endfor %}  #}  
-
-                {% for job in jobs %}
-                    {# {% if one | length > 3 %}...{% endif %} #}
+                    </div>
+                    {# END CARD 1 #}
+                
                     {# MODAL OFFRE #}
-                    <div id="jobModal" class="modal fade" role="dialog">
+                    <div id="jobModal{{ job.id }}" class="modal fade" role="dialog">
                         <div class="modal-dialog modal-lg">
                             {# MODAL CONTENT #}
                             <div class="modal-content">
@@ -228,21 +98,23 @@
                                 </div>
                                 <div class="modal-body jobModalStyle">
                                     <h4 class="modal-title">{{ job.title }}</h4>
-                                    <p>Descriptif de l'offre : </p>
-                                    {# <p>{{ one.description | truncate (50, fasle, '...') }}</p> #}
-                                    {# {% if; | length > 10 %} {{ one.description }} {% endif %} #}
-                                    
-                                    <p>Date de dépot de l'offre : {{ job.createdAT|date("m/d/Y") }}</p>
-                                    <p>Contact : {{ job.contact }}</p>
+                                    <p class="boldModal">Descriptif de l'offre : </p>
+                                    <p>{{ job.description }}</p>                                   
+                                    <p class="boldModal">Date de dépot de l'offre : </p>
+                                    <p>{{ job.createdAT|date("m/d/Y") }}</p>
+                                    <p class="boldModal">Contact : </p>
+                                    <p>{{ job.contact }}</p>
                                 </div>
-                                <div class={# "modal-footer" #}>
-                                    <button type="button" class="btn btn-lg badge-success" data-dismiss="modal">Retour</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary sizeLinks" data-dismiss="modal">Retour</button>
                                 </div>
                             </div>
                             {# END MODAL CONTENT #}
                         </div>
                     </div>
                     {# END MODAL OFFRE #}
+<<<<<<< HEAD
+=======
                     {# CARD #}
                     <div class="containerCard">	
                         {# DESCRIPTION #}
@@ -260,12 +132,18 @@
                         {# END DESCRIPTION #}
                         {# IMAGE CARD #}
                         <div class="product-image">
+<<<<<<< HEAD
                             <img src="{{ job.logo }}" alt="Logo d'entreprise">
+=======
+                            <img src="{{ asset ('/uploads/logo/' ~ one.logo) | imagine_filter('thumb')}}" alt="Logo d'entreprise">
+>>>>>>> 5994e6c10a750b95c15458384d365aac995ca3b1
                         </div>
                         {# END IMAGE CARD #}
                     </div>
                     {# END CARD 1 #}
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
                 {% endfor %}
+            </section>
 
     {% endblock %}
 

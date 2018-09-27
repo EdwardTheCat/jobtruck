@@ -10,7 +10,6 @@
     background-position: center;
     background-size: cover;
   }
-
   /* TABLETTE __________________________________________________________________________________________*/
   @media only screen and (max-width: 768px) {
     #bg-image { 
@@ -18,7 +17,6 @@
       height: 60%;
     }
   }
-
   /* SMARTHPHONE __________________________________________________________________________________________*/
   @media only screen and (max-width: 459px) {
     #bg-image{
@@ -26,8 +24,8 @@
       height: 40%; 
     }
   }
-
 /* ############ END SECTION BACKGROUND IMAGE ############ */
+
 /* ############### SECTION IMAGE PARTNERS ############### */
   #blocImgPartenaire{
     display: inline-grid;
@@ -35,10 +33,114 @@
     height: 5rem;
   }
 /* ############ END SECTION IMAGE PARTNERS ############ */
+
+/* ############ SECTION PRINCIPAL ############ */
+  /* TITRE PRINCIPAL */
+  .centerForm{
+    text-align: center;
+  }
+    h2 {
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+      font-size: 2.4rem;
+      font-weight: bolder;
+      text-align: center;
+      font-family: 'Raleway Bold', sans-serif;
+    }
+  /* END TITRE PRINCIPAL */
+  /* FORM */
+  form{
+    height: 90rem;
+    margin: 4% auto;
+    flex-direction: column;
+    width: 70%; 
+  }
+  .form-control::placeholder{
+    font-family: 'Raleway Light', sans-serif;
+    font-size: 1.4rem;
+    color: #999999;
+  }
+  .form-control{
+    background-color: #F2F2F2;
+    text-align: center;
+    border: none;
+    height: 4rem;
+    border-radius: 1rem;
+  }
+  .form-control:focus{
+    background-color: #CCE6ED;
+  }
+  .btn-outline-secondary{
+    color: #005C7D;
+    border-color: #005C7D;
+  }
+  .btn-outline-secondary:hover{
+    background-color: #005C7D;
+  }
+  .btn{
+    margin-top: 3rem;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+  }
+  input{
+    border-radius: .5rem;
+    margin-bottom: 1.2rem;
+    border: solid 1px #005C7D;
+    width: 100%;
+  }
+  .custom-select{
+    font-family: 'Raleway Light', sans-serif;
+    font-size: 1.4rem;
+    border: .1rem solid #999999;
+    text-align: center;
+    height: 4rem;
+    border-radius: 1rem;
+  }
+  #formMessage{height: 25rem;}
+  /* END FORM */
+/* ############ END SECTION PRINCIPAL ############ */
+
 /* ############ SECTION ASIDE INFO ############ */
   /* POSITION RESEAUX SOCIAUX */
   aside .row{
     margin-top: 2rem;
   }
   /* END POSITION RESEAUX SOCIAUX */
+  /* TITRE ASIDE */
+  .title-cardContainer{
+    text-align: left;
+    font-family: 'Raleway Medium', sans-serif;
+  }
+  /* TITRE ASIDE */
+  /* MAP */
+  #map{
+    height: 55rem;
+    width: 60rem;
+    border-radius: 1rem;
+    margin: 0 auto 2rem auto;
+  }
+  /* TABLETTE __________________________________________________________________________________________*/
+  @media only screen and (max-width: 768px) {
+    #map{
+      width: 100%;
+    }
+    form{
+      width: 100%;
+    }
+    #formMessage{
+      height: 25rem;
+    }
+  }
+  /* END MAP */
+
+  /* ADDRESS */
+  .addressAside p{
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+    font-family: 'Raleway Medium', sans-serif;
+    color: #999999;
+  }
+  /* END ADDRESS */
+
 /* ############ END SECTION ASIDE INFO ############ */

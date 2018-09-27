@@ -42,7 +42,6 @@ class UserController extends AbstractController
 
     }
 
-
     /**
      * @Route("admin/user/add", name="userAdd")
      * @Route("admin/user/edit/{id}", name="userEdit" , requirements={"id"="\d+"})

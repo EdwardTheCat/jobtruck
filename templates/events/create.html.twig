@@ -2,15 +2,21 @@
 {% form_theme formEvent 'bootstrap_4_layout.html.twig' %}
 {% block stylesheets %}
     <link  rel="stylesheet" href="{{ asset('/assets/css/chosen.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}"> />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('/assets/js/chosen.jquery.min.js') }}"></script>
+    <script src="{{ asset('/map/js/leaflet.js') }}"></script>
+    <script src="{{ asset('/map/js/map.js') }}"></script>
     <script>
         $(function(){
             $("#add_event_contacts").chosen();
         });
     </script>
 {% endblock %}
+
+{% block title %} Admin - Évènements {% endblock %}
 
 {% block body %}
         
@@ -22,31 +28,46 @@
                 <h4>Formulaire de modification : Événement</h4>        
         {% endif %}
 
+        
         {{ form_start(formEvent) }}
-            
-                {{ form_row(formEvent.date, {'label': 'Date: ' }) }}
+                <div class="row">
+                        <div class="col">
+                                {{ form_row(formEvent.date, {'label': 'Date: ' }) }}
+                        
+                                {{ form_row(formEvent.address, {'attr': {'placeholder': "Rue, Boulevard..."}, 'label': 'Adresse: ' }) }}
+                                
+                                {{ form_row(formEvent.complement1, {'attr': {'placeholder': "Bâtiment, Digicode ..."}, 'label': 'Complément 1: ' }) }}
+                                {{ form_row(formEvent.complement2, {'attr': {'placeholder': "Autres Informations"}, 'label': 'Complémentaires 2: ' }) }}</p>
+                                
+                                {{ form_row(formEvent.city, {'attr': {'placeholder': "Marseille"},  'label': 'Ville: ' }) }}
+                                {{ form_row(formEvent.postalCode, {'attr': {'placeholder': "13014"}, 'label': 'Code postal: ' }) }}
+                                
+                                {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}, 'label': 'Decription de l\'évènement: ' }) }}</p>                         
+                        
+                                {{ form_row(formEvent.longitude, {'attr': {'placeholder': "07.12445121"}, 'label': 'Longitude: ' }) }}
+                                {{ form_row(formEvent.latitude, {'attr': {'placeholder': "01.58754564"}, 'label': 'Latitude: ' }) }}</p>
+                        
+                                {{ form_row(formEvent.users, {'label': "Participants"}) }}</p>
+                                
+                                {% if action %}
+                                        <input type="submit" class="btn btn-outline-info" value="Modifier l'évênement"/>
+                                {% else %}
+                                 <input type="submit" class="btn btn-outline-info" value="Ajouter l'évênement"/>
+                                {% endif %}    
 
-                {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}, 'label': 'Decription de l\'évènement: ' }) }}</p>
-
-                {{ form_row(formEvent.address, {'attr': {'placeholder': "Rue, Boulevard..."}, 'label': 'Adresse: ' }) }}
+                                
+                        </div>
+                        <div class="col">
+                                <div id="map" style="; border: 1px solid #ccc"></div>
+                                <div id="search">
+                                        <input type="text" name="addr" value="" id="addr" placeholder="Adresse" class="form-control"/>
+                                        <button type="button" class="btn btn-outline-secondary-blue sizeLinksLogin" onclick="addr_search();" >Search</button>
+                                <div id="results"/>
+                        </div>
+                               
+                        </div>
                 
-                {{ form_row(formEvent.complement1, {'attr': {'placeholder': "Bâtiment, Digicode ..."}, 'label': 'Complément 1: ' }) }}
-                {{ form_row(formEvent.complement2, {'attr': {'placeholder': "Autres Informations"}, 'label': 'Complémentaires 2: ' }) }}</p>
-                
-                {{ form_row(formEvent.city, {'attr': {'placeholder': "Marseille"},  'label': 'Ville: ' }) }}
-                {{ form_row(formEvent.postalCode, {'attr': {'placeholder': "13014"}, 'label': 'Code postal: ' }) }}
-                
-                {{ form_row(formEvent.longitude, {'attr': {'placeholder': "07.12445121"}, 'label': 'Longitude: ' }) }}
-                {{ form_row(formEvent.latitude, {'attr': {'placeholder': "01.58754564"}, 'label': 'Latitude: ' }) }}</p>
-            
-                {{ form_row(formEvent.contacts, {'label': "Participants"}) }}</p>
-                    
-                {% if action %}
-                        <input type="submit" class="btn btn-outline-info" value="Ajouter l'événement"/>
-                {% else %}
-                        <input type="submit" class="btn btn-outline-info" value="Modifier l'événement"/>
-                {% endif %}    
-
+                </div>
         {{ form_end(formEvent) }}
 
 {% endblock %}

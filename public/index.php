@@ -16,6 +16,7 @@ if (!isset($_SERVER['APP_ENV'])) {
 }
 
 $env = $_SERVER['APP_ENV'] ?? 'dev';
+/* $env = 'prod'; */
 $debug = (bool) ($_SERVER['APP_DEBUG'] ?? ('prod' !== $env));
 
 if ($debug) {

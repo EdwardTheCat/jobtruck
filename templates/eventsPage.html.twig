@@ -1,16 +1,52 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-    <link  rel="stylesheet" href="{{ asset('/assets/css/events.css') }}">
+
+{% block stylesheets %}    
+    <link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
+    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/events.css') }}">
 {% endblock %}
+
+{% block javascripts %}    
+    <script src="{{ asset('/map/js/jquery-1.8.2.min.js') }}"></script>
+    <script src="{{ asset('/map/js/leaflet.js') }}"></script>    
+    <script src="{{ asset('/map/js/map.js') }}"></script>
+    
+    <script> var markers = new Array();</script>
+{% endblock %}
+
+{% set jsMap = '' %}
 
 {% block title %}JobTruck - Évènements{% endblock %}
 
-{% block body %}
+{% block body %}                   
 
-    {% block principal %}
+    {% block principal %}    
+        <div id="map" style="border: 1px solid #ccc" class="mb-3"></div>
+
+        {% set cpt = 0 %}
+        {% for event in events %} 
+           
+            {% set jsMap = jsMap ~ 'markers['~ cpt ~'] = L.marker([' ~ event.latitude ~','~ event.longitude~']);'~"\r" %}
+          
+            <p>latitude {{event.latitude}} longitude {{event.longitude}}</p>
+            <div class="card bg-light mb-3">
+            <div class="card-header">Date de l'evenement {{event.date|date('Y-m-d:h:s')}}</div>
+            <div class="card-body">
+                <h5 class="card-title">Adresse {{event.address}} Ville {{event.city}}</h5>
+                <p class="card-text">personneparticipante</p>
+            </div>
+            {% set cpt = cpt + 1 %}
+        {% endfor %}
+        <script>
+            $(function(){
+                {{ jsMap }}
+                var group = L.featureGroup(markers).addTo(map);
+                map.fitBounds(group.getBounds());
+            });
+        </script>
+
+
+
     {% endblock %}
 
-    {% block aside %}
-    {% endblock %}
-
-{% endblock %}
+{% endblock %} 

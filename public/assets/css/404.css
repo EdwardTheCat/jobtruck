@@ -1,0 +1,27 @@
+/* ############### SECTION BACKGROUND IMAGE ############# */
+  /* DESKTOP __________________________________________________________________________________________*/
+  #bg-image{
+    /* Image parallax */
+    background: url("../img/bg-404.jpg") no-repeat;
+    /* Set a specific height */
+    height: 90rem; 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  main{
+    height: 0;
+  }
+
+  /* SMARTHPHONE __________________________________________________________________________________________*/
+  @media only screen and (max-width: 459px) {
+    #bg-image{
+        height: 100%; 
+    }
+    .navbar{
+        margin-top: 2%;
+        margin-bottom: 0%;
+      }
+  }
+/* ############ END SECTION BACKGROUND IMAGE ############ */
