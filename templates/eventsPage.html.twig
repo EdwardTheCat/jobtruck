@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-
-
-{% block stylesheets %}
-    {{ parent() }}
-	<link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}"> />
-	<link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
+{% block stylesheets %}    
+    <link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
+    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/events.css') }}">
 {% endblock %}
 
 {% block javascripts %}    
-    <script src="{{ asset('/map/js/leaflet.js') }}"></script>
+    <script src="{{ asset('/map/js/jquery-1.8.2.min.js') }}"></script>
+    <script src="{{ asset('/map/js/leaflet.js') }}"></script>    
     <script src="{{ asset('/map/js/map.js') }}"></script>
+    
     <script> var markers = new Array();</script>
 {% endblock %}
 
@@ -21,7 +21,7 @@
 {% block body %}                   
 
     {% block principal %}    
-        <div id="map" style=" border: 1px solid #ccc" class="mb-3"></div>
+        <div id="map" style="border: 1px solid #ccc" class="mb-3"></div>
 
         {% set cpt = 0 %}
         {% for event in events %} 
@@ -35,7 +35,7 @@
                 <h5 class="card-title">Adresse {{event.address}} Ville {{event.city}}</h5>
                 <p class="card-text">personneparticipante</p>
             </div>
-             {% set cpt = cpt + 1 %}
+            {% set cpt = cpt + 1 %}
         {% endfor %}
         <script>
             $(function(){

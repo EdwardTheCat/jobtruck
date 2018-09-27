@@ -34,7 +34,7 @@ class ContactMailController extends AbstractController
         ->setSubject('Formulaire de contact')
         ->setFrom('badbou13000@gmail.com')
         ->setTo('badbou13000@gmail.com')
-        ->setBody($request);
+        ->setBody("");
 
         $mailer->send($message);
 
