@@ -79,23 +79,4 @@ class PagesController extends AbstractController
         ]);
     }
 
-<<<<<<< HEAD
-    /**
-    * @Route("/contact", name="contactPage")
-    */
-    public function showContactPage()
-    {
-        return $this->render('contactPage.html.twig');
-    }
-
-    /**
-    * @Route("/404", name="404Page")
-    */
-    public function show404Exception()
-    {
-        return $this->render('404Page.html.twig');
-    }
-    
-=======
->>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
 }
