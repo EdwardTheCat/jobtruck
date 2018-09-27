@@ -36,6 +36,8 @@ class UserController extends AbstractController
 
         $users=$repo->findAll();
 
+        dump($users);
+
         return $this->render('user/userList.html.twig', ["users" => $users]);
 
     }
@@ -49,7 +51,14 @@ class UserController extends AbstractController
         // creates a task and gives it some dummy data for this example
         if(is_null($user)) {
             $user = new User();
-        }
+        }   
+            //get the route to update the user on edit, form empty value for avatar 
+            $route=$request->get('_route');    
+            $oldfilename="";
+            if($route=="userEdit"){
+                $oldfilename=$user->getAvatar();
+            }
+
             $form = $this->createForm(UserType::class, $user);
 
             //todo find an easy way to rename the field required at true
@@ -70,13 +79,17 @@ class UserController extends AbstractController
             
             if ($form->isSubmitted() && $form->isValid()) {
                 dump($user);
+          
                 
-                    // $file stores the uploaded PDF file
+                // $file stores the uploaded PDF file
                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
                 
                 $file = $form->get('avatar')->getData();
-                if(is_null($file))
-                    $user->setAvatar('avatar_base.png');
+                dump($file);
+
+                if(is_null($file) or $file=="empty_avatar")
+                    if($route=="userEdit") { $user->setAvatar($oldfilename);}
+                    else{$user->setAvatar('avatar_base.png');}
                 else
                 {
                     $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();

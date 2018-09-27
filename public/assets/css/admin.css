@@ -5,8 +5,15 @@ body{
 html {
     height: 100%;
   }
-  body {
+
+body {
     min-height: 100%;
+}
+
+/* nav admin  */
+.navbar-collapse a{
+    color:white;
+    padding-bottom: 4.5%;
 }
 
 main{
@@ -30,8 +37,16 @@ table{
     vertical-align: middle;
 }
 
+/* pour le bouton dasboard sur les pages add... */
+#dashboard{
+    margin-bottom: 1%;
+    width:10%;
+}
+
 a.bigButton{
     font-size: large;
+    margin-bottom: 1%;
+    margin-left: 0.5%;
 }
 
 a.btn{
@@ -110,23 +125,93 @@ label.form-check-label{
 input[type="submit"]{
     margin : 1% auto;
 }
+/* pour la list de buttons dans list Job */
+.listButton>a{
+    margin-bottom:1%;
+}
 
 /* pour la dashboard */
-#dashboard{
+#dashboardPanel{
     display: flex;
     justify-content : center;
+    flex-wrap : wrap;
+    align-content: space-around;
+    margin-top: 1%;
 }
+
+/* pour les boutons dashboard et add des XXXList */
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    #dashboard{
+        margin-bottom: 1%;
+        width:100%;
+        display:block;
+    }
+    
+    a.bigButton{
+        font-size: large;
+        margin-bottom: 1%;
+        margin-left: 0.5%;
+        display:block;
+    }
+ }
 
 /* pour faire apparaître en colonne le dashboard pour les screens mobile */
-@media (max-width: 576px) { #dashboard { flex-wrap: wrap; }}
-div.card{
-    margin: 1% 0.5%;
+@media (max-width: 768px) {
+    #dashboardPanel{ flex-wrap: wrap; }
+    #dashboard{
+        margin-bottom: 1%;
+        width:100%;
+        display:block;
+    }
+    
+    a.bigButton{
+        font-size: large;
+        margin-bottom: 1%;
+        margin-left: 0.5%;
+        display:block;
+    }
+
+    #aJob{
+        /* //todo */
+    }
 }
 
-/* pour le bouton dasboard sur les pages add... */
-#dashboard{
-    margin-top: 5%;
+div.card{
+    margin: 2% 0.5%;
+    width: 103%;
+    border-radius:0.5em;
 }
+
+
+div.breadcrumb{
+    border-radius : 0.5em;
+}
+/* la page User Edit/Add */
+#submitEdit{
+    display:block;
+    margin-left:0%;
+    margin-top:3%;
+}
+
+#submitAdd{
+    display:block;
+    margin-left:0%;
+    margin-top:3%;
+}
+
+/* pour la liste des évenements */
+p.label{}
+
+p.content{
+    padding-left:2%;
+}
+
+/* pour les boutons */
+.btn{
+    border-radius: 1rem;
+  }
+
 
 div#map{
     width: 600px;

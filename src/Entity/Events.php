@@ -67,14 +67,15 @@ class Events
     private $postalCode;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="events")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Contact", inversedBy="events")
      */
-    private $users;
+    private $contacts;
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -191,28 +192,29 @@ class Events
     }
 
     /**
-     * @return Collection|User[]
+     * @return Collection|Contact[]
      */
-    public function getUsers(): Collection
+    public function getContacts(): Collection
     {
-        return $this->users;
+        return $this->contacts;
     }
 
-    public function addUser(User $user): self
+    public function addContact(Contact $contact): self
     {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts[] = $contact;
         }
 
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function removeContact(Contact $contact): self
     {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
+        if ($this->contacts->contains($contact)) {
+            $this->contacts->removeElement($contact);
         }
 
         return $this;
     }
+
 }

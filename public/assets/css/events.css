@@ -1,6 +1,6 @@
 /* ############### SECTION BACKGROUND IMAGE ############# */
   /* DESKTOP __________________________________________________________________________________________*/
-  #bg-image{
+  #bg-image {
     /* Image parallax */
     background: url("../img/bg-event.jpg") no-repeat;
     /* Set a specific height */
@@ -43,7 +43,3 @@
   /* END POSITION RESEAUX SOCIAUX */
 /* ############ END SECTION ASIDE INFO ############ */
 
-div#map{
-  width: 600px;
-  height: 600px;
-}

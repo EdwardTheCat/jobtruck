@@ -40,3 +40,6 @@ div#results {
   color: white;
  
 }
+div#map{
+	height: 600px;
+}

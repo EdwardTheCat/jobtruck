@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
@@ -34,7 +36,7 @@ class Contact
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
-     * @Assert\NotBlank(message = "Votre nom '{{ value }}' ne doit pas être vide.")
+     * @Assert\NotBlank(message = "Votre nom ne doit pas être vide.")
      * @Assert\Length(
      *      min = 3,
      *      max = 255,
@@ -91,12 +93,20 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * 
+     * @Assert\File(
+     *      maxSize="5242880",
+     *      mimeTypes = {
+     *          "image/png",
+     *          "image/jpeg",
+     *          "image/jpg",
+     *          "image/gif",
+     *      }
+     * )
      */
     private $logo;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="contact", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="contact")
      */
     private $user;
 
@@ -104,6 +114,16 @@ class Contact
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Events", mappedBy="contacts")
+     */
+    private $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -216,6 +236,57 @@ class Contact
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Events[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Events $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->addContact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Events $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            $event->removeContact($this);
+        }
+
+        return $this;
+    }
+
+    public function getdisplayName()
+    {
+        $quality="";
+        switch ($this->getQuality()) {
+            case "leader_economique":
+                $quality='Leader économique';
+                break;
+            case 'centre_formation':
+                $quality='Centre de formation';
+                break;
+            case 'pouvoirs_publics':
+                $quality='Pouvoirs publics';
+                break;
+            case 'association':
+                $quality='Association';
+                break;
+            case 'partenaire_economique':
+                $quality='Partenaire économique';
+                break;
+        }
+        return $this->name.' '.$this->surname. ' - '.$this->email.'('.$quality.')';
     }
 
 }

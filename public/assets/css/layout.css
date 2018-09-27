@@ -30,7 +30,7 @@ section#principal>article{
 }
 
 .para-principal{
-
+font-size: large;
 }
 a.reseaux{
     display:inline-block;
@@ -46,9 +46,7 @@ section#aside{
 }
 
 article>div.container{
-    
     display: flex;
-
 }
 
 img.avatar-aside{
@@ -57,7 +55,7 @@ img.avatar-aside{
 
 div.aside-para{
     background-color: #EFEFEF;
-    padding: 3% 3%;
+    padding: 1.4% 3%;
     margin-bottom: 4%;
     width:60%;
 }
@@ -76,3 +74,21 @@ img{
     width: 100%;
 }
 
+#partners>.container{
+    display:flex;
+    justify-content: space-around;
+}
+
+#btn-partners{
+    display: block;
+    font-size:large;
+    color: #005C7D;
+    background-color:white; 
+    margin: 2% auto;
+    width: 20%;
+}
+
+#btn-partners:hover{
+    background-color: #005C7D;
+    color: black;
+}

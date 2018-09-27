@@ -4,35 +4,41 @@
 
 {% block body %}
 
-    <h2 class="card-title">Tous les évènements</h2>
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    <a  class="btn btn-outline-primary bigButton" href="{{ path('createEvent') }}">Ajouter un événement</a>
+    
+    <h2 class="card-title">Liste des Événements</h2>
 
     {% for event in events %}
 
     <div class="card mb-3">
         <div class="card-header">
-            <h4 class="card-title">Évènement du {{ event.date | date('d/m/Y') }}</h4>
+            <h4 class="card-title">Événement du {{ event.date | date('d/m/Y') }}</h4>
         </div>
         <div class="card-body">
             <div class="card-text">
-                <p>Adresse de l'évènement : </p>
-                <p>{{ event.address }}</p>
-                <p>{{ event.complement1 }}</p>
-                <p>{{ event.complement2 }}</p>
-                <p>{{ event.postalCode }}</p>
-                <p>{{ event.city }}</p>
+                <p class="label">Date et Heure de l'événement : </p>
+                <p class="content"><strong>{{event.date | date('Y-m-d')}}</strong> à <strong>{{ event.date | date('H:i') }}</strong></p>
             </div>
             <div class="card-text">
-                <p>À {{ event.date | date('H:i') }} </p>
-                <p>Description : </p>
-                <p>{{ event.description }}</p>
+                <p class="label">Adresse de l'événement : </p>
+                <p  class="content">{{ event.address }}</p>
+                <p class="content">{{ event.complement1 }}</p>
+                <p class="content">{{ event.complement2 }}</p>
+                <p class="content">{{ event.postalCode }}</p>
+                <p class="content">{{ event.city }}</p>
+            </div>
+            <div class="card-text">
+                <p class="label">Description : </p>
+                <p class="content">{{ event.description }}</p>
             </div>
         </div>
         <div class="card-footer">
-            <a href="{{ path('showEvent',{id:event.id}) }}" class="card-link">Détails</a>
+            <a class="btn btn-outline-info" href="{{ path('showEvent',{id:event.id}) }}" class="card-link">Détails</a>
+            <a class="btn btn-outline-primary" href="{{ path('editEvent',{id:event.id}) }}">Modifier</a>
+            <a class="btn btn-outline-danger" href="{{ path('deleteEvent',{id:event.id}) }}">Supprimer</a>
         </div>
     </div>
     {% endfor %}
-    <a  class="btn btn-outline-primary bigButton" href="{{ path('createEvent') }}">Ajouter un évènement</a>
-
-    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+   
 {% endblock %}

@@ -1,18 +1,37 @@
 {% extends 'adminTemplate.html.twig' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-{% block title %}creation offre d'emploi {% endblock %}
+
+{# {% block title %}Creation offre d'emploi {% endblock %} #}
 
 {% block body %}
 
-    {% block principal %}
-        
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-            <input type="submit" class="btn btn-outline-info" value="Ajouter l'offre d'emploi"/>
-            <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
-        {{ form_end(form) }}
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
+    {% if action %}
+        <h4>Formulaire d'ajout : Offre d'emploi</h4>
+    {% else %}
+        <h4>Formulaire de modification : Offre d'emploi</h4>
+    {% endif %}
+    {{ form_start(form) }}
+        {{ form_row(form.title, {'attr': {'placeholder': 'Titre de l\'offre...'}}) }}
 
-    {% endblock %}
+        {{ form_row(form.description, {'attr': {'placeholder': 'Description...'}}) }}
+
+        {{ form_row(form.contact,  {'attr': {'placeholder': 'Email du contact...'}}) }}
+
+        {{ form_row(form.logo, {'attr': {'placeholder': 'Choisissez le logo de l\'entreprise...'}}) }}
+
+        {{ form_row(form.validity,  {'attr': {'placeholder': 'Mois...'}}) }}
+
+        {% if action %}
+            <input type="submit" class="btn btn-outline-info" value="Ajouter l'offre d'emploi"/>
+        {% else %}
+            <input type="submit" class="btn btn-outline-info" value="Modifier l'offre d'emploi"/>
+        {% endif %}
+               
+        
+        
+        {{ form_end(form) }}
 
 {% endblock %}

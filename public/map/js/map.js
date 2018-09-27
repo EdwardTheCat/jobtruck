@@ -8,7 +8,8 @@ function load_map() {
 		osmAttribution = 'Map data &copy; 2012 <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 		osm = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
 
-	map.setView(new L.LatLng(43.296482, 5.36978), 13).addLayer(osm);
+	map.setView(new L.LatLng(51.5, -0.09), 13).addLayer(osm);
+	
 }
 
 function chooseAddr(lat1, lng1, lat2, lng2, osm_type) {
@@ -26,11 +27,10 @@ function chooseAddr(lat1, lng1, lat2, lng2, osm_type) {
 		map.setZoom(18);
 	} else {
 		feature = L.marker([lat1,lng1]).addTo(map);
-		document.getElementById("add_event_latitude").value = lat1;
-		document.getElementById("add_event_longitude").value = lng1;
-
 		map.fitBounds(bounds);
 	}
+	document.getElementById("add_event_latitude").value = lat1;
+	document.getElementById("add_event_longitude").value = lng1;
 }
 
 function addr_search() {
@@ -63,4 +63,7 @@ function addr_search() {
     });
 }
 
-window.onload = load_map;
+$(function(){
+	load_map();
+});
+

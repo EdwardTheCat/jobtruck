@@ -1,7 +1,21 @@
 {% extends 'adminTemplate.html.twig' %}
 
+{% block javascripts %}
+<script>
+    $(function(){
+        $('#listuser').DataTable();
+    });
+</script>
+{% endblock %}
+{% block stylesheets %}
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{% endblock %}
+
 {% block body %}
-    <table class="table table-hover">
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    <a  class="btn btn-outline-primary bigButton" href="{{ path('userAdd') }}" role="button">Ajouter un utilisateur</a>
+
+    <table class="table table-hover" id="listuser">
          <caption>Tableau des utilisateurs</caption>
         <thead>
             <tr>
@@ -10,6 +24,7 @@
                 <th scope="col">Avatar</th>
                 <th scope="col">Droits</th>
                 <th scope="col">Date de création</th>
+                <th scope="col">Contact lié</th>
                 <th scope="col">Details</th>
                 <th scope="col">Modifier</th>
                 <th scope="col">Supprimer</th>
@@ -22,9 +37,14 @@
                     <td>{{user.email}}</td>
                     <td><img class="avatar" src="{{ asset('/uploads/avatar/' ~ user.avatar)  | imagine_filter('thumb')}}" alt="image_user"/></td>
                     {% for role in user.roles %}
-                        <td>{{role}}</td>
+                        
+                        <td>
+                            {% if role == "ROLE_ADMIN" %} Administrateur {% endif %}
+                            {% if role == "ROLE_USER" %} Utilisateur {% endif %}
+                        </td>
                     {% endfor %}
                     <td>{{user.createdAt|date('Y-m-d:h:s')}}</td>
+                    <td>{% if user.contact %}<a href="{{ path('contactDetails', {id:user.contact.id}) }}">{{ user.contact.name }} - {{ user.contact.surname }} </a>- {{ user.contact.email }}{% endif %}
                     <td><a class="btn btn-outline-info"  href="{{path('userDetails',{id:user.id}) }}" role="button">Details</a></td>
                     <td><a class="btn btn-outline-primary" href="{{path('userEdit',{id:user.id}) }}" role="button">Modifier</a></td>
                     <td><a class="btn btn-outline-danger" href="{{path('userDelete',{id:user.id}) }}" role="button">Supprimer</a></td> 
@@ -34,9 +54,8 @@
         
         </tbody>
     </table>
-    <a  class="btn btn-outline-primary bigButton" href="{{ path('userAdd') }}">Ajouter un utilisateur</a>
-
-    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
+    
     
 {% endblock %}
 
