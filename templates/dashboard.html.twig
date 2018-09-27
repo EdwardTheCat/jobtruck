@@ -10,9 +10,9 @@
     <section>
 
         {# TITLE ACTUALITY #}
-        <div class="breadcrumb">
+        {# <div class="breadcrumb">
             <h4 class="breadcrumb-item active">Actualitées</h4>
-        </div>
+        </div> #}
 
         {# EMAILS #}
         {# 
@@ -24,14 +24,14 @@
 
         {# NEXT EVENTS #}
         <div class="card bg-light">
-            <h5 class="card-header">Prochain évènement</h5>
+            <h5 class="card-header">Prochains événements</h5>
             <div class="list-group-item ">
             <ul>
             {% for event in events %}
                 <li>
                     <p><strong>Date:  {{ event.date | date('d-m-Y H:i') }} </strong></p>
                     <p>Description: {{ event.description }}</p>
-                    <a class="btn btn-info" href="{{ path('editEvent', {id:event.id}) }}" role="button">Modifier l'évênement</a>
+                    <a class="btn btn-primary" href="{{ path('editEvent', {id:event.id}) }}" role="button">Modifier l'événement</a>
                 </li>
             {% endfor %}
             </ul>
@@ -49,7 +49,7 @@
             <h4 class="breadcrumb-item active">Gestion</h4>
         </div>
 
-    <div id="dashboard" class="container">
+    <div id="dashboardPanel" class="container">
 
         {# CRUD USERS #}
         <div class="col-xs-12 col-md-4">
@@ -57,7 +57,7 @@
                 <h5 class="card-header">Utilisateurs</h5>
                 <div class="card-body">
                     <div class="card-text">
-                        <a class="btn btn-info" href="{{ path('userAdd') }}" role="button">Ajouter</a>
+                        <a class="btn btn-primary" href="{{ path('userAdd') }}" role="button">Ajouter</a>
                         <a class="btn btn-info" href="{{ path('userList') }}" role="button">Liste des utilisateurs</a>
                     </div>
                 </div>
@@ -67,24 +67,11 @@
         {# CRUD EVENTS #}
         <div class="col-xs-12 col-md-4">
             <div class="card bg-light">
-                <h5 class="card-header">Évènements</h5>
+                <h5 class="card-header">Événements</h5>
                 <div class="card-body">
                     <div class="card-text">
-                        <a class="btn btn-info" href="{{ path('createEvent') }}" role="button">Ajouter</a>
-                        <a class="btn btn-info" href="{{ path('listEvents') }}" role="button">Liste des évênments</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {# CRUD Contact #}
-        <div class="col-xs-12 col-md-4">
-            <div class="card bg-light">
-                <h5 class="card-header">Contacts</h5>
-                <div class="card-body">
-                    <div class="card-text">
-                        <a class="btn btn-info" href="{{ path('contactAdd') }}" role="button">Ajouter</a>
-                        <a class="btn btn-info" href="{{ path('contactList') }}" role="button">Liste des contacts</a>
+                        <a class="btn btn-primary" href="{{ path('createEvent') }}" role="button">Ajouter</a>
+                        <a class="btn btn-info" href="{{ path('listEvents') }}" role="button">Liste des évènments</a>
                     </div>
                 </div>
             </div>
@@ -95,8 +82,20 @@
                 <h5 class="card-header">Offres d'emplois</h5>
                 <div class="card-body">
                     <div class="card-text">
-                        <a class="btn btn-info" href="{{ path('createJob') }}" role="button">Ajouter</a>
-                        <a class="btn btn-info" href="{{ path('listJob') }}" role="button">Liste des emplois</a>
+                        <a class="btn btn-primary" href="{{ path('createJob') }}" role="button">Ajouter</a>
+                        <a id="aJob" class="btn btn-info" href="{{ path('listJob') }}" role="button">Liste des offres d'emploi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# CRUD Contact #}
+        <div class="col-xs-12 col-md-4">
+            <div class="card bg-light">
+                <h5 class="card-header">Contacts</h5>
+                <div class="card-body">
+                    <div class="card-text">
+                        <a class="btn btn-primary" href="{{ path('contactAdd') }}" role="button">Ajouter</a>
+                        <a class="btn btn-info" href="{{ path('contactList') }}" role="button">Liste des contacts</a>
                     </div>
                 </div>
             </div>
@@ -107,8 +106,8 @@
                 <h5 class="card-header">Témoignages</h5>
                 <div class="card-body">
                     <div class="card-text">
-                        <a class="btn btn-info" href="{{ path('contactAdd') }}" role="button">Ajouter</a>
-                        <a class="btn btn-info" href="{{ path('witnessList') }}" role="button">Liste des témoignages</a>
+                        <a class="btn btn-primary" href="{{ path('testimonyAdd') }}" role="button">Ajouter</a>
+                        <a class="btn btn-info" href="{{ path('testimonyList') }}" role="button">Liste des témoignages</a>
                     </div>
                 </div>
             </div>

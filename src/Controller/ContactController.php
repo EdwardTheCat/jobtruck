@@ -46,21 +46,43 @@ class ContactController extends AbstractController
         if(is_null($contact)) {
             $contact = new Contact();
         }
+            //get the route to update the user on edit, form empty value for avatar 
+            $route=$request->get('_route');    
+            $oldfilename="";
+            if($route=="contactEdit"){
+                $oldfilename=$contact->getLogo();
+            }
+
             $form = $this->createForm(ContactType::class, $contact);
 
             //We get the user connected note used      
             //$connectedUser=$this->getUser();
            
             $form->handleRequest($request);
+            $logoSaved="";
+
+            // //we get the route
+            // $currentRoute = $request->attributes->get('_route');
+            // dump($currentRoute);
+            // if($currentRoute=="contactEdit"){
+            //     $form->remove('logo');
+            // }
+          
             
             if ($form->isSubmitted() && $form->isValid()) {
                 
+                dump($contact);
+            
                 // $file stores the uploaded PDF file
                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
                 
                 $file = $form->get('logo')->getData();
-                if(!is_null($file))
-                {
+
+                if(is_null($file) or $file=="empty_logo"){
+                    if($route=="contactEdit") { $contact->setLogo($oldfilename);}
+                    else{$contact->setLogo('avatar_base.png');}
+                }
+                else{
                     $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
                     // moves the file to the directory where brochures are stored
@@ -72,9 +94,16 @@ class ContactController extends AbstractController
                     // instead of its contents
                     $contact->setLogo($fileName);
                 }
-
+                // else{
+                //     if(!is_null($logoSaved)){
+                //         $contact->setLogo($logoSaved);
+                //     }
+                //     //Use a default logo
+                //     else{}
+                    
+                // }
                 $contact->setCreatedAt(new \DateTime());
-        
+    
                 //we encode the password
                 //if password from the form != null we encode the new pasword
                 
@@ -88,13 +117,14 @@ class ContactController extends AbstractController
             }
             
          
-        
-        return $this->render('contact/contactAdd.html.twig', [
-            'form' => $form->createView(),
-            'action' => is_null($contact->getId()),
-            'contact' => $contact
-            ]
-        );
+            dump($contact);
+            
+            return $this->render('contact/contactAdd.html.twig', [
+                'form' => $form->createView(),
+                'action' => is_null($contact->getId()),
+                'contact' => $contact
+                ]
+            );
     }
 
 
@@ -102,7 +132,7 @@ class ContactController extends AbstractController
      /**
      * @Route("admin/contact/delete/{id}", name="contactDelete" , requirements={"id"="\d+"})
      */
-    public function delete(User $user=null, ObjectManager $manager)
+    public function delete(Contact $contact=null, ObjectManager $manager)
     {
         //vérification à faire sur le user avec id
         if(!is_null($contact)){
@@ -125,13 +155,22 @@ class ContactController extends AbstractController
 
 
     /**
-     * @Route("admin/contact/witness/list", name="witnessList")
+     * @Route("admin/whitness/list", name="witnessList")
      */
     public function witnessList(ContactRepository $repo)
     {   
-        $contacts=$repo->findBy(["quality" => "Témoignage"]);
+        $contacts=$repo->findBy(["quality" => "temoignage"]);
 
         return $this->render('contact/contactList.html.twig', ["contacts" => $contacts]);
     }
 
+    /**
+     * @Route("admin/partners/list", name="partnersList")
+     */
+    public function partnersList(ContactRepository $repo)
+    {   
+        $contacts=$repo->findBy(["quality" => "partenaire"]);
+
+        return $this->render('contact/contactList.html.twig', ["contacts" => $contacts]);
+    }
 }

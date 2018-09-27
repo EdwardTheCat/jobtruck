@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block javascripts %}    
-    <script src="{{ asset('/map/js/jquery-1.8.2.min.js') }}"></script>
     <script src="{{ asset('/map/js/leaflet.js') }}"></script>    
     <script src="{{ asset('/map/js/map.js') }}"></script>
     
@@ -26,14 +25,14 @@
         {% set cpt = 0 %}
         {% for event in events %} 
            
-            {% set jsMap = jsMap ~ 'markers['~ cpt ~'] = L.marker([' ~ event.latitude ~','~ event.longitude~']);'~"\r" %}
-          
-            <p>latitude {{event.latitude}} longitude {{event.longitude}}</p>
+            {% set jsMap = jsMap ~ 'markers['~ cpt ~'] = L.marker([' ~ event.latitude ~','~ event.longitude ~']);'~"\r" %}          
+            
             <div class="card bg-light mb-3">
-            <div class="card-header">Date de l'evenement {{event.date|date('Y-m-d:h:s')}}</div>
-            <div class="card-body">
-                <h5 class="card-title">Adresse {{event.address}} Ville {{event.city}}</h5>
-                <p class="card-text">personneparticipante</p>
+                <div class="card-header">Date de l'evenement {{event.date|date('Y-m-d:h:s')}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">Adresse {{event.address}} Ville {{event.city}}</h5>
+                    <p class="card-text">personneparticipante</p>
+                </div>
             </div>
             {% set cpt = cpt + 1 %}
         {% endfor %}
@@ -44,8 +43,6 @@
                 map.fitBounds(group.getBounds());
             });
         </script>
-
-
 
     {% endblock %}
 

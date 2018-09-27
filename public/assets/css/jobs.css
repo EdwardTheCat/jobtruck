@@ -30,9 +30,12 @@
 /* ############ END SECTION BACKGROUND IMAGE ############ */
 /* ############### SECTION IMAGE PARTNERS ############### */
   #blocImgPartenaire{
-    display: inline-grid;
+    display: inline-block;
     width: 100%;
     height: 5rem;
+  }
+  @media only screen and (max-width: 768px) {
+    
   }
 /* ############ END SECTION IMAGE PARTNERS ############ */
 
@@ -49,8 +52,7 @@
   padding: .5rem 3rem;
 }
 .product-image img{
-max-height: 100%;
-width: auto;
+  height: 80%;
 }
 .jobModalStyle h4{
   font-size: 2.5rem;
@@ -84,7 +86,6 @@ width: auto;
   .btn-right{
     float: right;
   }
-
   .containerCard-image-right{
     background: #FBFBFB;
     border-radius: 8px;
@@ -187,5 +188,14 @@ width: auto;
   aside .row{
     margin-top: 2rem;
   }
-/* END POSITION RESEAUX SOCIAUX */
+  /* END POSITION RESEAUX SOCIAUX */
 /* ############ END SECTION ASIDE INFO ############ */
+
+.containerCard-image-right{
+  background: #FBFBFB;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem auto;
+  max-height: 18rem;
+  max-width: 90%;
+}

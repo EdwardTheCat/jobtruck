@@ -1,0 +1,22 @@
+{% extends 'adminTemplate.html.twig' %}
+
+{% block body %}
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    
+    <h4>Details du témoignage</h4>
+    <div class="details">
+        {% if testimony.photo is not null %}
+            <img class="logo" src="{{ asset('/uploads/logo/' ~ testimony.photo)  | imagine_filter('thumb')}}" alt="témoignage_photo"/>
+        {% endif %}
+        <p>Prénom : {{testimony.name}}</p>
+        <p>Nom : {{testimony.lastname}}</p>
+        <p>Description :</p>
+        <p> {{testimony.description}}</p>
+    </div>
+
+    <td><a class="btn btn-outline-primary" href="{{path('testimonyEdit',{id:testimony.id}) }}">Modifier</a></td>
+    <td><a class="btn btn-outline-danger" href="{{path('testimonyDelete',{id:testimony.id}) }}">Supprimer</a></td> 
+
+    
+     
+{% endblock %}

@@ -21,66 +21,74 @@ class JobController extends AbstractController
      * @Route("/admin/job/create", name="createJob")
      * @Route("/admin/job/edit/{id}", name="editJob")
      */
-     public function createJob(Job $job=null, Request $request, ObjectManager $manager )
-     {
-         if (is_null($job))
-             $job = new Job();
- 
-         $formJob = $this->createFormBuilder($job)
-                         ->add('title',TextType::class)
-                         ->add('description',TextareaType::class)
-                         ->add('contact',EmailType::class)
-                         ->add('logo', FileType::class, array(
-                             'label' => 'Le logo de l\'entreprise', 
-                             'data_class' => null,
-                             'required' => true
-                             ))
-                         ->add('validity')
-         ->getForm();
- 
-         $formJob->handleRequest($request);
-         if ($formJob->isSubmitted() && $formJob->isValid()) {
- 
-             // $file stores the uploaded PDF file
-                 /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-                 
-                 $file = $formJob->get('logo')->getData();
-                 
-                 if(!is_null($file))
-                 {
-                     $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
- 
-                     // moves the file to the directory where brochures are stored
-                     $file->move(
-                         $this->getParameter('logo_directory'),
-                         $fileName
-                     );
-                     // updates the 'user' property to store the PDF file name
-                     // instead of its contents
-                     $job->setLogo($fileName);
-                 }
-                 
-             $job->setCreatedAT(new \DateTime());
- 
-             $manager->persist($job);
-             $manager->flush();
-        
-             return $this->redirectToRoute('listJob');
-         }
-         return $this->render('job/job.html.twig',[
-             'form' => $formJob->createView(),
-         ]);
-     }
+    public function createJob(Job $job=null, Request $request, ObjectManager $manager )
+    {
+        if (is_null($job))
+            $job = new Job();
+
+        if($request->get('_route')=="jobEdit"){
+            $oldfilename=$contact->getLogo();
+        }
+
+        $formJob = $this->createFormBuilder($job)
+                        ->add('title',TextType::class, array('label' => 'Titre'))
+                        ->add('description',TextareaType::class)
+                        ->add('contact',EmailType::class)
+                        ->add('logo', FileType::class, array(
+                            'label' => 'Logo de l\'entreprise', 
+                            'data_class' => null,
+                            'empty_data' => 'empty_logo',
+                            'required' => true
+                            ))
+                        ->add('validity')
+        ->getForm();
+
+        $formJob->handleRequest($request);
+        if ($formJob->isSubmitted() && $formJob->isValid()) {
+
+            // $file stores the uploaded PDF file
+                /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+                
+                $file = $formJob->get('logo')->getData();
+                
+                if(is_null($file) or $file=="empty_logo")
+                    if($route=="jobEdit") { $user->setAvatar($oldfilename);}
+                    else{$user->setAvatar('logo_base.png');}
+                else{
+                    $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+                    // moves the file to the directory where brochures are stored
+                    $file->move(
+                        $this->getParameter('logo_directory'),
+                        $fileName
+                    );
+                    // updates the 'user' property to store the PDF file name
+                    // instead of its contents
+                    $job->setLogo($fileName);
+                }
+                
+            $job->setCreatedAT(new \DateTime());
+
+            $manager->persist($job);
+            $manager->flush();
+       
+            return $this->redirectToRoute('listJob');
+        }
+        return $this->render('job/job.html.twig',[
+            'form' => $formJob->createView(),
+            'action' => is_null($job->getId())
+        ]);
+    }
 
     /**
      * @Route("/admin/job/listJob", name="listJob")
      */
     public function listJob(JobRepository $repo)
     {
-        $allJob  =$repo->findAll();
+        $jobs  =$repo->findAll();
         return $this->render('job/listJob.html.twig',[
 
-            'all'  => $allJob
+            'jobs'  => $jobs
         ]);
     }
 
@@ -93,14 +101,25 @@ class JobController extends AbstractController
         return $this->redirectToRoute("listJob");  
     }
 
+     /**
+     * @Route("/admin/job/{id}", name="jobDetails", requirements={"id"="\d+"})
+     */
+    public function DetailsJob($id, JobRepository $repo )
+    {
+        $job=$repo->findOneById($id);
+        return $this->render('job/jobDetails.html.twig', [
+            'job' => $job
+        ]);
+    }
+
     /**
      * @return string
      */
-     private function generateUniqueFileName()
-     {
-         // md5() reduces the similarity of the file names generated by
-         // uniqid(), which is based on timestamps
-         return md5(uniqid());
-     }
+    private function generateUniqueFileName()
+    {
+        // md5() reduces the similarity of the file names generated by
+        // uniqid(), which is based on timestamps
+        return md5(uniqid());
+    }
 
 }

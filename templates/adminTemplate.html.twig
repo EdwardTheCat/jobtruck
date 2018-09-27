@@ -3,54 +3,53 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %} Admin {% endblock %}</title>
-
-        {% block stylesheets %}
-            <link  rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-            <link  rel="stylesheet" href="{{ asset('/assets/css/admin.css') }}">
-        {% endblock %}
-<<<<<<< HEAD
-        {# OFFLINE #}
-        <link rel="stylesheet" href="{{ asset ('/assets/css/bootstrap/bootstrap.min.css') }}">
-        <link href="{{ asset ('/assets/css/fontawesome/all.min.css') }}" rel="stylesheet">
-        {# END OFFLINE#}
-        {% block javascripts %}
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        {% endblock %}
-        {# OFFLINE #}
-        <script src="{{ asset ('/assets/js/jquery-3.3.1.js') }}"></script>
-        <script src="{{ asset ('/assets/js/bootstrap/bootstrap.min.js') }}"></script>
-        <script defer src="{{ asset ('/assets/js/fontawesome/all.min.js') }}"></script> {# LOGO RESEAUX SOCIAUX OFFLINE§ ATTENTION EN BLEU #}
-        {# END OFFLINE #}
-=======
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link  rel="stylesheet" href="{{ asset('/assets/css/admin.css') }}">
+        {% block stylesheets %}{% endblock %}
         
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         {% block javascripts %}{% endblock %}
->>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
         
     </head>
-    <header>
-    {# NAVBAR #}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div>
-            <p class="navbar-brand">JOBTRUCK</p>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarColor03">
-            <a href="{{ path('logout') }}" class="card-link"><i class="fas fa-sign-out-alt"></i>Déconnection</a>
-        </div>
-    </nav>
-    {# END NAVBAR #}
-    
-</header>
-<main>
-    
-    {% block body %}
- 
-    {% endblock %} 
-    {% block map %}
-    {% endblock %}  
+    <body>
+        <header>
+        {# NAVBAR #}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div>
+                <p class="navbar-brand">JOBTRUCK</p>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <a href="{{ path('userList') }}" class="card-link"><i class="fas fa-user-circle"></i> Utilisateur</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <a href="{{ path('contactList') }}" class="card-link"><i class="fas fa-user-lock"></i> Contact</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <a href="{{ path('listEvents') }}" class="card-link"><i class="far fa-calendar-alt"></i></i> Événement</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <a href="{{ path('listJob') }}" class="card-link"><i class="fas fa-briefcase"></i> Offre d'emploi</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <a href="{{ path('testimonyList') }}" class="card-link"><i class="far fa-comments"></i> Témoignage</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <a href="{{ path('logout') }}" class="card-link">Déconnexion</a>
+            </div>
+        </nav>
+        {# END NAVBAR #}
+        
+        </header>
+        <main>
+            
+            {% block body %}
+            
+            {% endblock %}  
 
-</main>
+
+        </main>
+    </body>
+<html>

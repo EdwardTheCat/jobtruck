@@ -1,27 +1,20 @@
 {% extends 'adminTemplate.html.twig' %}
-
+{% block javascripts %}
+    <script>
+        $(function(){
+            $('#listcontact').DataTable();
+        });
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    <link  rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{% endblock %}
 {% block body %}
-         
-        {# <ul>
-            {% for contact in contacts %}        
-                <li>
-                    <p>Prénom: {{contact.name}}</p>
-                    <p>Nom: {{contact.surname}}</p>
-                    <p>Email:{{contact.email}}</p>
-                    <p>Téléphone: {{contact.phone}}</p>
-                    <p>Qualité: {{contact.quality}}</p>
-                    <p>Description: {{contact.description}}</p>
-                    <p>Logo: <img class="logo" src="{{ asset('uploads/logo/' ~ contact.logo)  | imagine_filter('squared_avatar')}}" alt="image_logo"/></p>
-                    <p><a href="{{path('contactDetails',{id:contact.id}) }}">Details</a></p>
-                    <a href="{{path('contactEdit',{id:contact.id}) }}">Editer</a>
-                    <a href="{{path('contactDelete',{id:contact.id}) }}">Effacer</a>
-                </li>
-            {% endfor %}
-        </ul>
 
-    <a href="{{ path('userAdd') }}">ADD</a> #}
-
-    <table class="table table-hover">
+    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
+    <a  class="btn btn-outline-primary bigButton" href="{{ path('contactAdd') }}">Ajouter un contact</a>
+    
+    <table class="table table-hover" id="listcontact">
          <caption>Tableau des contacts</caption>
         <thead>
             <tr>
@@ -42,8 +35,18 @@
                     <td>{{contact.name}}</td>
                     <td>{{contact.surname}}</td>
                     <td>{{contact.email}}</td>
-                    <td><img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb')}}" alt="image_logo"/></td>
-                    <td>{{contact.quality}}</td>
+                    <td><img class="logo" src="{{ asset('/uploads/logo/' ~ contact.logo)  | imagine_filter('thumb') }}" alt="image_logo"/></td>
+                    <td>
+                       
+                        {% if contact.quality == "leader_economique" %}Leader économique
+                        {% elseif contact.quality == "centre_formation" %}Centre de formation
+                        {% elseif contact.quality == "pouvoirs_publics" %}Pouvoir public
+                        {% elseif contact.quality == "association" %}Association
+                        {% elseif contact.quality == "partenaire_economique" %}Partenaire économique
+                        {% endif %}
+
+                        
+                    </td>
                     <td>{{contact.createdAt|date('Y-m-d:h:s')}}</td>
                     <td><a class="btn btn-outline-info" href="{{path('contactDetails',{id:contact.id}) }}">Details</a></td>
                     <td><a class="btn btn-outline-primary" href="{{path('contactEdit',{id:contact.id}) }}">Modifier</a></td>
@@ -54,9 +57,6 @@
         
         </tbody>
     </table>
-    <a  class="btn btn-outline-primary" href="{{ path('contactAdd') }}">Ajouter un contact</a>
-
-    <a id="dashboard" class="btn btn-outline-secondary" href="{{path('admin')}}" role="button">Dashboard</a>
     
 {% endblock %}
 

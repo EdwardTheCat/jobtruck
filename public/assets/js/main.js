@@ -1,20 +1,36 @@
 $(function(){
     /* console.log('jquery'); */
 
+    
+/*     $(document).ready(function(){
+
+        // APPEL COOKIEBAR
+        $.cookieBar({});
+
+        // HOVER JOBTRUCK BUTTON
+        $('#nav-jobtruck')
+            .find("path")
+            .css("fill", "#FBA919")
+            .css("transform", "scale(1)")
+            .show(500);
+    }); */
+
     // APPEL COOKIEBAR
     $(document).ready(function(){
         $.cookieBar({
         });
     });
+    // FIN APPEL COOKIEBAR
 
     // HOVER JOBTRUCK BUTTON
+    var contenuLogo =  $("#nav-jobtruck");
     $('#nav-jobtruck').ready(function() {
         $(contenuLogo)
             .find("path")
             .css("fill", "#FBA919")
             .css("transform", "scale(1)")
             .show(500);
-     });
+    });
 
     var contenuLogo =  $("#nav-jobtruck");
     $('#nav-jobtruck').mouseenter(function() {

@@ -12,7 +12,7 @@ class ContactFixtures extends Fixture
     {
          //Creation de plusieurs utilisateurs
          for ($i=0; $i < 5 ; $i++) { 
-            $contact = new \App\Entity\Contact($i);//on force car Contact fixture et Users entity ont les même noms
+            $contact = new Contact($i);//on force car Contact fixture et Users entity ont les même noms
                 $contact->setName("name".$i)
                         ->setSurname("surname".$i)
                         ->setEmail("mail".$i."@users.fr")
