@@ -3,6 +3,36 @@
     <script>
         $(function(){
             $('#listjob').DataTable();
+
+        ///rename results
+        var content=$('#listjob_length > label').html();
+        content=content.replace(/show/i, 'Affiche');
+        content=content.replace(/entries/, 'résulats');
+        $('#listjob_length > label').html(content);
+
+        //rename search
+        content=$('#listjob_filter > label').html();
+        content=content.replace(/search/i, 'Cherche');
+        $('#listjob_filter > label').html(content);
+
+         //rename showing
+        content=$('#listjob_info').html();
+        content=content.replace(/showing/i, 'Affiche');
+        content=content.replace(/to/, 'à');
+        content=content.replace(/of/, 'de');
+        content=content.replace(/entries/, 'résultats');
+        $('#listjob_info').html(content);
+
+        //rename previous
+        content=$('#listjob_previous').html();
+        content=content.replace(/previous/i, 'Précédent');
+        $('#listjob_previous').html(content);
+
+        //rename next
+        content=$('#listjob_next').html();
+        content=content.replace(/next/i, 'Suivant');
+        $('#listjob_next').html(content);
+
         });
     </script>
 {% endblock %}

@@ -4,6 +4,37 @@
 <script>
     $(function(){
         $('#listuser').DataTable();
+    
+        ///rename results
+        var content=$('#listuser_length > label').html();
+        content=content.replace(/show/i, 'Affiche');
+        content=content.replace(/entries/, 'résulats');
+        $('#listuser_length > label').html(content);
+
+        //rename search
+        content=$('#listuser_filter > label').html();
+        content=content.replace(/search/i, 'Cherche');
+        $('#listuser_filter > label').html(content);
+
+         //rename showing
+        content=$('#listuser_info').html();
+        content=content.replace(/showing/i, 'Affiche');
+        content=content.replace(/to/, 'à');
+        content=content.replace(/of/, 'de');
+        content=content.replace(/entries/, 'résultats');
+        $('#listuser_info').html(content);
+
+        //rename previous
+        content=$('#listuser_previous').html();
+        content=content.replace(/previous/i, 'Précédent');
+        $('#listuser_previous').html(content);
+
+        //rename next
+        content=$('#listuser_next').html();
+        content=content.replace(/next/i, 'Suivant');
+        $('#listuser_next').html(content);
+
+
     });
 </script>
 {% endblock %}
