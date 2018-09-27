@@ -60,7 +60,7 @@
   }
   .form-control::placeholder{
     font-family: 'Raleway Light', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #999999;
   }
   .form-control{
@@ -69,6 +69,7 @@
     border: none;
     height: 4rem;
     border-radius: 1rem;
+    font-size: 1.5rem;
   }
   .form-control:focus{
     background-color: #CCE6ED;
@@ -83,7 +84,7 @@
   .btn{
     margin-top: 3rem;
     border-radius: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   input{
     border-radius: .5rem;
@@ -93,7 +94,7 @@
   }
   .custom-select{
     font-family: 'Raleway Light', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     border: .1rem solid #999999;
     text-align: center;
     height: 4rem;
@@ -139,8 +140,8 @@
   /* ADDRESS */
   .addressAside p{
     text-align: center;
-    font-size: 1.5rem;
-    line-height: 1.4rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
     font-family: 'Raleway Medium', sans-serif;
     color: #999999;
   }

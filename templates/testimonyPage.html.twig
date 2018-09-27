@@ -66,13 +66,6 @@
                     <div class="product-details">
                         {# TITLE INFORMATION #}
                         <h1>{{ job.title }}</h1>
-                        {# BLOC INFORMATION #}
-                        {# <p class="information">{{ job.description | truncate (50, fasle, '...') }}</p> #}
-                        {# <p class="information">{{ job.description | length > 10 }}</p> #}
-                        {# {% if job.description | length > 10 %}{{ job.description }}{% endif %} #}
-                        
-                        {# <p class="information">{{ job.description }}</p> #}
-                        
                         {# Button #}
                         <div class="">
                             <button class="btn btn-outline-secondary sizeLinks" data-toggle="modal" data-target="#jobModal{{ job.id }}">Détails</button>
@@ -112,30 +105,7 @@
                     </div>
                 </div>
                 {# END MODAL OFFRE #}
-
-                {# CARD #}
-                <div class="containerCard">	
-                    {# DESCRIPTION #}
-                    <div class="product-details">
-                        {# TITLE INFORMATION #}
-                        <h1>{{ job.title }}</h1>
-
-                        {# BLOC INFORMATION #}
-                        <p class="information">{{ job.description }}</p>
-                        
-                        {# Button #}
-                        <button class="btn btn-success-outline" data-toggle="modal" data-target="#jobModal">Détails</button>
-                        
-                    </div>
-                    {# END DESCRIPTION #}
-                    {# IMAGE CARD #}
-                    <div class="product-image">
-                        <img src="{{ job.logo }}" alt="Logo d'entreprise">
-
-                    </div>
-                    {# END IMAGE CARD #}
-                </div>
-                {# END CARD 1 #}
+                
             {% endfor %}
         </section>
 

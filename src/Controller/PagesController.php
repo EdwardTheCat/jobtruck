@@ -71,7 +71,7 @@ class PagesController extends AbstractController
     public function showJobsPage(JobRepository $jobRepo, ContactRepository $contactRepo)
     {
         $jobs  =$jobRepo->findAll();
-        $partners=$contactRepo->findBy(["quality" => "partenaire_economique"]);
+        $partners=$contactRepo->findAll();
 
         return $this->render('jobsPage.html.twig', [
             'jobs' => $jobs,

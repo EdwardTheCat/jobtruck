@@ -106,7 +106,7 @@ class Contact
     private $logo;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="contact")
+     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="contact", cascade={"persist", "remove"})
      */
     private $user;
 
