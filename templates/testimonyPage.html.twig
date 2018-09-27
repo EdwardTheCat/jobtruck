@@ -113,6 +113,31 @@
                         </div>
                     </div>
                     {# END MODAL OFFRE #}
+<<<<<<< HEAD
+=======
+                    {# CARD #}
+                    <div class="containerCard">	
+                        {# DESCRIPTION #}
+                        <div class="product-details">
+                            {# TITLE INFORMATION #}
+                            <h1>{{ one.title }}</h1>
+
+                            {# BLOC INFORMATION #}
+                            <p class="information">{{ one.description }}</p>
+                            
+                            {# Button #}
+                            <button class="btn btn-success-outline" data-toggle="modal" data-target="#jobModal">Détails</button>
+                            
+                        </div>
+                        {# END DESCRIPTION #}
+                        {# IMAGE CARD #}
+                        <div class="product-image">
+                            <img src="{{ asset ('/uploads/logo/' ~ one.logo) | imagine_filter('thumb')}}" alt="Logo d'entreprise">
+                        </div>
+                        {# END IMAGE CARD #}
+                    </div>
+                    {# END CARD 1 #}
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
                 {% endfor %}
             </section>
 

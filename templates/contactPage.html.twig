@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}   
     <link  rel="stylesheet" href="{{ asset('/assets/css/contact.css') }}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('/map/js/leaflet.css') }}"> />
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
 	<link rel="stylesheet" type="text/css" href="{{ asset('/map/site.css') }}">
 {% endblock %}
 
@@ -15,6 +19,7 @@
 {% block body %}
 
     {% block principal %}
+<<<<<<< HEAD
         <h2>Nous contacter</h2>
         <form>
             <fieldset>
@@ -37,13 +42,41 @@
                 </div>
                 <div class="form-group">
                     <select class="custom-select">
+=======
+        <h3>Nous contacter</h1>
+        <form action="{{ path('contactPage') }}" method="POST" >
+            <fieldset>
+                <div class="form-group">
+                    {# <label class="col-form-label" for="formName">Votre nom</label> #}
+                    <input class="form-control" placeholder="Nom" id="formName" type="text" name="Nom">
+                </div>
+                <div class="form-group">
+                    {# <label class="col-form-label" for="formSurame">Votre prénom</label> #}
+                    <input class="form-control" placeholder="Prénom" id="formSurame" type="text" name="Prenom">
+                </div>
+                <div class="form-group">
+                    {# <label class="col-form-label" for="formphone">Votre numéro de téléphone</label> #}
+                    <input class="form-control" placeholder="Téléphone" id="formphone" type="text" name="Telephone">
+                </div>
+                <div class="form-group">
+                    {# <label for="formEmail">Email address</label> #}
+                    <input class="form-control" id="formEmail" aria-describedby="emailHelp" placeholder="Email" type="email" name="email" >
+                    {# <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> #}
+                </div>
+                <div class="form-group">
+                    <select class="custom-select" id="qui" name="qui" >
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
                     <option selected="">Vous-êtes...</option>
                         <option>Une entreprise</option>
                         <option>Un particulier</option>
                     </select>
                 </div>
                   <div class="form-group">
+<<<<<<< HEAD
                     <select class="custom-select">
+=======
+                    <select class="custom-select" id="raison" name="qui">
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
                     <option selected="">Raison du contact...</option>
                         <option>Déposer une offre d'emploi</option>
                         <option>Informations</option>
@@ -53,11 +86,18 @@
                 </div>
                 <div class="form-group">
                     {# <label for="formMessage">Message</label> #}
+<<<<<<< HEAD
                     <textarea class="form-control" id="formMessage" rows="3" placeholder="Votre message..."></textarea>
                 </div>
             </fieldset>
                 <button type="submit" class="btn btn-outline-secondary">Envoyer</button>
             </fieldset>
+=======
+                    <textarea class="form-control" id="formMessage" rows="3" placeholder="Votre message..." name="message"></textarea>
+                </div>
+            </fieldset>
+                <button type="submit" class="btn btn-outline-secondary sizeLinksLogin">Envoyer</button>
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
         </form>
     {% endblock %}
 

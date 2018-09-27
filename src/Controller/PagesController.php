@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Events;
 use App\Repository\JobRepository;
 use App\Repository\EventsRepository;
 use App\Repository\ContactRepository;
@@ -56,7 +57,12 @@ class PagesController extends AbstractController
     */
     public function showEventsPage()
     {
-        return $this->render('eventsPage.html.twig');
+        $events = $this->getDoctrine()
+            ->getRepository(Events::class)
+            ->findAll();
+        return $this->render('eventsPage.html.twig', [
+            'events' => $events
+        ]);
     }
 
     /**
@@ -73,6 +79,7 @@ class PagesController extends AbstractController
         ]);
     }
 
+<<<<<<< HEAD
     /**
     * @Route("/contact", name="contactPage")
     */
@@ -89,4 +96,6 @@ class PagesController extends AbstractController
         return $this->render('404Page.html.twig');
     }
     
+=======
+>>>>>>> 78e33779812fa5874431bb633f66affc6eae1d71
 }
