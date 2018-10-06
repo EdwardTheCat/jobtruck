@@ -12,11 +12,13 @@
     <script>
         $(function(){
             $("#add_event_contacts").chosen();
+            $("#add_event_longitude").attr("readOnly","");
+            $("#add_event_latitude").attr("readOnly","");
         });
     </script>
 {% endblock %}
 
-{% block title %} Admin - Évènements {% endblock %}
+{% block title %} Admin - Événements {% endblock %}
 
 {% block body %}
         
@@ -39,10 +41,10 @@
                                 {{ form_row(formEvent.complement1, {'attr': {'placeholder': "Bâtiment, Digicode ..."}, 'label': 'Complément 1: ' }) }}
                                 {{ form_row(formEvent.complement2, {'attr': {'placeholder': "Autres Informations"}, 'label': 'Complémentaires 2: ' }) }}</p>
                                 
-                                {{ form_row(formEvent.city, {'attr': {'placeholder': ""},  'label': 'Ville: ' }) }}
-                                {{ form_row(formEvent.postalCode, {'attr': {'placeholder': ""}, 'label': 'Code postal: ' }) }}
+                                {{ form_row(formEvent.city, {'attr': {'placeholder': "Saisir la ville"},  'label': 'Ville: ' }) }}
+                                {{ form_row(formEvent.postalCode, {'attr': {'placeholder': "Saisir le code postal"}, 'label': 'Code postal: ' }) }}
                                 
-                                {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}, 'label': 'Decription de l\'évènement: ' }) }}</p>                         
+                                {{ form_row(formEvent.description, {'attr': {'placeholder': "Détails de la journée, intervenants ..."}, 'label': 'Decription de l\'événement: ' }) }}</p>                         
                         
                                 {{ form_row(formEvent.longitude, {'attr': {'placeholder': "07.12445121"}, 'label': 'Longitude: ' }) }}
                                 {{ form_row(formEvent.latitude, {'attr': {'placeholder': "01.58754564"}, 'label': 'Latitude: ' }) }}</p>
@@ -50,9 +52,9 @@
                                 {{ form_row(formEvent.contacts, {'label': "Participants"}) }}</p>
                                 
                                 {% if action %}
-                                        <input type="submit" class="btn btn-outline-info" value="Modifier l'évênement"/>
+                                        <input type="submit" class="btn btn-outline-info" value="Modifier l'événement"/>
                                 {% else %}
-                                 <input type="submit" class="btn btn-outline-info" value="Ajouter l'évênement"/>
+                                 <input type="submit" class="btn btn-outline-info" value="Ajouter l'événement"/>
                                 {% endif %}    
 
                                 

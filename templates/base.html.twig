@@ -29,9 +29,9 @@
         
         {# END ONLINE CDN #}
 
-        {# OFFLINE
-        <script src="{{ asset ('/assets/js/jquery-3.3.1.js') }}"></script>
-        <script src="{{ asset ('/assets/js/bootstrap/bootstrap.min.js') }}"></script>  #}
+        {# OFFLINE   #}
+{#         <script src="{{ asset ('/assets/js/jquery-3.3.1.js') }}"></script>
+        <script src="{{ asset ('/assets/js/bootstrap/bootstrap.min.js') }}"></script> #}
         {# <script defer src="{{ asset ('/assets/js/fontawesome/all.min.js') }}"></script> #} {# LOGO RESEAUX SOCIAUX OFFLINE§ ATTENTION EN BLEU
         {# END OFFLINE #}        
 
@@ -92,7 +92,7 @@
                             <a class="nav-link" href="{{ path('testimonyPage') }}">Témoignages</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('eventsPage') }}">Nos évènements</a>
+                            <a class="nav-link" href="{{ path('eventsPage') }}">Nos événements</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('jobsPage') }}">Offres d'emplois</a>
@@ -124,7 +124,7 @@
                             {% block principal %}{% endblock %}
                         {# END SECTION PRINCIPAL #}
                     </div>
-                    <div class="col-sm-4 aside" >
+                    <div class="col-md-4 col-sm-12 aside" >
                         {# ASIDE INFOS ANNEXE #}
                             {% block aside %}{% endblock %}
                         {# END ASIDE INFOS ANNEXE #}
@@ -140,7 +140,7 @@
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title-footer styleModal">Mention légal</h3>
+                            <h3 class="modal-title-footer styleModal">Mention légales</h3>
                         </div>
                         <div class="modal-body-footer">
                             <h4 class="modal-title-footer heigthTitle">Le Jobtruck.fr</h4>
@@ -166,7 +166,7 @@
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title-footer heigthTitle" style="justify-self: flex-start">Condition Générale d'Utilisation</h3>
+                            <h3 class="modal-title-footer heigthTitle" style="justify-self: flex-start">Conditions Générales d'Utilisation</h3>
                         </div>
                         <div class="modal-body-footer">
                             <h4 class="modal-title-footer">Champ d'application</h4>
@@ -193,7 +193,7 @@
                     {# MODAL CONTENT #}
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title-footer heigthTitle" style="justify-self: flex-start">Charte de confidentialitée</h3>
+                            <h3 class="modal-title-footer heigthTitle" style="justify-self: flex-start">Charte de confidentialité</h3>
                         </div>
                         <div class="modal-body-footer">
                             <h4 class="modal-title-footer">Respect de la finalité de la collecte de données personnelles</h4>
@@ -260,9 +260,9 @@
                 <div class="col-8" >
                     <div class="row">
                         {# Trigger of modals #}
-                        <a class="nav-link col linkModalFooter" data-toggle="modal" data-target="#legalModal">Mentions Légal</a>
+                        <a class="nav-link col linkModalFooter" data-toggle="modal" data-target="#legalModal">Mentions Légales</a>
                         <a class="nav-link col" data-toggle="modal" data-target="#cguModal">Conditions Générales d'Utilisation</a>
-                        <a class="nav-link col" data-toggle="modal" data-target="#confidentialModal">Charte de confidencialitée</a>
+                        <a class="nav-link col" data-toggle="modal" data-target="#confidentialModal">Charte de confidentialité</a>
                         {# END Trigger of modals #}
                     </div>
                 </div>

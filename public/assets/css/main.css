@@ -254,7 +254,26 @@ body {
       font-size: 1.8rem;
       margin-top: 50%;
     }
-  } 
+  }
+  @media only screen and (max-height: 490px) and (max-width: 991px) {
+    
+    #navbarColor03 .nav-link{
+      padding-top: 0.15rem;
+      padding-bottom: 0.15rem;
+      font-size: 1.35rem;
+    }
+    #navbarColor03 .nav-link:first{
+      padding-top: 0rem;
+    }
+    .navbar-light
+    .navbar-brand {
+      width: 40%;
+      padding-bottom:0;
+    }
+    .menuOne{
+      margin-bottom: 0;
+    }
+  }
 
 /* DESKTOP __________________________________________________________________________________________*/
 /* ############### MODAL ############### */

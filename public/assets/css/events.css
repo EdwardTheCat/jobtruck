@@ -41,8 +41,41 @@
     margin-top: 2rem;
   }
   /* END POSITION RESEAUX SOCIAUX */
-/* ############ END SECTION ASIDE INFO ############ */
+  /* DISPLAY:block ASIDE INFOS*/
+@media only screen and (max-width: 768px) {
+  div.aside {
+    display: block;
+    width: 100%;
 
+  }
+
+}
+/* ############ END SECTION ASIDE INFO ############ */
+/* ############ SECTION CARD EVENTS ############ */
 .highlight {
   border:2px solid #fba919;
 }
+
+div#map{
+  border-radius: 1rem;
+}
+#card0{
+  border-radius: 1rem;
+  margin: 3rem 1rem;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  text-align: left;
+  font-family: 'Raleway Bold', sans-serif;
+}
+
+.card-title{
+  font-size: 1.45rem;
+  font-weight: bold;
+}
+li{
+  font-size: 1.4rem;
+  margin: 1rem;
+  font-weight: normal;
+  font-family: 'Raleway Light', sans-serif;
+}
+/* ############ END SECTION CARD EVENTS ############ */

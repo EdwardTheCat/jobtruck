@@ -77,7 +77,7 @@
 
         {# EVENTS ARTICLE #}
         <article>
-            <h2 class="titre-para-principal">Évènements</h2>            
+            <h2 class="titre-para-principal">Événements</h2>            
             <div id="map" style="border: 1px solid #ccc" class="mb-3"></div>                    
             {% set cpt = 0 %}
             {% for event in events %} 
@@ -88,7 +88,21 @@
                     <div class="card-header" >Date de l'evenement {{event.date|date('Y-m-d:h:s')}}</div>
                     <div class="card-body">
                         <h5 class="card-title">Adresse {{event.address}} Ville {{event.city}}</h5>
-                        <p class="card-text">personneparticipante</p>
+                        <p class="card-text">
+                            <ul>
+                            {% for contact in event.contacts %}
+                                <li>
+                                    {{ contact.name}} {{ contact.surname}}                                               
+                                    {% if contact.quality == "leader_economique" %}Leader économique
+                                    {% elseif contact.quality == "centre_formation" %}Centre de formation
+                                    {% elseif contact.quality == "pouvoirs_publics" %}Pouvoir public
+                                    {% elseif contact.quality == "association" %}Association
+                                    {% elseif contact.quality == "partenaire_economique" %}Partenaire économique
+                                    {% endif %}
+                                </li> 
+                            {% endfor %}
+                            </ul>
+                        </p>
                     </div>
                 </div>
             {% set cpt = cpt + 1 %}
@@ -98,7 +112,6 @@
                 {{ jsMap |raw }}
                 var group = L.featureGroup(markers).addTo(map);
                 map.fitBounds(group.getBounds());
-
                 function callbackClick(id) {
                     return function() {
                         $('.card-event').removeClass("highlight ");
@@ -106,7 +119,6 @@
                         console.log(id);
                     }
                 }
-
                 for(var id in markers)
                 {
                     markers[id].on('click',callbackClick(id));
@@ -135,7 +147,7 @@
 {% endblock %}
 
 {% block aside %}
-    <section id="aside" class>
+    <section id="aside">
         {# ASIDE INFOS ANNEXE #}
         <aside>
             {# TWITTER, FACEBOOK, LINKEDIN, RSS #}
@@ -154,19 +166,6 @@
         <article class="article-aside"> 
             <h2 class="titre-aside"><strong>Nos témoignages</strong></h2>
             {% for testimony in testimonies %}
-{#                 <div class="container">
-                    <figure>
-                        <img class="avatar-aside" src="{{asset('/uploads/logo/' ~ testimony.photo) | imagine_filter('thumb')}}" alt="image_logo"/>
-                    </figure>
-                    <div class="aside-para">
-                        <h2 class="stitre-aside">{{testimony.name}} {{testimony.lastname}}</h2>
-                        <p>
-                            <i class="fas fa-quote-left"></i>
-                                {{testimony.description}}
-                            <i class="fas fa-quote-right"></i>
-                        <p>
-                    </div>
-                </div> #}
 
                 {# CARD IMAGE RIGHT #}
                 <div class="containerCard">	

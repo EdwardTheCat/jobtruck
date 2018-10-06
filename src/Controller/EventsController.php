@@ -22,7 +22,7 @@ class EventsController extends AbstractController
 
         if (!$event) {
             throw $this->createNotFoundException(
-                'Aucun évènement trouvé pour '.$id
+                'Aucun événement trouvé pour '.$id
             );
         }
 
