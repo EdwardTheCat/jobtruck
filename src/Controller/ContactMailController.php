@@ -28,7 +28,7 @@ class ContactMailController extends AbstractController
     */
     public function showContactPage(Request $request, \Swift_Mailer $mailer)
     {
-        dump($request);
+      
 
         $message = (new \Swift_Message())
         ->setSubject('Formulaire de contact')
